@@ -6,8 +6,10 @@
 La tienda de ejemplo con Magento contiene una plantilla con algunos productos añadidos en donde se puede visualizar de que manera se puede realizar la configuración de una tienda online. Su contenido abarca desde la instalación de un paquete de herramientas y servicios para desarrolladores cómo lo es MAMP, pasando por una serie de configuraciones necesarias para la correcta ejecucion de la tienda, hasta el despliegue de la misma, así como una base de datos precargada con la información de los productos y la plantilla de estilos de una tienda Pagando.
 
 ### Requisitos para una instalación local.
-- Un servidor en donde quedará alojada la página. En éste caso se usará MAMP.`
-
+- **PHP 7.4** como minimo.
+- Un servidor en donde quedará alojada la página. En éste caso se usará **MAMP**.
+- **Composer**, un administrador de dependecias para projectos de PHP.
+  
 ## Instalación en Mac
 
 ### 1. Instalar MAMP
