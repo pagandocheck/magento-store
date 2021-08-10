@@ -155,7 +155,7 @@ CREATE TABLE IF NOT EXISTS `admin_user` (
 --
 
 INSERT INTO `admin_user` (`user_id`, `firstname`, `lastname`, `email`, `username`, `password`, `created`, `modified`, `logdate`, `lognum`, `reload_acl_flag`, `is_active`, `extra`, `rp_token`, `rp_token_created_at`, `interface_locale`, `failures_num`, `first_failure`, `lock_expires`, `refresh_token`) VALUES
-(1, 'Admin', 'Example', 'ingrid@blacklabs.mx', 'admin', 'c38addcdb8b3074aba5ed130c9e0f87bfa3a6588d22e16930b9018bfcda961c8:VbecZzLtY1VKU2eoTAOB88FRNPxisNVA:3_32_2_67108864', '2021-07-29 21:21:46', '2021-08-03 23:49:07', '2021-08-03 23:49:07', 6, 0, 1, '{\"configState\":{\"cpanelsection_layoutgroup\":\"0\",\"cpanelsection_headergroup\":\"0\",\"cpanelsection_footergroup\":\"1\",\"cpanelsection_listpagegroup\":\"0\",\"cpanelsection_viewpagegroup\":\"0\",\"cpanelsection_contactpagegroup\":\"1\",\"catalog_fields_masks\":\"0\",\"catalog_review\":\"0\",\"catalog_productalert\":\"0\",\"scrollsection_scrollgroup\":\"1\"}}', NULL, NULL, 'en_US', 0, NULL, NULL, NULL);
+(1, 'Admin', 'Example', ' plugins@pagandocheck.com', 'admin', 'c38addcdb8b3074aba5ed130c9e0f87bfa3a6588d22e16930b9018bfcda961c8:VbecZzLtY1VKU2eoTAOB88FRNPxisNVA:3_32_2_67108864', '2021-07-29 21:21:46', '2021-08-03 23:49:07', '2021-08-03 23:49:07', 6, 0, 1, '{\"configState\":{\"cpanelsection_layoutgroup\":\"0\",\"cpanelsection_headergroup\":\"0\",\"cpanelsection_footergroup\":\"1\",\"cpanelsection_listpagegroup\":\"0\",\"cpanelsection_viewpagegroup\":\"0\",\"cpanelsection_contactpagegroup\":\"1\",\"catalog_fields_masks\":\"0\",\"catalog_review\":\"0\",\"catalog_productalert\":\"0\",\"scrollsection_scrollgroup\":\"1\"}}', NULL, NULL, 'en_US', 0, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
