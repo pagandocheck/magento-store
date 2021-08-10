@@ -1,4 +1,3 @@
-<img width="524" alt="mamp-ports" src="https://user-images.githubusercontent.com/88348069/128920544-dd0fecad-fafb-4805-bc25-38e006c42456.png">
 # Magento-store v1.0.0
 
 # Guía de Instalación Tienda Magento
