@@ -126,38 +126,8 @@ Debes agregar la línea siguiente al final del archivo:
 Por último guarda el archivo pulsando las teclas **CTRL+X** y reinicia los servicios de MAMP.
 
 ### 5. Acceder a la página.
-En el navegador ir a http://magento-store.com/ para visualizar la tienda con los productos cargados en la base de datos. Debería verse de la siguiente forma: 
+En el navegador ir a http://magento-pagandocheck-store.com/ para visualizar la tienda con los productos cargados en la base de datos. Debería verse de la siguiente forma: 
 
 <img width="1267" alt="Captura de Pantalla 2021-08-10 a la(s) 0 10 54" src="https://user-images.githubusercontent.com/88348069/128817128-847e144c-2348-4b63-8ec5-5cbdf8a74d90.png">
 
-## Instalar plugin de Pagando para pagos en la tienda.
-
-### 1. Iniciar sesión en Wordpress
-Ingresar a la página de configuración de Wordpress de nuestra tienda **http://localhost/woocommerce-store/wp-login.php** e iniciar sesión con las siguientes credenciales:
-
-```
-username: admin
-pass: admin@123
-```
-
-Se mostrará la página de Wordpress instalada localmente, en la cual se pueden configurar las diferentes opciones de la tienda de Woocommerce, incluyendo los productos, precios y métodos de pago.
-
-### 2. Agregar plugin de Pagando.
-Ir al menu lateral izquierdo, en la sección **Plugins**, seleccionar la opción **Agregar plugin** y despues en la opción **cargar plugin**, subir la carpeta comprimida (.zip) con el plugin de Pagando.
-
-### 3. Activar plugin
-Para activar el plugin , ir al menu lateral izquierdo, en la sección **Plugins**, y seleccionar **Activar** en el plugin de Pagando. Cuando se ha realizado correctamente , deberá aparecer **Pagando** en el menú lateral izquierdo.
-
-### 4. Agregar credenciales.
-Para poder aceptar pagos con **Pagando**, es necesario configurar el usuario y la llave generados en la plataforma de **Pagando**.
-
-### 5. Activar el método de pago.
-En el menu lateral izquierdo, en la sección **Woocommerce**, seleccionar la opción **Ajustes**, en la opción **Pagos**, activar Pagando como método de pago. 
-
-
-
-
-
-
-
-
+Y listo, ya tendrias una tienda alojada localmente en tu equipo.
