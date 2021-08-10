@@ -91,7 +91,7 @@ Para agregar un host virtual debes iniciar MAMP y asegurarte de que el directori
 
  <img width="474" alt="Captura de Pantalla 2021-08-10 a la(s) 0 32 29" src="https://user-images.githubusercontent.com/88348069/128819331-16e3cdb7-a605-4a11-86ac-44e50bc31628.png">
 
-Luego debes editar el archivo httpd-vhosts.conf y agregar el código que ves a continuación, reemplazando dominio.localhost en la opción ServerName por el nombre del dominio que vas a utilizar con tu virtualhost, y **/ruta/hasta/el/directorio** en la opción DocumentRoot por la ruta de la carpeta en donde está tu proyecto:
+Luego debes editar el archivo httpd-vhosts.conf y agregar el código que ves a continuación, reemplazando direccion.dominio en la opción ServerName por el la direccion y el dominio que vas a utilizar con tu virtualhost, y **/ruta/hasta/el/directorio** en la opción DocumentRoot por la ruta de la carpeta en donde está tu proyecto:
 
 ```
 <VirtualHost *:80>
