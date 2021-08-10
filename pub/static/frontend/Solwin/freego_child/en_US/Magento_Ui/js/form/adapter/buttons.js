@@ -1,0 +1,1 @@
+/Applications/MAMP/htdocs/magento2/pagandoMagento/vendor/magento/module-ui/view/base/web/js/form/adapter/buttons.js

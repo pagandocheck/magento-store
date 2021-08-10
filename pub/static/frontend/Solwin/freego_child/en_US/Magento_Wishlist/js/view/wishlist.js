@@ -1,0 +1,1 @@
+/Applications/MAMP/htdocs/magento2/pagandoMagento/vendor/magento/module-wishlist/view/frontend/web/js/view/wishlist.js

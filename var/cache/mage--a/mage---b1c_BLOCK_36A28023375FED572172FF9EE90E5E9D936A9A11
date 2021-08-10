@@ -1,0 +1,381 @@
+a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1628563653;s:6:"expire";i:1628650053;s:4:"tags";s:98:"b1c_CAT_P,b1c_BLOCK_HTML,b1c_CAT_P_28,b1c_CAT_P_27,b1c_CAT_P_26,b1c_CAT_P_25,b1c_CAT_P_24,b1c_MAGE";}
+a:2:{s:8:"policies";a:2:{i:0;a:3:{s:2:"id";s:10:"script-src";s:5:"hosts";a:0:{}s:6:"hashes";a:11:{s:44:"w+NQZr1jX+CDXAYHu4W6n+2iKiR8i9D467BI0tgLrCo=";s:6:"sha256";s:44:"48sb4Je7XoTlJimO7pm/+fwXo5BBI6oU4Vci+QqK2/I=";s:6:"sha256";s:44:"HUjaEs6gPI/8f06cL8Wy1zR3vaPjSDAYb+YL5IRBsf4=";s:6:"sha256";s:44:"9N89WMndeXJQQmez3zcXupuWhb0jRtPuHYgRtBa1Cjo=";s:6:"sha256";s:44:"pNV+UVvFTXEQ7ijJGLDzbIVIMxAW6aISXeNEe1txEpQ=";s:6:"sha256";s:44:"DklYHw2KGcDNw3c4GTel2g4SlkZhGYR9Jehlak/DfWg=";s:6:"sha256";s:44:"EtmE7uE2x475uLHCN3YuRxho0ZpAMl/zpSrcodZ0rAc=";s:6:"sha256";s:44:"vb2eHKoTOICJdhAgaCPLDbjnKMu5tTS+49PGpOqTtvI=";s:6:"sha256";s:44:"Iy2cGCBuiOgKq4mlkdFH4/Gn8b1kYKazEnXymnozJUs=";s:6:"sha256";s:44:"SVU/CkR29AnXotNLUfvEUZvXt+10QzjW+43VpYfX/DY=";s:6:"sha256";s:44:"x2f86VMGyUO/dpAFJL1oN71fLKaeddCsHncEDNh8yBc=";s:6:"sha256";}}i:1;a:3:{s:2:"id";s:9:"style-src";s:5:"hosts";a:0:{}s:6:"hashes";a:5:{s:44:"m/+0ICMrAzguxcnzZ+dKvzNfb18qjomzcSJOrgsnMK8=";s:6:"sha256";s:44:"YAtQjbZjjK46ykih903IjP6gFunIN4ocOk8yIiFh174=";s:6:"sha256";s:44:"0PSOLuwxk4XNTHHOFVPcbjF7XsLl2v/IKwvOaFVdfl4=";s:6:"sha256";s:44:"2rM3WawFYYPzSV2Yq9bGbv4NeaeNCE3ow9gNmJOCjzA=";s:6:"sha256";s:44:"+joTIpGVTCxdjq2UoUXVI4Rrow3ghzsvUvhpn12uL+E=";s:6:"sha256";}}}s:4:"html";s:29880:"        <div class="block pad-main-product">
+                    <div class="block-title-main">
+                <h2 role="heading" aria-level="2">Featured Products</h2>
+                <div class="title-border"></div>
+            </div>
+                <div style="margin-bottom: 0;float: left;width:100%;" class="block widget block-products-list grid">
+            <div class="block-content">
+                <!-- new_products_content_widget_grid-->                <div class="products-grid grid">
+                    <ol style="margin: 0;" class="product-items widget-product-grid">
+                                                                            <li class="product-item">                            <div class="product-item-info">
+                                <div class="product-img-block">
+                                    <a href="http://magento-store.com/index.php/mobile-speaker-soundcore.html" class="product-item-photo">
+                                        <span class="product-image-container product-image-container-28">
+    <span class="product-image-wrapper">
+        <img class="product-image-photo"
+                        src="http://magento-store.com/media/catalog/product/cache/97b78437531177d8e7dc6d0303c30a3d/2/_/2_3.jpeg"
+            loading="lazy"
+            width="300"
+            height="375"
+            alt="Mobile&#x20;Speaker&#x20;Soundcore"/></span>
+</span>
+<style>.product-image-container-28 {
+    width: 300px;
+}
+.product-image-container-28 span.product-image-wrapper {
+    padding-bottom: 125%;
+}</style><script type="text&#x2F;javascript">prodImageContainers = document.querySelectorAll(".product-image-container-28");
+for (var i = 0; i < prodImageContainers.length; i++) {
+    prodImageContainers[i].style.width = "300px";
+}
+prodImageContainersWrappers = document.querySelectorAll(
+    ".product-image-container-28  span.product-image-wrapper"
+);
+for (var i = 0; i < prodImageContainersWrappers.length; i++) {
+    prodImageContainersWrappers[i].style.paddingBottom = "125%";
+}</script>                                        <div class="pro-overlay"></div>
+                                    </a>
+
+                                                                            <div class="product-item-actions">
+                                                                                            <div class="actions-primary">
+                                                                                                                                                                                                                                    <button class="action tocart primary"
+                                                                    data-post='{"action":"http:\/\/magento-store.com\/index.php\/checkout\/cart\/add\/uenc\/aHR0cDovL21hZ2VudG8tc3RvcmUuY29tLw%2C%2C\/product\/28\/","data":{"product":"28","uenc":"aHR0cDovL21hZ2VudG8tc3RvcmUuY29tLw,,"}}'
+                                                                    type="button" title="Add to Cart">
+                                                                <span>Add to Cart</span>
+                                                            </button>
+                                                                                                                                                            </div>
+                                                                                                                                        <div class="actions-secondary" data-role="add-to-links">
+                                                                                                            <a href="#"
+                                                           data-post='{"action":"http:\/\/magento-store.com\/index.php\/wishlist\/index\/add\/","data":{"product":28,"uenc":"aHR0cDovL21hZ2VudG8tc3RvcmUuY29tLw,,"}}'
+                                                           class="action towishlist" data-action="add-to-wishlist"
+                                                           title="Wish List">
+                                                            <span>Wish List</span>
+                                                        </a>
+                                                                                                                                                                                                                        <a href="#" class="action tocompare"
+                                                           data-post='{"action":"http:\/\/magento-store.com\/index.php\/catalog\/product_compare\/add\/","data":{"product":"28","uenc":"aHR0cDovL21hZ2VudG8tc3RvcmUuY29tLw,,"}}'
+                                                           title="Compare">
+                                                            <span>Compare</span>
+                                                        </a>
+                                                                                                    </div>
+                                                                                    </div>
+                                                                    </div>
+                                <div class="product-item-details">
+                                    <strong class="product-item-name">
+                                        <a title="Mobile Speaker Soundcore"
+                                           href="http://magento-store.com/index.php/mobile-speaker-soundcore.html"
+                                           class="product-item-link">
+                                            Mobile Speaker Soundcore                                        </a>
+                                    </strong>
+                                    <div class="price-box price-final_price" data-role="priceBox" data-product-id="28" data-price-box="product-id-28">
+    
+
+<span class="price-container price-final_price&#x20;tax&#x20;weee"
+        >
+        <span  id="old-price-28-widget-product-grid"                data-price-amount="399"
+        data-price-type="finalPrice"
+        class="price-wrapper "
+    ><span class="price">$399.00</span></span>
+        </span>
+
+</div>
+                                                                                                                                                </div>
+                            </div>
+                                                                                </li><li class="product-item">                            <div class="product-item-info">
+                                <div class="product-img-block">
+                                    <a href="http://magento-store.com/index.php/mobile-speaker-sony.html" class="product-item-photo">
+                                        <span class="product-image-container product-image-container-27">
+    <span class="product-image-wrapper">
+        <img class="product-image-photo"
+                        src="http://magento-store.com/media/catalog/product/cache/97b78437531177d8e7dc6d0303c30a3d/4/_/4_3.jpeg"
+            loading="lazy"
+            width="300"
+            height="375"
+            alt="Mobile&#x20;Speaker&#x20;Sony"/></span>
+</span>
+<style>.product-image-container-27 {
+    width: 300px;
+}
+.product-image-container-27 span.product-image-wrapper {
+    padding-bottom: 125%;
+}</style><script type="text&#x2F;javascript">prodImageContainers = document.querySelectorAll(".product-image-container-27");
+for (var i = 0; i < prodImageContainers.length; i++) {
+    prodImageContainers[i].style.width = "300px";
+}
+prodImageContainersWrappers = document.querySelectorAll(
+    ".product-image-container-27  span.product-image-wrapper"
+);
+for (var i = 0; i < prodImageContainersWrappers.length; i++) {
+    prodImageContainersWrappers[i].style.paddingBottom = "125%";
+}</script>                                        <div class="pro-overlay"></div>
+                                    </a>
+
+                                                                            <div class="product-item-actions">
+                                                                                            <div class="actions-primary">
+                                                                                                                                                                                                                                    <button class="action tocart primary"
+                                                                    data-post='{"action":"http:\/\/magento-store.com\/index.php\/checkout\/cart\/add\/uenc\/aHR0cDovL21hZ2VudG8tc3RvcmUuY29tLw%2C%2C\/product\/27\/","data":{"product":"27","uenc":"aHR0cDovL21hZ2VudG8tc3RvcmUuY29tLw,,"}}'
+                                                                    type="button" title="Add to Cart">
+                                                                <span>Add to Cart</span>
+                                                            </button>
+                                                                                                                                                            </div>
+                                                                                                                                        <div class="actions-secondary" data-role="add-to-links">
+                                                                                                            <a href="#"
+                                                           data-post='{"action":"http:\/\/magento-store.com\/index.php\/wishlist\/index\/add\/","data":{"product":27,"uenc":"aHR0cDovL21hZ2VudG8tc3RvcmUuY29tLw,,"}}'
+                                                           class="action towishlist" data-action="add-to-wishlist"
+                                                           title="Wish List">
+                                                            <span>Wish List</span>
+                                                        </a>
+                                                                                                                                                                                                                        <a href="#" class="action tocompare"
+                                                           data-post='{"action":"http:\/\/magento-store.com\/index.php\/catalog\/product_compare\/add\/","data":{"product":"27","uenc":"aHR0cDovL21hZ2VudG8tc3RvcmUuY29tLw,,"}}'
+                                                           title="Compare">
+                                                            <span>Compare</span>
+                                                        </a>
+                                                                                                    </div>
+                                                                                    </div>
+                                                                    </div>
+                                <div class="product-item-details">
+                                    <strong class="product-item-name">
+                                        <a title="Mobile Speaker Sony"
+                                           href="http://magento-store.com/index.php/mobile-speaker-sony.html"
+                                           class="product-item-link">
+                                            Mobile Speaker Sony                                        </a>
+                                    </strong>
+                                    <div class="price-box price-final_price" data-role="priceBox" data-product-id="27" data-price-box="product-id-27">
+    
+
+<span class="price-container price-final_price&#x20;tax&#x20;weee"
+        >
+        <span  id="old-price-27-widget-product-grid"                data-price-amount="299"
+        data-price-type="finalPrice"
+        class="price-wrapper "
+    ><span class="price">$299.00</span></span>
+        </span>
+
+</div>
+                                                                                                                                                </div>
+                            </div>
+                                                                                </li><li class="product-item">                            <div class="product-item-info">
+                                <div class="product-img-block">
+                                    <a href="http://magento-store.com/index.php/bluetooth-speaker-jbl.html" class="product-item-photo">
+                                        <span class="product-image-container product-image-container-26">
+    <span class="product-image-wrapper">
+        <img class="product-image-photo"
+                        src="http://magento-store.com/media/catalog/product/cache/97b78437531177d8e7dc6d0303c30a3d/1/_/1_1.jpeg"
+            loading="lazy"
+            width="300"
+            height="375"
+            alt="Bluetooth&#x20;Speaker&#x20;JBL"/></span>
+</span>
+<style>.product-image-container-26 {
+    width: 300px;
+}
+.product-image-container-26 span.product-image-wrapper {
+    padding-bottom: 125%;
+}</style><script type="text&#x2F;javascript">prodImageContainers = document.querySelectorAll(".product-image-container-26");
+for (var i = 0; i < prodImageContainers.length; i++) {
+    prodImageContainers[i].style.width = "300px";
+}
+prodImageContainersWrappers = document.querySelectorAll(
+    ".product-image-container-26  span.product-image-wrapper"
+);
+for (var i = 0; i < prodImageContainersWrappers.length; i++) {
+    prodImageContainersWrappers[i].style.paddingBottom = "125%";
+}</script>                                        <div class="pro-overlay"></div>
+                                    </a>
+
+                                                                            <div class="product-item-actions">
+                                                                                            <div class="actions-primary">
+                                                                                                                                                                                                                                    <button class="action tocart primary"
+                                                                    data-post='{"action":"http:\/\/magento-store.com\/index.php\/checkout\/cart\/add\/uenc\/aHR0cDovL21hZ2VudG8tc3RvcmUuY29tLw%2C%2C\/product\/26\/","data":{"product":"26","uenc":"aHR0cDovL21hZ2VudG8tc3RvcmUuY29tLw,,"}}'
+                                                                    type="button" title="Add to Cart">
+                                                                <span>Add to Cart</span>
+                                                            </button>
+                                                                                                                                                            </div>
+                                                                                                                                        <div class="actions-secondary" data-role="add-to-links">
+                                                                                                            <a href="#"
+                                                           data-post='{"action":"http:\/\/magento-store.com\/index.php\/wishlist\/index\/add\/","data":{"product":26,"uenc":"aHR0cDovL21hZ2VudG8tc3RvcmUuY29tLw,,"}}'
+                                                           class="action towishlist" data-action="add-to-wishlist"
+                                                           title="Wish List">
+                                                            <span>Wish List</span>
+                                                        </a>
+                                                                                                                                                                                                                        <a href="#" class="action tocompare"
+                                                           data-post='{"action":"http:\/\/magento-store.com\/index.php\/catalog\/product_compare\/add\/","data":{"product":"26","uenc":"aHR0cDovL21hZ2VudG8tc3RvcmUuY29tLw,,"}}'
+                                                           title="Compare">
+                                                            <span>Compare</span>
+                                                        </a>
+                                                                                                    </div>
+                                                                                    </div>
+                                                                    </div>
+                                <div class="product-item-details">
+                                    <strong class="product-item-name">
+                                        <a title="Bluetooth Speaker JBL"
+                                           href="http://magento-store.com/index.php/bluetooth-speaker-jbl.html"
+                                           class="product-item-link">
+                                            Bluetooth Speaker JBL                                        </a>
+                                    </strong>
+                                    <div class="price-box price-final_price" data-role="priceBox" data-product-id="26" data-price-box="product-id-26">
+    
+
+<span class="price-container price-final_price&#x20;tax&#x20;weee"
+        >
+        <span  id="old-price-26-widget-product-grid"                data-price-amount="88"
+        data-price-type="finalPrice"
+        class="price-wrapper "
+    ><span class="price">$88.00</span></span>
+        </span>
+
+</div>
+                                                                                                                                                </div>
+                            </div>
+                                                                                </li><li class="product-item">                            <div class="product-item-info">
+                                <div class="product-img-block">
+                                    <a href="http://magento-store.com/index.php/bluetooth-speaker-zebronics.html" class="product-item-photo">
+                                        <span class="product-image-container product-image-container-25">
+    <span class="product-image-wrapper">
+        <img class="product-image-photo"
+                        src="http://magento-store.com/media/catalog/product/cache/97b78437531177d8e7dc6d0303c30a3d/3/_/3_1.jpeg"
+            loading="lazy"
+            width="300"
+            height="375"
+            alt="Bluetooth&#x20;Speaker&#x20;Zebronics"/></span>
+</span>
+<style>.product-image-container-25 {
+    width: 300px;
+}
+.product-image-container-25 span.product-image-wrapper {
+    padding-bottom: 125%;
+}</style><script type="text&#x2F;javascript">prodImageContainers = document.querySelectorAll(".product-image-container-25");
+for (var i = 0; i < prodImageContainers.length; i++) {
+    prodImageContainers[i].style.width = "300px";
+}
+prodImageContainersWrappers = document.querySelectorAll(
+    ".product-image-container-25  span.product-image-wrapper"
+);
+for (var i = 0; i < prodImageContainersWrappers.length; i++) {
+    prodImageContainersWrappers[i].style.paddingBottom = "125%";
+}</script>                                        <div class="pro-overlay"></div>
+                                    </a>
+
+                                                                            <div class="product-item-actions">
+                                                                                            <div class="actions-primary">
+                                                                                                                                                                                                                                    <button class="action tocart primary"
+                                                                    data-post='{"action":"http:\/\/magento-store.com\/index.php\/checkout\/cart\/add\/uenc\/aHR0cDovL21hZ2VudG8tc3RvcmUuY29tLw%2C%2C\/product\/25\/","data":{"product":"25","uenc":"aHR0cDovL21hZ2VudG8tc3RvcmUuY29tLw,,"}}'
+                                                                    type="button" title="Add to Cart">
+                                                                <span>Add to Cart</span>
+                                                            </button>
+                                                                                                                                                            </div>
+                                                                                                                                        <div class="actions-secondary" data-role="add-to-links">
+                                                                                                            <a href="#"
+                                                           data-post='{"action":"http:\/\/magento-store.com\/index.php\/wishlist\/index\/add\/","data":{"product":25,"uenc":"aHR0cDovL21hZ2VudG8tc3RvcmUuY29tLw,,"}}'
+                                                           class="action towishlist" data-action="add-to-wishlist"
+                                                           title="Wish List">
+                                                            <span>Wish List</span>
+                                                        </a>
+                                                                                                                                                                                                                        <a href="#" class="action tocompare"
+                                                           data-post='{"action":"http:\/\/magento-store.com\/index.php\/catalog\/product_compare\/add\/","data":{"product":"25","uenc":"aHR0cDovL21hZ2VudG8tc3RvcmUuY29tLw,,"}}'
+                                                           title="Compare">
+                                                            <span>Compare</span>
+                                                        </a>
+                                                                                                    </div>
+                                                                                    </div>
+                                                                    </div>
+                                <div class="product-item-details">
+                                    <strong class="product-item-name">
+                                        <a title="Bluetooth Speaker Zebronics"
+                                           href="http://magento-store.com/index.php/bluetooth-speaker-zebronics.html"
+                                           class="product-item-link">
+                                            Bluetooth Speaker Zebronics                                        </a>
+                                    </strong>
+                                    <div class="price-box price-final_price" data-role="priceBox" data-product-id="25" data-price-box="product-id-25">
+    
+
+<span class="price-container price-final_price&#x20;tax&#x20;weee"
+        >
+        <span  id="old-price-25-widget-product-grid"                data-price-amount="99"
+        data-price-type="finalPrice"
+        class="price-wrapper "
+    ><span class="price">$99.00</span></span>
+        </span>
+
+</div>
+                                                                                                                                                </div>
+                            </div>
+                                                                                </li><li class="product-item">                            <div class="product-item-info">
+                                <div class="product-img-block">
+                                    <a href="http://magento-store.com/index.php/philips-net-tv-40-inch.html" class="product-item-photo">
+                                        <span class="product-image-container product-image-container-24">
+    <span class="product-image-wrapper">
+        <img class="product-image-photo"
+                        src="http://magento-store.com/media/catalog/product/cache/97b78437531177d8e7dc6d0303c30a3d/3/_/3_25.jpeg"
+            loading="lazy"
+            width="300"
+            height="375"
+            alt="Philips&#x20;Net&#x20;TV&#x20;40&#x20;inch"/></span>
+</span>
+<style>.product-image-container-24 {
+    width: 300px;
+}
+.product-image-container-24 span.product-image-wrapper {
+    padding-bottom: 125%;
+}</style><script type="text&#x2F;javascript">prodImageContainers = document.querySelectorAll(".product-image-container-24");
+for (var i = 0; i < prodImageContainers.length; i++) {
+    prodImageContainers[i].style.width = "300px";
+}
+prodImageContainersWrappers = document.querySelectorAll(
+    ".product-image-container-24  span.product-image-wrapper"
+);
+for (var i = 0; i < prodImageContainersWrappers.length; i++) {
+    prodImageContainersWrappers[i].style.paddingBottom = "125%";
+}</script>                                        <div class="pro-overlay"></div>
+                                    </a>
+
+                                                                            <div class="product-item-actions">
+                                                                                            <div class="actions-primary">
+                                                                                                                                                                                                                                    <button class="action tocart primary"
+                                                                    data-post='{"action":"http:\/\/magento-store.com\/index.php\/checkout\/cart\/add\/uenc\/aHR0cDovL21hZ2VudG8tc3RvcmUuY29tLw%2C%2C\/product\/24\/","data":{"product":"24","uenc":"aHR0cDovL21hZ2VudG8tc3RvcmUuY29tLw,,"}}'
+                                                                    type="button" title="Add to Cart">
+                                                                <span>Add to Cart</span>
+                                                            </button>
+                                                                                                                                                            </div>
+                                                                                                                                        <div class="actions-secondary" data-role="add-to-links">
+                                                                                                            <a href="#"
+                                                           data-post='{"action":"http:\/\/magento-store.com\/index.php\/wishlist\/index\/add\/","data":{"product":24,"uenc":"aHR0cDovL21hZ2VudG8tc3RvcmUuY29tLw,,"}}'
+                                                           class="action towishlist" data-action="add-to-wishlist"
+                                                           title="Wish List">
+                                                            <span>Wish List</span>
+                                                        </a>
+                                                                                                                                                                                                                        <a href="#" class="action tocompare"
+                                                           data-post='{"action":"http:\/\/magento-store.com\/index.php\/catalog\/product_compare\/add\/","data":{"product":"24","uenc":"aHR0cDovL21hZ2VudG8tc3RvcmUuY29tLw,,"}}'
+                                                           title="Compare">
+                                                            <span>Compare</span>
+                                                        </a>
+                                                                                                    </div>
+                                                                                    </div>
+                                                                    </div>
+                                <div class="product-item-details">
+                                    <strong class="product-item-name">
+                                        <a title="Philips Net TV 40 inch"
+                                           href="http://magento-store.com/index.php/philips-net-tv-40-inch.html"
+                                           class="product-item-link">
+                                            Philips Net TV 40 inch                                        </a>
+                                    </strong>
+                                    <div class="price-box price-final_price" data-role="priceBox" data-product-id="24" data-price-box="product-id-24">
+    
+
+<span class="price-container price-final_price&#x20;tax&#x20;weee"
+        >
+        <span  id="old-price-24-widget-product-grid"                data-price-amount="699"
+        data-price-type="finalPrice"
+        class="price-wrapper "
+    ><span class="price">$699.00</span></span>
+        </span>
+
+</div>
+                                                                                                                                                </div>
+                            </div>
+                            </li>                                            </ol>
+                </div>
+                            </div>
+        </div>
+    </div>
+";}

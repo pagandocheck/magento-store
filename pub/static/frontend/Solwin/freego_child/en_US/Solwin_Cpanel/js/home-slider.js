@@ -1,0 +1,1 @@
+/Applications/MAMP/htdocs/magento2/pagandoMagento/app/code/Solwin/Cpanel/view/frontend/web/js/home-slider.js

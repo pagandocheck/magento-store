@@ -1,0 +1,1 @@
+/Applications/MAMP/htdocs/magento2/pagandoMagento/vendor/magento/module-cookie/view/frontend/web/js/require-cookie.js
