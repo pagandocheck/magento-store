@@ -1,3 +1,4 @@
+<img width="524" alt="mamp-ports" src="https://user-images.githubusercontent.com/88348069/128920544-dd0fecad-fafb-4805-bc25-38e006c42456.png">
 # Magento-store v1.0.0
 
 # Guía de Instalación Tienda Magento
@@ -17,7 +18,7 @@ Después de la instalación, puede continuar e iniciar MAMP desde **Aplicaciones
 
 Antes de comenzar, se recomienda configurar algunos ajustes para mejorar su experiencia con MAMP. Puede hacer esto abriendo el menú Preferencias y luego cambiar a la pestaña de puertos.
 
-<img width="524" alt="mamp-ports" src="https://user-images.githubusercontent.com/88348069/128804539-fcda57fe-d102-4aef-a97e-5f55cf2bc3a4.png">
+<img width="524" alt="mamp-ports" src="https://user-images.githubusercontent.com/88348069/128920555-ff1f0a35-4aba-4767-a8d9-9368319ec930.png">
 
 El siguiente paso es configurar la carpeta raíz del documento. Esta será la carpeta donde creará y almacenará sus sitios web. De forma predeterminada, MAMP usa la carpeta / Aplicaciones / MAMP / htdocs /, pero puede cambiarla a una ubicación más accesible.
 
