@@ -129,6 +129,7 @@ Debes agregar la línea siguiente al final del archivo:
 
 Por último, guarda el archivo pulsando las teclas **CTRL+X** y reinicia los servicios de MAMP.
 
+
 > **_Nota:_**
 En caso de querer cambiar el dominio, puedes modificarlo con este comando:
 
@@ -141,12 +142,11 @@ Y luego tienes que hacer una limpieza del cache corriendo este otro comando:
 ```
 bin/magento cache:flush
 ```
-En caso de que modificaras la dirección, tendras que ejecutar nuevamente
+En caso de que modificaras la dirección, tendras que ejecutar nuevamente:
 
 ```
 sudo pico /etc/hosts
 ```
-
 para configurar el dominio que sea que hayas elegido.
 
 ### 6. Acceder a la página.
