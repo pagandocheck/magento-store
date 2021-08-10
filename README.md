@@ -17,7 +17,7 @@ Después de la instalación, puede continuar e iniciar MAMP desde **Aplicaciones
 
 Antes de comenzar, se recomienda configurar algunos ajustes para mejorar su experiencia con MAMP. Puede hacer esto abriendo el menú Preferencias y luego cambiar a la pestaña de puertos.
 
-<img width="524" alt="mamp-ports" src="https://user-images.githubusercontent.com/88348069/128920555-ff1f0a35-4aba-4767-a8d9-9368319ec930.png">
+<img width="524" alt="mamp-ports" src="https://user-images.githubusercontent.com/88348069/128804539-fcda57fe-d102-4aef-a97e-5f55cf2bc3a4.png">
 
 El siguiente paso es configurar la carpeta raíz del documento. Esta será la carpeta donde creará y almacenará sus sitios web. De forma predeterminada, MAMP usa la carpeta / Aplicaciones / MAMP / htdocs /, pero puede cambiarla a una ubicación más accesible.
 
@@ -87,7 +87,6 @@ Para agregar un host virtual debes iniciar MAMP y asegurarte de que el directori
 
  <img width="474" alt="Captura de Pantalla 2021-08-10 a la(s) 0 32 29" src="https://user-images.githubusercontent.com/88348069/128819331-16e3cdb7-a605-4a11-86ac-44e50bc31628.png">
 
-
 Luego debes editar el archivo httpd-vhosts.conf y agregar el código que ves a continuación, reemplazando dominio.localhost en la opción ServerName por el nombre del dominio que vas a utilizar con tu virtualhost, y **/ruta/hasta/el/directorio** en la opción DocumentRoot por la ruta de la carpeta en donde está tu proyecto:
 
 ```
@@ -127,7 +126,7 @@ Debes agregar la línea siguiente al final del archivo:
 Por último guarda el archivo pulsando las teclas **CTRL+X** y reinicia los servicios de MAMP.
 
 ### 5. Acceder a la página.
-En el navegador ir a http://magento-store.com/index.php/ para visualizar la tienda con los productos cargados en la base de datos. Debería verse de la siguiente forma: 
+En el navegador ir a http://magento-store.com/ para visualizar la tienda con los productos cargados en la base de datos. Debería verse de la siguiente forma: 
 
 <img width="1267" alt="Captura de Pantalla 2021-08-10 a la(s) 0 10 54" src="https://user-images.githubusercontent.com/88348069/128817128-847e144c-2348-4b63-8ec5-5cbdf8a74d90.png">
 
@@ -138,10 +137,10 @@ Ingresar a la página de configuración de Wordpress de nuestra tienda **http://
 
 ```
 username: admin
-pass: 
+pass: admin@123
 ```
 
-Se mostrará la página de Wordpress instalada localmente, en la cual se puedenn configurar las diferentes opciones de la tienda de Woocommerce, incluyendo los productos, precios y métodos de pago.
+Se mostrará la página de Wordpress instalada localmente, en la cual se pueden configurar las diferentes opciones de la tienda de Woocommerce, incluyendo los productos, precios y métodos de pago.
 
 ### 2. Agregar plugin de Pagando.
 Ir al menu lateral izquierdo, en la sección **Plugins**, seleccionar la opción **Agregar plugin** y despues en la opción **cargar plugin**, subir la carpeta comprimida (.zip) con el plugin de Pagando.
