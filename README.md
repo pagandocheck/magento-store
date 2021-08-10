@@ -93,7 +93,7 @@ Luego debes editar el archivo httpd-vhosts.conf y agregar el código que ves a c
 
 ```
 <VirtualHost *:80>
-  ServerName dominio.localhost
+  ServerName direccion.dominio
   DocumentRoot "/ruta/hasta/el/directorio"
 </VirtualHost>
 ```
@@ -102,8 +102,8 @@ Siguiendo el esquema anterior, vamos a crear el host virtual miproyecto.localhos
 
 ```
 <VirtualHost *:80>
-  ServerName miproyecto.localhost
-  DocumentRoot "/Users/edu/hosts/miproyecto"
+  ServerName magento-pagandocheck-store.com
+  DocumentRoot "/Applications/MAMP/htdocs/magento-store/pub"
 </VirtualHost>
 ```
 
@@ -122,10 +122,30 @@ Seguramente se te pida tu contraseña de administrador cuando lo abras. Introdú
 Debes agregar la línea siguiente al final del archivo:
 
 ```
-127.0.0.1 miproyecto.localhost
+127.0.0.1 magento-pagandocheck-store.com
 ```
 
-Por último guarda el archivo pulsando las teclas **CTRL+X** y reinicia los servicios de MAMP.
+Por último, guarda el archivo pulsando las teclas **CTRL+X** y reinicia los servicios de MAMP.
+
+> **_Nota:_**
+En caso de querer cambiar el dominio, puedes modificarlo con este comando:
+
+```
+bin/magento setup:store-config:set --base-url="http://tu-direccion.dominio/
+```
+
+Y luego tienes que hacer una limpieza del cache corriendo este otro comando:
+
+```
+bin/magento cache:flush
+```
+En caso de que modificaras la dirección, tendras que ejecutar nuevamente
+
+```
+sudo pico /etc/hosts
+```
+
+para configurar el dominio que sea que hayas elegido.
 
 ### 5. Acceder a la página.
 En el navegador ir a http://magento-pagandocheck-store.com/ para visualizar la tienda con los productos cargados en la base de datos. Debería verse de la siguiente forma: 
