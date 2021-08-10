@@ -25,7 +25,9 @@ El siguiente paso es configurar la carpeta raíz del documento. Esta será la ca
 
 Para terminar con la instalación de MAMP solo hay que presionar el botón **start** del servidor. Al hacerlo se abrirá la pagina de inicio de MAMP (http://localhost/MAMP/?language=English)
 
-### 2. Clonar el repositorio
+### 2. Instalar Composer
+
+### 3. Clonar el repositorio
 
 Para que se pueda acceder a la tienda, la carpeta del proyecto que se descargó, **magento-store**, deberá quedar ubicada dentro de MAMP, normalmente se encuentra ubicado en **Applications/MAMP**, es necesario clonar el proyecto dentro de la carpeta **htdocs**.
 
@@ -33,7 +35,7 @@ Para que se pueda acceder a la tienda, la carpeta del proyecto que se descargó,
 git clone https://github.com/pagandocheck/magento-store.git
 ```
 
-### 3. Cargar dump de la base de datos con los productos de ejemplo.
+### 34 Cargar dump de la base de datos con los productos de ejemplo.
 Para importar la base de datos, en el menu superior de la página de inicio de MAMP seleccionar **Tools** y despues **phpMyAdmin**.
 
 En **phpMyAdmin** hacer clic en Bases de datos y luego crear nueva base de datos. Agregar como nombre ***magento***, en caso de que se desee poner otro nombre habrá que cambiar la configuración en el proyecto.
@@ -43,9 +45,9 @@ Luego, seleccionar la base de datos, dar clic en el menu **importar** y seleccio
 > **_Nota:_**
 Para realizar el cambio del nombre de la base de datos en la configuración, hay que editar el archivo **app/etc/env.php** y cambiar el campo **db.connection.dbname** con el nombre que se haya elegido.
 
-### 4. Creacion del virtual host.
+### 5. Creacion del virtual host.
 
-#### 4.1 Configuración de httpd.conf
+#### 5.1 Configuración de httpd.conf
 
 Lo primero que debes hacer acceder al directorio **Applications/MAMP/conf/apache** mediante Finder y edita el archivo **httpd.conf** que verás en su interior con cualquier editor de texto.
 
@@ -83,7 +85,7 @@ Debes cambiar el valor de la opción **AllowOverride** por **All**:
 
 Y posteriormente guardar el archivo.
 
-#### 4.2 Configuración de httpd-vhosts.conf
+#### 5.2 Configuración de httpd-vhosts.conf
 
 Para agregar un host virtual debes iniciar MAMP y asegurarte de que el directorio que se usa por defecto es el directorio **Applications/MAMP/htdocs**
 
@@ -109,7 +111,7 @@ Siguiendo el esquema anterior, vamos a crear el host virtual miproyecto.localhos
 
 Tendríamos que acceder a la URL miproyecto.localhost para acceder a él desde el navegador, ya que es el valor de la opción ServerName. Apache buscará los archivos de este proyecto en el directorio **/Users/edu/hosts/miproyecto** especificado en la opción DocumentRoot.
 
-#### 4.3 Agregar el dominio al archivo hosts
+#### 5.3 Agregar el dominio al archivo hosts
 
 Abre la terminal de comandos y ejecuta el siguiente comando para abrir el archivo de configuración de hosts de macOS:
 
@@ -147,7 +149,7 @@ sudo pico /etc/hosts
 
 para configurar el dominio que sea que hayas elegido.
 
-### 5. Acceder a la página.
+### 6. Acceder a la página.
 En el navegador ir a http://magento-pagandocheck-store.com/ para visualizar la tienda con los productos cargados en la base de datos. Debería verse de la siguiente forma: 
 
 <img width="1267" alt="Captura de Pantalla 2021-08-10 a la(s) 0 10 54" src="https://user-images.githubusercontent.com/88348069/128817128-847e144c-2348-4b63-8ec5-5cbdf8a74d90.png">
