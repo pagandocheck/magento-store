@@ -78,7 +78,7 @@ return [
         'vertex' => 1
     ],
     'downloadable_domains' => [
-        'dummy-host.example.com'
+        'magento-pagandocheck-store.com'
     ],
     'install' => [
         'date' => 'Thu, 29 Jul 2021 21:21:46 +0000'
