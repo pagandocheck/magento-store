@@ -9230,3 +9230,25 @@ If you still want to deploy in these modes, use -f option: 'bin/magento setup:st
 [2021-08-10 02:47:36] main.INFO: Add of item with id Yotpo_Yotpo::yotpo_report_reviews was processed [] []
 [2021-08-10 02:47:36] main.INFO: Add of item with id Yotpo_Yotpo::yotpo_reviews_external was processed [] []
 [2021-08-10 02:47:36] main.INFO: Add of item with id Yotpo_Yotpo::yotpo_analytics_external was processed [] []
+[2021-08-11 00:25:42] main.ERROR: NOTE: Manual static content deployment is not required in "default" and "developer" modes.
+In "default" and "developer" modes static contents are being deployed automatically on demand.
+If you still want to deploy in these modes, use -f option: 'bin/magento setup:static-content:deploy -f'
+#0 /Applications/MAMP/htdocs/magento2/magento-store/setup/src/Magento/Setup/Console/Command/DeployStaticContentCommand.php(112): Magento\Setup\Console\Command\DeployStaticContentCommand->checkAppMode(Object(Symfony\Component\Console\Input\ArgvInput))
+#1 /Applications/MAMP/htdocs/magento2/magento-store/vendor/symfony/console/Command/Command.php(255): Magento\Setup\Console\Command\DeployStaticContentCommand->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#2 /Applications/MAMP/htdocs/magento2/magento-store/vendor/symfony/console/Application.php(1009): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 /Applications/MAMP/htdocs/magento2/magento-store/vendor/symfony/console/Application.php(273): Symfony\Component\Console\Application->doRunCommand(Object(Magento\Setup\Console\Command\DeployStaticContentCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#4 /Applications/MAMP/htdocs/magento2/magento-store/vendor/magento/framework/Console/Cli.php(115): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#5 /Applications/MAMP/htdocs/magento2/magento-store/vendor/symfony/console/Application.php(149): Magento\Framework\Console\Cli->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#6 /Applications/MAMP/htdocs/magento2/magento-store/bin/magento(23): Symfony\Component\Console\Application->run()
+#7 {main} [] []
+[2021-08-11 00:40:03] main.ERROR: NOTE: Manual static content deployment is not required in "default" and "developer" modes.
+In "default" and "developer" modes static contents are being deployed automatically on demand.
+If you still want to deploy in these modes, use -f option: 'bin/magento setup:static-content:deploy -f'
+#0 /Applications/MAMP/htdocs/magento2/magento-store/setup/src/Magento/Setup/Console/Command/DeployStaticContentCommand.php(112): Magento\Setup\Console\Command\DeployStaticContentCommand->checkAppMode(Object(Symfony\Component\Console\Input\ArgvInput))
+#1 /Applications/MAMP/htdocs/magento2/magento-store/vendor/symfony/console/Command/Command.php(255): Magento\Setup\Console\Command\DeployStaticContentCommand->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#2 /Applications/MAMP/htdocs/magento2/magento-store/vendor/symfony/console/Application.php(1009): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 /Applications/MAMP/htdocs/magento2/magento-store/vendor/symfony/console/Application.php(273): Symfony\Component\Console\Application->doRunCommand(Object(Magento\Setup\Console\Command\DeployStaticContentCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#4 /Applications/MAMP/htdocs/magento2/magento-store/vendor/magento/framework/Console/Cli.php(115): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#5 /Applications/MAMP/htdocs/magento2/magento-store/vendor/symfony/console/Application.php(149): Magento\Framework\Console\Cli->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#6 /Applications/MAMP/htdocs/magento2/magento-store/bin/magento(23): Symfony\Component\Console\Application->run()
+#7 {main} [] []

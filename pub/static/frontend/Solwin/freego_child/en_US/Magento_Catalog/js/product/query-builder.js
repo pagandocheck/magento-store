@@ -1,1 +1,1 @@
-/Applications/MAMP/htdocs/magento2/pagandoMagento/vendor/magento/module-catalog/view/frontend/web/js/product/query-builder.js
+/Applications/MAMP/htdocs/magento2/magento-store/vendor/magento/module-catalog/view/frontend/web/js/product/query-builder.js

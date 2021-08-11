@@ -1,1 +1,0 @@
-/Applications/MAMP/htdocs/magento2/pagandoMagento/lib/web/requirejs/require.js

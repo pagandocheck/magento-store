@@ -1,1 +1,1 @@
-/Applications/MAMP/htdocs/magento2/pagandoMagento/lib/web/moment.js
+/Applications/MAMP/htdocs/magento2/magento-store/lib/web/moment.js

@@ -1,1 +1,1 @@
-/Applications/MAMP/htdocs/magento2/pagandoMagento/lib/web/mage/url.js
+/Applications/MAMP/htdocs/magento2/magento-store/lib/web/mage/url.js

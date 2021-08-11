@@ -1,1 +1,0 @@
-/Applications/MAMP/htdocs/magento2/pagandoMagento/app/code/Solwin/Cpanel/view/adminhtml/web/js/update.js

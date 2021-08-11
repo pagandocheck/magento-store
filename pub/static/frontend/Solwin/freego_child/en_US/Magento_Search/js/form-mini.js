@@ -1,1 +1,1 @@
-/Applications/MAMP/htdocs/magento2/pagandoMagento/vendor/magento/module-search/view/frontend/web/js/form-mini.js
+/Applications/MAMP/htdocs/magento2/magento-store/vendor/magento/module-search/view/frontend/web/js/form-mini.js

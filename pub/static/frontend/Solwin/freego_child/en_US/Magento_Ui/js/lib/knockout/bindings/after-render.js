@@ -1,1 +1,1 @@
-/Applications/MAMP/htdocs/magento2/pagandoMagento/vendor/magento/module-ui/view/base/web/js/lib/knockout/bindings/after-render.js
+/Applications/MAMP/htdocs/magento2/magento-store/vendor/magento/module-ui/view/base/web/js/lib/knockout/bindings/after-render.js

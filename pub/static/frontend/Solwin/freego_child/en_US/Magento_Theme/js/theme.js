@@ -1,1 +1,1 @@
-/Applications/MAMP/htdocs/magento2/pagandoMagento/vendor/magento/theme-frontend-blank/Magento_Theme/web/js/theme.js
+/Applications/MAMP/htdocs/magento2/magento-store/vendor/magento/theme-frontend-blank/Magento_Theme/web/js/theme.js

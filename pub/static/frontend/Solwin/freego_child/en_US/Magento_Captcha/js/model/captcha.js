@@ -1,1 +1,1 @@
-/Applications/MAMP/htdocs/magento2/pagandoMagento/vendor/magento/module-captcha/view/frontend/web/js/model/captcha.js
+/Applications/MAMP/htdocs/magento2/magento-store/vendor/magento/module-captcha/view/frontend/web/js/model/captcha.js

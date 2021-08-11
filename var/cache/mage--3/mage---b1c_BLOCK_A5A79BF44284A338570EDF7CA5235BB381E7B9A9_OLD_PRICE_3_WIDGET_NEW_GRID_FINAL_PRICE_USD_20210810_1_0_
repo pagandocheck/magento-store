@@ -1,0 +1,13 @@
+a:4:{s:4:"hash";s:0:"";s:5:"mtime";i:1628642274;s:6:"expire";i:1628728674;s:4:"tags";s:45:"b1c_BLOCK_HTML,b1c_CAT_P_3,b1c_CAT_P,b1c_MAGE";}
+a:2:{s:8:"policies";a:2:{i:0;a:3:{s:2:"id";s:10:"script-src";s:5:"hosts";a:0:{}s:6:"hashes";a:12:{s:44:"lFTNbzUGWdrGF+NuAOuzy/9knrol0vIjZeYXt3PPvQo=";s:6:"sha256";s:44:"48sb4Je7XoTlJimO7pm/+fwXo5BBI6oU4Vci+QqK2/I=";s:6:"sha256";s:44:"HUjaEs6gPI/8f06cL8Wy1zR3vaPjSDAYb+YL5IRBsf4=";s:6:"sha256";s:44:"9N89WMndeXJQQmez3zcXupuWhb0jRtPuHYgRtBa1Cjo=";s:6:"sha256";s:44:"Be1ZV8U0eUf4e1zLUY2mrQwihbxw4j64CR+NDCNKinU=";s:6:"sha256";s:44:"m2Mbd1DJPXyb/C6miN2e7e9grXt6XRjRYdjR5Lj1Wjc=";s:6:"sha256";s:44:"EtmE7uE2x475uLHCN3YuRxho0ZpAMl/zpSrcodZ0rAc=";s:6:"sha256";s:44:"vb2eHKoTOICJdhAgaCPLDbjnKMu5tTS+49PGpOqTtvI=";s:6:"sha256";s:44:"Iy2cGCBuiOgKq4mlkdFH4/Gn8b1kYKazEnXymnozJUs=";s:6:"sha256";s:44:"SVU/CkR29AnXotNLUfvEUZvXt+10QzjW+43VpYfX/DY=";s:6:"sha256";s:44:"x2f86VMGyUO/dpAFJL1oN71fLKaeddCsHncEDNh8yBc=";s:6:"sha256";s:44:"Iml6vWMswLk/R0bM0dWm6Apb2z420zcFeTMe1DwOLkA=";s:6:"sha256";}}i:1;a:3:{s:2:"id";s:9:"style-src";s:5:"hosts";a:0:{}s:6:"hashes";a:6:{s:44:"m/+0ICMrAzguxcnzZ+dKvzNfb18qjomzcSJOrgsnMK8=";s:6:"sha256";s:44:"YAtQjbZjjK46ykih903IjP6gFunIN4ocOk8yIiFh174=";s:6:"sha256";s:44:"0PSOLuwxk4XNTHHOFVPcbjF7XsLl2v/IKwvOaFVdfl4=";s:6:"sha256";s:44:"2rM3WawFYYPzSV2Yq9bGbv4NeaeNCE3ow9gNmJOCjzA=";s:6:"sha256";s:44:"+joTIpGVTCxdjq2UoUXVI4Rrow3ghzsvUvhpn12uL+E=";s:6:"sha256";s:44:"ezMsdSPoFXSIxK2vOXrk+lYJVrCenF33/KBc/3FsMbo=";s:6:"sha256";}}}s:4:"html";s:421:"<div class="price-box price-final_price" data-role="priceBox" data-product-id="3" data-price-box="product-id-3">
+    
+
+<span class="price-container price-final_price&#x20;tax&#x20;weee"
+        >
+        <span  id="old-price-3-widget-new-grid"                data-price-amount="199"
+        data-price-type="finalPrice"
+        class="price-wrapper "
+    ><span class="price">$199.00</span></span>
+        </span>
+
+</div>";}

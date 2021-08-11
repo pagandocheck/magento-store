@@ -1,1 +1,1 @@
-/Applications/MAMP/htdocs/magento2/pagandoMagento/lib/web/jquery/spectrum/spectrum.js
+/Applications/MAMP/htdocs/magento2/magento-store/lib/web/jquery/spectrum/spectrum.js

@@ -1,1 +1,1 @@
-/Applications/MAMP/htdocs/magento2/pagandoMagento/app/code/Solwin/ScrolltoTop/view/frontend/web/js/scroll.js
+/Applications/MAMP/htdocs/magento2/magento-store/app/code/Solwin/ScrolltoTop/view/frontend/web/js/scroll.js

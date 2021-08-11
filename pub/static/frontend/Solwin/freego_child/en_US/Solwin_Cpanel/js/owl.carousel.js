@@ -1,1 +1,1 @@
-/Applications/MAMP/htdocs/magento2/pagandoMagento/app/code/Solwin/Cpanel/view/frontend/web/js/owl.carousel.js
+/Applications/MAMP/htdocs/magento2/magento-store/app/code/Solwin/Cpanel/view/frontend/web/js/owl.carousel.js

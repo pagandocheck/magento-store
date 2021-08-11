@@ -1,1 +1,1 @@
-/Applications/MAMP/htdocs/magento2/pagandoMagento/vendor/magento/module-tax/view/frontend/web/js/view/checkout/minicart/subtotal/totals.js
+/Applications/MAMP/htdocs/magento2/magento-store/vendor/magento/module-tax/view/frontend/web/js/view/checkout/minicart/subtotal/totals.js

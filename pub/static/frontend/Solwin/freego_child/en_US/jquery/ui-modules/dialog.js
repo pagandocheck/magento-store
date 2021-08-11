@@ -1,1 +1,1 @@
-/Applications/MAMP/htdocs/magento2/pagandoMagento/lib/web/jquery/ui-modules/dialog.js
+/Applications/MAMP/htdocs/magento2/magento-store/lib/web/jquery/ui-modules/dialog.js

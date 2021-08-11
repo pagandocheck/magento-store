@@ -1,1 +1,1 @@
-/Applications/MAMP/htdocs/magento2/pagandoMagento/vendor/magento/module-customer/view/frontend/web/js/model/authentication-popup.js
+/Applications/MAMP/htdocs/magento2/magento-store/vendor/magento/module-customer/view/frontend/web/js/model/authentication-popup.js

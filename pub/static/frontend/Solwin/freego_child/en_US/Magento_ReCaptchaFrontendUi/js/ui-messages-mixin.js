@@ -1,1 +1,1 @@
-/Applications/MAMP/htdocs/magento2/pagandoMagento/vendor/magento/module-re-captcha-frontend-ui/view/frontend/web/js/ui-messages-mixin.js
+/Applications/MAMP/htdocs/magento2/magento-store/vendor/magento/module-re-captcha-frontend-ui/view/frontend/web/js/ui-messages-mixin.js

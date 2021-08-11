@@ -1,1 +1,1 @@
-/Applications/MAMP/htdocs/magento2/pagandoMagento/lib/web/mage/bootstrap.js
+/Applications/MAMP/htdocs/magento2/magento-store/lib/web/mage/bootstrap.js

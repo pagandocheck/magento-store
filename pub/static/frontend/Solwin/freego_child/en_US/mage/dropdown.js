@@ -1,1 +1,1 @@
-/Applications/MAMP/htdocs/magento2/pagandoMagento/lib/web/mage/dropdown.js
+/Applications/MAMP/htdocs/magento2/magento-store/lib/web/mage/dropdown.js

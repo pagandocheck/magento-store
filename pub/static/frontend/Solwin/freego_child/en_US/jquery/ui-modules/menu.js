@@ -1,1 +1,1 @@
-/Applications/MAMP/htdocs/magento2/pagandoMagento/lib/web/jquery/ui-modules/menu.js
+/Applications/MAMP/htdocs/magento2/magento-store/lib/web/jquery/ui-modules/menu.js

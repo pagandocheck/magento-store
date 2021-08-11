@@ -11679,3 +11679,76 @@ If you still want to deploy in these modes, use -f option: 'bin/magento setup:st
 [2021-08-10 02:49:42] main.CRITICAL: No alive nodes found in your cluster {"exception":"[object] (Elasticsearch\\Common\\Exceptions\\NoNodesAvailableException(code: 0): No alive nodes found in your cluster at /Applications/MAMP/htdocs/magento2/pagandoMagento/vendor/elasticsearch/elasticsearch/src/Elasticsearch/ConnectionPool/StaticNoPingConnectionPool.php:50)"} []
 [2021-08-10 02:49:49] main.CRITICAL: No alive nodes found in your cluster {"exception":"[object] (Elasticsearch\\Common\\Exceptions\\NoNodesAvailableException(code: 0): No alive nodes found in your cluster at /Applications/MAMP/htdocs/magento2/pagandoMagento/vendor/elasticsearch/elasticsearch/src/Elasticsearch/ConnectionPool/StaticNoPingConnectionPool.php:50)"} []
 [2021-08-11 00:05:55] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["FPC"],"mode":"matchingTag"}} []
+[2021-08-11 00:21:59] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["FPC"],"mode":"matchingTag"}} []
+[2021-08-11 00:24:08] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["CONFIG"],"mode":"matchingTag"}} []
+[2021-08-11 00:24:08] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["LAYOUT_GENERAL_CACHE_TAG"],"mode":"matchingTag"}} []
+[2021-08-11 00:24:08] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["BLOCK_HTML"],"mode":"matchingTag"}} []
+[2021-08-11 00:24:08] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["COLLECTION_DATA"],"mode":"matchingTag"}} []
+[2021-08-11 00:24:08] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["REFLECTION"],"mode":"matchingTag"}} []
+[2021-08-11 00:24:08] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["DB_DDL"],"mode":"matchingTag"}} []
+[2021-08-11 00:24:08] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["COMPILED_CONFIG"],"mode":"matchingTag"}} []
+[2021-08-11 00:24:08] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["EAV"],"mode":"matchingTag"}} []
+[2021-08-11 00:24:08] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["CUSTOMER_NOTIFICATION"],"mode":"matchingTag"}} []
+[2021-08-11 00:24:08] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["INTEGRATION"],"mode":"matchingTag"}} []
+[2021-08-11 00:24:08] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["INTEGRATION_API_CONFIG"],"mode":"matchingTag"}} []
+[2021-08-11 00:24:10] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["FPC"],"mode":"matchingTag"}} []
+[2021-08-11 00:24:10] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["WEBSERVICE"],"mode":"matchingTag"}} []
+[2021-08-11 00:24:10] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["TRANSLATE"],"mode":"matchingTag"}} []
+[2021-08-11 00:24:10] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["VERTEX"],"mode":"matchingTag"}} []
+[2021-08-11 00:24:48] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["CONFIG"],"mode":"matchingTag"}} []
+[2021-08-11 00:25:42] main.ERROR: NOTE: Manual static content deployment is not required in "default" and "developer" modes.
+In "default" and "developer" modes static contents are being deployed automatically on demand.
+If you still want to deploy in these modes, use -f option: 'bin/magento setup:static-content:deploy -f'
+#0 /Applications/MAMP/htdocs/magento2/magento-store/setup/src/Magento/Setup/Console/Command/DeployStaticContentCommand.php(112): Magento\Setup\Console\Command\DeployStaticContentCommand->checkAppMode(Object(Symfony\Component\Console\Input\ArgvInput))
+#1 /Applications/MAMP/htdocs/magento2/magento-store/vendor/symfony/console/Command/Command.php(255): Magento\Setup\Console\Command\DeployStaticContentCommand->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#2 /Applications/MAMP/htdocs/magento2/magento-store/vendor/symfony/console/Application.php(1009): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 /Applications/MAMP/htdocs/magento2/magento-store/vendor/symfony/console/Application.php(273): Symfony\Component\Console\Application->doRunCommand(Object(Magento\Setup\Console\Command\DeployStaticContentCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#4 /Applications/MAMP/htdocs/magento2/magento-store/vendor/magento/framework/Console/Cli.php(115): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#5 /Applications/MAMP/htdocs/magento2/magento-store/vendor/symfony/console/Application.php(149): Magento\Framework\Console\Cli->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#6 /Applications/MAMP/htdocs/magento2/magento-store/bin/magento(23): Symfony\Component\Console\Application->run()
+#7 {main} [] []
+[2021-08-11 00:36:20] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["CONFIG"],"mode":"matchingTag"}} []
+[2021-08-11 00:36:20] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["LAYOUT_GENERAL_CACHE_TAG"],"mode":"matchingTag"}} []
+[2021-08-11 00:36:20] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["BLOCK_HTML"],"mode":"matchingTag"}} []
+[2021-08-11 00:36:20] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["COLLECTION_DATA"],"mode":"matchingTag"}} []
+[2021-08-11 00:36:20] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["REFLECTION"],"mode":"matchingTag"}} []
+[2021-08-11 00:36:20] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["DB_DDL"],"mode":"matchingTag"}} []
+[2021-08-11 00:36:20] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["COMPILED_CONFIG"],"mode":"matchingTag"}} []
+[2021-08-11 00:36:20] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["EAV"],"mode":"matchingTag"}} []
+[2021-08-11 00:36:20] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["CUSTOMER_NOTIFICATION"],"mode":"matchingTag"}} []
+[2021-08-11 00:36:20] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["INTEGRATION"],"mode":"matchingTag"}} []
+[2021-08-11 00:36:20] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["INTEGRATION_API_CONFIG"],"mode":"matchingTag"}} []
+[2021-08-11 00:36:24] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["FPC"],"mode":"matchingTag"}} []
+[2021-08-11 00:36:24] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["WEBSERVICE"],"mode":"matchingTag"}} []
+[2021-08-11 00:36:24] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["TRANSLATE"],"mode":"matchingTag"}} []
+[2021-08-11 00:36:24] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["VERTEX"],"mode":"matchingTag"}} []
+[2021-08-11 00:37:25] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["CONFIG"],"mode":"matchingTag"}} []
+[2021-08-11 00:37:31] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["CONFIG"],"mode":"matchingTag"}} []
+[2021-08-11 00:37:31] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["LAYOUT_GENERAL_CACHE_TAG"],"mode":"matchingTag"}} []
+[2021-08-11 00:37:31] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["BLOCK_HTML"],"mode":"matchingTag"}} []
+[2021-08-11 00:37:31] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["COLLECTION_DATA"],"mode":"matchingTag"}} []
+[2021-08-11 00:37:31] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["REFLECTION"],"mode":"matchingTag"}} []
+[2021-08-11 00:37:31] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["DB_DDL"],"mode":"matchingTag"}} []
+[2021-08-11 00:37:31] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["COMPILED_CONFIG"],"mode":"matchingTag"}} []
+[2021-08-11 00:37:31] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["EAV"],"mode":"matchingTag"}} []
+[2021-08-11 00:37:31] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["CUSTOMER_NOTIFICATION"],"mode":"matchingTag"}} []
+[2021-08-11 00:37:31] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["INTEGRATION"],"mode":"matchingTag"}} []
+[2021-08-11 00:37:31] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["INTEGRATION_API_CONFIG"],"mode":"matchingTag"}} []
+[2021-08-11 00:37:31] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["FPC"],"mode":"matchingTag"}} []
+[2021-08-11 00:37:31] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["WEBSERVICE"],"mode":"matchingTag"}} []
+[2021-08-11 00:37:31] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["TRANSLATE"],"mode":"matchingTag"}} []
+[2021-08-11 00:37:31] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["VERTEX"],"mode":"matchingTag"}} []
+[2021-08-11 00:37:53] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["LAYOUT_GENERAL_CACHE_TAG"],"mode":"matchingTag"}} []
+[2021-08-11 00:37:53] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["BLOCK_HTML"],"mode":"matchingTag"}} []
+[2021-08-11 00:37:53] main.DEBUG: cache_invalidate:  {"method":"GET","url":"http:/","invalidateInfo":{"tags":["FPC"],"mode":"matchingTag"}} []
+[2021-08-11 00:40:03] main.ERROR: NOTE: Manual static content deployment is not required in "default" and "developer" modes.
+In "default" and "developer" modes static contents are being deployed automatically on demand.
+If you still want to deploy in these modes, use -f option: 'bin/magento setup:static-content:deploy -f'
+#0 /Applications/MAMP/htdocs/magento2/magento-store/setup/src/Magento/Setup/Console/Command/DeployStaticContentCommand.php(112): Magento\Setup\Console\Command\DeployStaticContentCommand->checkAppMode(Object(Symfony\Component\Console\Input\ArgvInput))
+#1 /Applications/MAMP/htdocs/magento2/magento-store/vendor/symfony/console/Command/Command.php(255): Magento\Setup\Console\Command\DeployStaticContentCommand->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#2 /Applications/MAMP/htdocs/magento2/magento-store/vendor/symfony/console/Application.php(1009): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 /Applications/MAMP/htdocs/magento2/magento-store/vendor/symfony/console/Application.php(273): Symfony\Component\Console\Application->doRunCommand(Object(Magento\Setup\Console\Command\DeployStaticContentCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#4 /Applications/MAMP/htdocs/magento2/magento-store/vendor/magento/framework/Console/Cli.php(115): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#5 /Applications/MAMP/htdocs/magento2/magento-store/vendor/symfony/console/Application.php(149): Magento\Framework\Console\Cli->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#6 /Applications/MAMP/htdocs/magento2/magento-store/bin/magento(23): Symfony\Component\Console\Application->run()
+#7 {main} [] []

@@ -1,1 +1,1 @@
-/Applications/MAMP/htdocs/magento2/pagandoMagento/vendor/magento/module-page-cache/view/frontend/web/js/page-cache.js
+/Applications/MAMP/htdocs/magento2/magento-store/vendor/magento/module-page-cache/view/frontend/web/js/page-cache.js
