@@ -1,0 +1,1 @@
+/Applications/MAMP/htdocs/magento2/magento-store/vendor/dotmailer/dotmailer-magento2-extension-chat/view/adminhtml/web/js/hoverChatButtons.js

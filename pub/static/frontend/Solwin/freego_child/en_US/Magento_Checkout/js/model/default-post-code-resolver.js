@@ -1,0 +1,1 @@
+/Applications/MAMP/htdocs/magento2/magento-store/vendor/magento/module-checkout/view/base/web/js/model/default-post-code-resolver.js

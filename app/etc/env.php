@@ -1,7 +1,7 @@
 <?php
 return [
     'backend' => [
-        'frontName' => 'admin_srfrbd'
+        'frontName' => 'admin'
     ],
     'remote_storage' => [
         'driver' => 'file'
@@ -43,10 +43,10 @@ return [
     'cache' => [
         'frontend' => [
             'default' => [
-                'id_prefix' => 'b1c_'
+                'id_prefix' => 'a91_'
             ],
             'page_cache' => [
-                'id_prefix' => 'b1c_'
+                'id_prefix' => 'a91_'
             ]
         ],
         'allow_parallel_generation' => false
@@ -54,7 +54,7 @@ return [
     'lock' => [
         'provider' => 'db',
         'config' => [
-            'prefix' => null
+            'prefix' => ''
         ]
     ],
     'directories' => [

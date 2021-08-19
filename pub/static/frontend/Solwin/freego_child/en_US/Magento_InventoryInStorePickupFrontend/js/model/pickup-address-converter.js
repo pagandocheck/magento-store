@@ -1,0 +1,1 @@
+/Applications/MAMP/htdocs/magento2/magento-store/vendor/magento/module-inventory-in-store-pickup-frontend/view/frontend/web/js/model/pickup-address-converter.js

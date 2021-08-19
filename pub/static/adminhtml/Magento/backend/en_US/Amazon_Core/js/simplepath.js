@@ -1,0 +1,1 @@
+/Applications/MAMP/htdocs/magento2/magento-store/vendor/amzn/amazon-pay-and-login-with-amazon-core-module/view/adminhtml/web/js/simplepath.js

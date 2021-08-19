@@ -154,8 +154,19 @@ bin/magento cache:flush
 y además, tendrás que editar nuevamente el archivo /hosts, que modificamos justo arriba, para configurar el dominio que sea que hayas elegido.
 
 ### 5. Acceder a la página.
+
 En el navegador ir a http://magento-pagandocheck-store.com/ para visualizar la tienda con los productos cargados en la base de datos. Debería verse de la siguiente forma: 
 
 <img width="1267" alt="Captura de Pantalla 2021-08-10 a la(s) 0 10 54" src="https://user-images.githubusercontent.com/88348069/128817128-847e144c-2348-4b63-8ec5-5cbdf8a74d90.png">
 
 Y listo, ya tienes una tienda alojada localmente en tu equipo, con productos de ejemplo.
+
+### 6. Acceder al panel de administración.
+
+Ingrese en la siguiente liga: http://magento-pagandocheck-store.com/admin para tener acceso al panel de administración. Las contraseñas por default son:
+
+**username**: admin
+
+**password**: admin@123
+
+<img width="1264" alt="Captura de Pantalla 2021-08-11 a la(s) 13 30 22" src="https://user-images.githubusercontent.com/88348069/129091235-e0b41260-d339-4e06-a229-a97a505555e8.png">

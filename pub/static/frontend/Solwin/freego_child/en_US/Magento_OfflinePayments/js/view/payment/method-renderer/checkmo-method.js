@@ -1,0 +1,1 @@
+/Applications/MAMP/htdocs/magento2/magento-store/vendor/magento/module-offline-payments/view/frontend/web/js/view/payment/method-renderer/checkmo-method.js

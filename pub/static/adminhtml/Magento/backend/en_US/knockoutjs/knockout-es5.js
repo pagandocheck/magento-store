@@ -1,0 +1,1 @@
+/Applications/MAMP/htdocs/magento2/magento-store/lib/web/knockoutjs/knockout-es5.js

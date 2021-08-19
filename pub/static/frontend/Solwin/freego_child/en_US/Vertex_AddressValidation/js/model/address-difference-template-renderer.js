@@ -1,0 +1,1 @@
+/Applications/MAMP/htdocs/magento2/magento-store/vendor/vertex/module-address-validation/view/base/web/js/model/address-difference-template-renderer.js

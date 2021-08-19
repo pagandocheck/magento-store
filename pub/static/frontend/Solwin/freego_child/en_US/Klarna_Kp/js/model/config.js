@@ -1,0 +1,1 @@
+/Applications/MAMP/htdocs/magento2/magento-store/vendor/klarna/module-kp/view/frontend/web/js/model/config.js

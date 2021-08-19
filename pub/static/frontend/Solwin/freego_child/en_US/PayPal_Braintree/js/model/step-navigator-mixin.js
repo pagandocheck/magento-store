@@ -1,0 +1,1 @@
+/Applications/MAMP/htdocs/magento2/magento-store/vendor/paypal/module-braintree-core/view/frontend/web/js/model/step-navigator-mixin.js

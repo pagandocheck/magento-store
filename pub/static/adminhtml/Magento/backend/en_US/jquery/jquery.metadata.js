@@ -1,0 +1,1 @@
+/Applications/MAMP/htdocs/magento2/magento-store/lib/web/jquery/jquery.metadata.js
