@@ -6,11 +6,11 @@
 La tienda de ejemplo con Magento contiene una plantilla con algunos productos añadidos en donde se puede visualizar de qué manera se puede realizar la configuración de una tienda online. Su contenido abarca desde la instalación de un paquete de herramientas y servicios para desarrolladores cómo lo es MAMP, pasando por una serie de configuraciones necesarias para la correcta ejecución de la tienda, hasta el despliegue de la misma, así como una base de datos precargada con la información de los productos y la plantilla de estilos de una tienda Pagando.
 
 ### Requisitos para una instalación local.
-- Tener **PHP 7.4** instalado, como mínimo, en caso de no cumplir con este requerimiento, nosotros sugerimos su actualización a esta versión a través de brew; un instalador de paquetes para macOS que puedes encontrar [aquí](https://brew.sh/index_es).
+- **PHP 7.4** instalado, como mínimo, en caso de no cumplir con este requerimiento, nosotros sugerimos su actualización a esta versión a través de brew; un instalador de paquetes para macOS que puedes encontrar [aquí](https://brew.sh/index_es).
 - **MAMP**.- Un servidor para alojar la página web, puedes encontrarlo [aquí](https://www.mamp.info/en/mac/), pero también puede utilizar otro servidor de su preferencia.
 - **ElasticSearch**.- Un motor de búsqueda y analítica de RESTful distribuido, puedes obtenerlo [aquí](https://www.elastic.co/es/downloads/elasticsearch).
 - **Composer**.- Un administrador de dependencias para proyectos de PHP que puede obtener [aquí](https://getcomposer.org/download/):
-  
+
 ## Instalación
 
 ### 1. Configurar MAMP
@@ -155,7 +155,7 @@ y además, tendrás que editar nuevamente el archivo /hosts, que modificamos jus
 
 ### 5. Acceder a la página.
 
-En el navegador ir a http://magento-pagandocheck-store.com/ para visualizar la tienda con los productos cargados en la base de datos. Debería verse de la siguiente forma: 
+En el navegador ir a http://magento-pagandocheck-store.com/ para visualizar la tienda con los productos cargados en la base de datos. Debería verse de la siguiente forma:
 
 <img width="1267" alt="Captura de Pantalla 2021-08-10 a la(s) 0 10 54" src="https://user-images.githubusercontent.com/88348069/128817128-847e144c-2348-4b63-8ec5-5cbdf8a74d90.png">
 
