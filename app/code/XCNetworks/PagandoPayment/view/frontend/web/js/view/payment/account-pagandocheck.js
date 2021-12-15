@@ -6,8 +6,8 @@ define([
 
     rendererList.push(
         {
-            type: 'pagandoPayment',
-            component: 'XCNetworks_PagandoPayment/js/view/payment/method-renderer/pagandoPayment-method'
+            type: 'accountPagandoCheck',
+            component: 'XCNetworks_PagandoPayment/js/view/payment/method-renderer/account-pagandocheck-method'
         }
     );
 
