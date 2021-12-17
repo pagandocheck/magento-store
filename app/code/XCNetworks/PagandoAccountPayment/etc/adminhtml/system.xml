@@ -11,7 +11,7 @@
                 </field>
                 <field id="specificcountry" translate="label" type="multiselect" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="0">
                     <label>Payment from Specific Countries</label>
-                    <source_model>XCNetworks\PagandoAccountPayment\Model\Config\Source\RestrictedCountry</source_model>
+                    <source_model>XCNetworks\PagandoPayment\Model\Config\Source\RestrictedCountry</source_model>
                 </field>
                 <field id="user" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>User</label>
