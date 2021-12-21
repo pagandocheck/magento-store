@@ -19,6 +19,30 @@
             <!-- ko template: getTemplate() --><!-- /ko -->
             <!--/ko-->
         </div>
+
+        <form action="" id="pgdo-payment">
+            <div class="pagando-check">
+
+                <div class="pagando-input">
+                    <label for="titular">Nombre completo <span>*</span></label>
+                    <div class="">
+                        <input id="card_name" placeholder="Ingresa el nombre completo de tu tarjeta" name="card_name" type="text">
+                    </div>
+                </div>
+
+                <div class="pagando-two-block-content">
+                    <div class="left-block">
+                        <div class="pagando-input">
+                            <label for="titular">Número de tarjeta <span>*</span></label>
+                            <div class="">
+                                <input id="card_pan" placeholder="Ingresa los 16 dígitos de tu tarjeta" type="text">
+                                <input id="card_pan_no_spaces" type="hidden" name="card_pan">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
         <div class="checkout-agreements-block">
             <!-- ko foreach: $parent.getRegion('before-place-order') -->
             <!-- ko template: getTemplate() --><!-- /ko -->
