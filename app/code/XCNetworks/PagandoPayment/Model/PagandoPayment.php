@@ -93,7 +93,7 @@ class PagandoPayment extends AbstractMethod
             $this->token = $res->data->token;
             $this->_checkoutSession->setToken($this->token);
         }
-        
+
         return $res;
     }
 
@@ -168,7 +168,7 @@ class PagandoPayment extends AbstractMethod
             if(!empty($data)){
                 $settings[CURLOPT_POSTFIELDS] = http_build_query($data);
             }
-            
+
         }
 
         $curl = curl_init();
@@ -193,5 +193,17 @@ class PagandoPayment extends AbstractMethod
         }
 
         return $return;
+    }
+
+    // pagando account paymmennt
+    function getCountries() {
+
+        $countries_response = $this->request('countries/countries', null, "POST");
+
+        if(!$res->error) {
+            $this->countries = $countries_response->data;
+        }
+        echo $this->countries;
+        return $this->countries;
     }
 }
