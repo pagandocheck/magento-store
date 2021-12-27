@@ -57,11 +57,20 @@
 
                 <div class="pagando-select" style="width:100%;">
                     <label>País<span>*</span></label>
-                    <select id="card_country" name="card_country">
-                        <option>Selecciona el País</option>
-                        {foreach from=$countries item=country}
-                        <option value="{$country->isoCode}">{$country->name}</option>
-                        {/foreach}
+<!--                    <select id="card_country" name="card_country">-->
+<!--                        <option>Selecciona el País</option>-->
+<!--                        {foreach from=$countries item=country}-->
+<!--                        <option value="{$country->isoCode}">{$country->name}</option>-->
+<!--                        {/foreach}-->
+<!--                    </select>-->
+
+                    <select name="card_country" id="card_country"
+                            data-bind="
+                                    options: getCountriesList(),
+                                    optionsValue: 'value',
+                                    optionsText: 'type',
+                                    optionsCaption: $t('--Please Select--'),
+                                    ">
                     </select>
                 </div>
 

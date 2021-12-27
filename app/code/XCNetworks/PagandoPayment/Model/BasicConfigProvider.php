@@ -29,6 +29,7 @@ class BasicConfigProvider implements ConfigProviderInterface
     protected $_context;
     protected $_paymentFactory;
     protected $logger;
+    protected $countries;
 
     /**
      * BasicConfigProvider constructor.
@@ -72,7 +73,7 @@ class BasicConfigProvider implements ConfigProviderInterface
             if (!$this->_methodInstance->isAvailable()) {
                 return [];
             }
-            
+
             $data = [
                 'payment' => [
                     $this->methodCode => [
@@ -89,7 +90,8 @@ class BasicConfigProvider implements ConfigProviderInterface
                         'allowed_countries' => $this->_scopeConfig->getValue(
                             'payment/pagandoPayment/specificcountry',
                             ScopeInterface::SCOPE_STORE
-                        )
+                        ),
+                        'countries' => $this->getCountries()
                     ],
                 ],
             ];
@@ -98,6 +100,21 @@ class BasicConfigProvider implements ConfigProviderInterface
         } catch (\Exception $e) {
             return [];
         }
+    }
+
+    // PagandoAccount
+    public function getCountries(){
+
+      $countries_response = $this->_paymentFactory->request('countries/countries', null, "POST");
+      if(!$res->error) {
+          $this->countries = $countries_response->data;
+      }
+      echo $this->countries;
+
+      $result = array();
+      $result['0'] = "Pais1";
+      $result['1'] = "Pais 2";
+      return $result;
     }
 
 }
