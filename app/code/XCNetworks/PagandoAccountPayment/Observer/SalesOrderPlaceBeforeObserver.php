@@ -1,8 +1,8 @@
 <?php
 
-namespace XCNetworks\PagandoPayment\Observer;
+namespace XCNetworks\PagandoAccountPayment\Observer;
 
-use XCNetworks\PagandoPayment\Model\PagandoPayment;
+use XCNetworks\PagandoAccountPayment\Model\PagandoAccountPayment;
 use Magento\Framework\App\ActionFlag;
 
 class SalesOrderPlaceBeforeObserver implements \Magento\Framework\Event\ObserverInterface
@@ -39,16 +39,16 @@ class SalesOrderPlaceBeforeObserver implements \Magento\Framework\Event\Observer
             $order = $event->getOrder();
             $paymentOrder = $order->getPayment();
             $paymentMethod = $paymentOrder->getMethodInstance()->getCode();
-            
+
             if (empty($paymentOrder)) {
                 $message = "No paymenth method detected.";
-                $this->redirectError($message);   
+                $this->redirectError($message);
             }
-            
+
             if ($paymentMethod != 'pagandoPayment') {
-                return $this;   
+                return $this;
             }
-                    
+
             $orderObserverData = $order->getData();
             $quote = $event->getQuote();
             $cartId = $order->getQuoteId();
@@ -56,17 +56,17 @@ class SalesOrderPlaceBeforeObserver implements \Magento\Framework\Event\Observer
             $amount = $orderObserverData['grand_total'];
 
             $jwt_token = $this->paymentFactory->getToken();
-            
+
             if($jwt_token->error){
                 $this->redirectError($this->paymentFactory->error_msg);
             }
-            
+
             $result = $this->paymentFactory->createEcommerceOrder($cartId, $amount, $incrementalId);
-            
+
             if ($result->error) {
                 $this->redirectError($result->error_msg);
             }
-            
+
         } catch(\Exception $e) {
             $message = $e->getMessage();
             $this->redirectError($message);
@@ -80,8 +80,8 @@ class SalesOrderPlaceBeforeObserver implements \Magento\Framework\Event\Observer
 
         $this->messageManager->addError($returnMessage);
        $cartUrl = $this->url->getUrl('checkout/cart/index');
-       $this->responseFactory->create()->setRedirect($cartUrl)->sendResponse(); 
-       
+       $this->responseFactory->create()->setRedirect($cartUrl)->sendResponse();
+
        exit();
     }
 

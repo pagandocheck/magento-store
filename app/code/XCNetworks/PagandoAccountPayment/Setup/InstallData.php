@@ -4,7 +4,7 @@
  * See COPYING.txt for license details.
  */
 
-namespace XCNetworks\PagandoPayment\Setup;
+namespace XCNetworks\PagandoAccountPayment\Setup;
 
 use Magento\Framework\Setup\InstallDataInterface;
 use Magento\Framework\Setup\ModuleContextInterface;
