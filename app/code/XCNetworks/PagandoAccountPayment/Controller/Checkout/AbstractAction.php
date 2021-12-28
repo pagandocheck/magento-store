@@ -1,13 +1,13 @@
 <?php
 
-namespace XCNetworks\PagandoPayment\Controller\Checkout;
+namespace XCNetworks\PagandoAccountPayment\Controller\Checkout;
 
 use Magento\Framework\App\Action\Action;
 use Magento\Checkout\Model\Session;
 use Magento\Framework\App\Action\Context;
 use Magento\Sales\Model\OrderFactory;
-use XCNetworks\PagandoPayment\Helper\Checkout;
-use XCNetworks\PagandoPayment\Model\PagandoPayment;
+use XCNetworks\PagandoAccountPayment\Helper\Checkout;
+use XCNetworks\PagandoAccountPayment\Model\PagandoAccountPayment;
 use Psr\Log\LoggerInterface;
 
 /**
@@ -47,7 +47,7 @@ abstract class AbstractAction extends Action {
         $this->_logger = $logger;
         $this->_pagandoPayment = $pagandoPayment;
     }
-    
+
     protected function getContext() {
         return $this->_context;
     }
@@ -71,11 +71,11 @@ abstract class AbstractAction extends Action {
     protected function getLogger() {
         return $this->_logger;
     }
-    
+
     protected function getPagandoPayment() {
         return $this->_pagandoPayment;
     }
-    
+
     protected function getOrder()
     {
         $orderId = $this->_checkoutSession->getLastRealOrderId();

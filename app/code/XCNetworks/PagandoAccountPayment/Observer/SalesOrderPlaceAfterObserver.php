@@ -23,7 +23,7 @@ class SalesOrderPlaceAfterObserver implements \Magento\Framework\Event\ObserverI
         \Magento\Directory\Model\Currency $currency,
         \Magento\Framework\App\RequestInterface $request,
         \Magento\Framework\UrlInterface $url,
-        PagandoPayment $paymentFactory,
+        PagandoAccountPayment $paymentFactory,
         ActionFlag $actionFlag,
         \Magento\Framework\App\ResponseInterface $response,
         \Magento\Framework\App\Response\Http $redirect,

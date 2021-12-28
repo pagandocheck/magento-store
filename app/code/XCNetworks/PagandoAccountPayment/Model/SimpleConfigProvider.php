@@ -19,7 +19,7 @@ use XCNetworks\PagandoAccountPayment\Model\PagandoAccountPayment;
  */
 class SimpleConfigProvider implements ConfigProviderInterface
 {
-    protected $methodCode = 'pagandoPayment';
+    protected $methodCode = 'pagandoAccountPayment';
     protected $_scopeConfig;
     protected $_methodInstance;
     protected $_checkoutSession;
@@ -48,7 +48,7 @@ class SimpleConfigProvider implements ConfigProviderInterface
         PaymentHelper $paymentHelper,
         ScopeConfigInterface $scopeConfig,
         ProductMetadataInterface $productMetadata,
-        PagandoPayment $paymentFactory,
+        PagandoAccountPayment $paymentFactory,
         \Psr\Log\LoggerInterface $customLogger
 
     )

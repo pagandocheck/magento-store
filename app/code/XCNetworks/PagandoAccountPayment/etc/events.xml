@@ -22,9 +22,9 @@
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
     <event name="sales_order_place_before">
-        <observer name="sales_order_place_before" instance="XCNetworks\PagandoPayment\Observer\SalesOrderPlaceBeforeObserver"/>
+        <observer name="sales_order_place_before" instance="XCNetworks\PagandoAccountPayment\Observer\SalesOrderPlaceBeforeObserver"/>
     </event>
     <event name="sales_order_place_after">
-        <observer name="sales_order_place_after" disabled="true" instance="XCNetworks\PagandoPayment\Observer\SalesOrderPlaceAfterObserver"/>
+        <observer name="sales_order_place_after" disabled="true" instance="XCNetworks\PagandoAccountPayment\Observer\SalesOrderPlaceAfterObserver"/>
     </event>
 </config>
