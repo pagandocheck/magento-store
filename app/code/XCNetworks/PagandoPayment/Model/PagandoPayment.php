@@ -195,15 +195,4 @@ class PagandoPayment extends AbstractMethod
         return $return;
     }
 
-    // pagando account paymmennt
-    function getCountries() {
-
-        $countries_response = $this->request('countries/countries', null, "POST");
-
-        if(!$res->error) {
-            $this->countries = $countries_response->data;
-        }
-        echo $this->countries;
-        return $this->countries;
-    }
 }

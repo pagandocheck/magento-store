@@ -19,6 +19,147 @@
             <!-- ko template: getTemplate() --><!-- /ko -->
             <!--/ko-->
         </div>
+
+        <form action="" id="pgdo-payment">
+            <div class="pagando-check">
+
+                <div class="pagando-input">
+                    <label for="titular">Nombre completo <span>*</span></label>
+                    <div class="">
+                        <input id="card_name" placeholder="Ingresa el nombre completo de tu tarjeta" name="card_name" type="text">
+                    </div>
+                </div>
+
+                <div class="pagando-two-block-content">
+                    <div class="left-block">
+                        <div class="pagando-input">
+                            <label for="titular">Número de tarjeta <span>*</span></label>
+                            <div class="">
+                                <input id="card_pan" placeholder="Ingresa los 16 dígitos de tu tarjeta" type="text">
+                                <input id="card_pan_no_spaces" type="hidden" name="card_pan">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="right-block">
+                        <div class="pagando-input">
+                            <label for="titular">Fecha Expiración<span>*</span></label>
+                            <div class="">
+                                <input id="card_exp" placeholder="MM/AA" type="text">
+                                <input id="card_exp_month" name="card_exp_month" type="hidden">
+                                <input id="card_exp_year" name="card_exp_year" type="hidden">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="pagando-generic-title">Domicilio de tarjeta</h2>
+
+                <div class="pagando-select" style="width:100%;">
+                    <label>País<span>*</span></label>
+                    <!--                    <select id="card_country" name="card_country">-->
+                    <!--                        <option>Selecciona el País</option>-->
+                    <!--                        {foreach from=$countries item=country}-->
+                    <!--                        <option value="{$country->isoCode}">{$country->name}</option>-->
+                    <!--                        {/foreach}-->
+                    <!--                    </select>-->
+
+                    <select name="card_country" id="card_country"
+                            data-bind="
+                                    options: getCountriesList(),
+                                    optionsValue: 'value',
+                                    optionsText: 'type',
+                                    optionsCaption: $t('--Please Select--'),
+                                    ">
+                    </select>
+                </div>
+
+                <div class="pagando-two-block-content">
+                    <div class="left-block">
+                        <div class="pagando-input">
+                            <label for="titular">Estado <span>*</span></label>
+                            <div class="">
+                                <input placeholder="Escribe el estado" type="text" name="card_state">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="right-block">
+                        <div class="pagando-input">
+                            <label for="titular">Ciudad <span>*</span></label>
+                            <div class="">
+                                <input placeholder="Escribe la ciudad" type="text" name="card_city">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pagando-two-block-content">
+                    <div class="left-block">
+                        <div class="pagando-input">
+                            <label for="titular">Municipio <span>*</span></label>
+                            <div class="">
+                                <input placeholder="Escribe el municipio" type="text" name="card_district">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="right-block">
+                        <div class="pagando-input">
+                            <label for="titular">Código Postal <span>*</span></label>
+                            <div class="">
+                                <input placeholder="5 dígitos" type="number" name="card_zipCode">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pagando-input">
+                    <label for="titular">Calle <span>*</span></label>
+                    <div class="">
+                        <input placeholder="Nombre de la calle" type="text" name="card_street">
+                    </div>
+                </div>
+
+                <div class="pagando-two-block-content">
+                    <div class="left-block">
+                        <div class="pagando-input">
+                            <label for="titular">Número Exterior <span>*</span></label>
+                            <div class="">
+                                <input placeholder="Número de calle" type="text" name="card_noExt">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="right-block">
+                        <div class="pagando-input">
+                            <label for="titular">Número Interior <span>*</span></label>
+                            <div class="">
+                                <input placeholder="Opcional" type="text" name="card_noInt">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="pagando-generic-title">Promociones</h2>
+                <div class="pagando-select" style="width:100%;">
+                    <label>Promociones</label>
+                    <select id="card_promotion" name="card_promotion">
+                        <option>Ingrese el número de tarjeta para ver las promociones.</option>
+                    </select>
+                    <input id="card_promotion_promotion_type" name="card_promotion_promotion_type" type="hidden">
+                    <input id="card_promotion_promotion_time_to_apply" name="card_promotion_promotion_time_to_apply" type="hidden">
+                    <input id="card_promotion_promotion_months_to_wait" name="card_promotion_promotion_months_to_wait" type="hidden">
+                </div>
+
+                <div class="bottom-text">
+                    <p><span>*</span> Campos requeridos</p>
+                </div>
+
+                <input type="hidden" id="aft_token" name="aft_token">
+            </div>
+        </form>
+        
         <div class="checkout-agreements-block">
             <!-- ko foreach: $parent.getRegion('before-place-order') -->
             <!-- ko template: getTemplate() --><!-- /ko -->

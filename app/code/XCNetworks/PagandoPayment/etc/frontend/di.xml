@@ -8,9 +8,6 @@
                 <item name="pagandoPayment" xsi:type="object">
                     XCNetworks\PagandoPayment\Model\BasicConfigProvider
                 </item>
-                <item name="accountPagandoCheck" xsi:type="object">
-                    XCNetworks\PagandoPayment\Model\BasicConfigProvider
-                </item>
             </argument>
         </arguments>
     </type>
