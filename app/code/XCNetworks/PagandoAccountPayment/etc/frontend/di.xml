@@ -6,7 +6,7 @@
         <arguments>
             <argument name="configProviders" xsi:type="array">
                 <item name="pagandoAccountPayment" xsi:type="object">
-                    XCNetworks\PagandoPayment\Model\SimpleConfigProvider
+                    XCNetworks\PagandoAccountPayment\Model\SimpleConfigProvider
                 </item>
             </argument>
         </arguments>
