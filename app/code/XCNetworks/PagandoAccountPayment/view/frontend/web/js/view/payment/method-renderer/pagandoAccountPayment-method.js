@@ -43,6 +43,18 @@
         },
         getAllowedCountries: function() {
             return window.checkoutConfig.payment.pagandoAccountPayment.allowed_countries;
-        }
+        },
+        getCountries: function() {
+            return  window.checkoutConfig.payment.checkmo.countries;
+        },
+
+        getCountriesList: function() {
+            return _.map(this.getCountries(), function(value, key) {
+                return {
+                    'value': key,
+                    'type': value
+                }
+            });
+        },
     });
 });
