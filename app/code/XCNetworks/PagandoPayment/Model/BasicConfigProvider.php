@@ -105,11 +105,11 @@ class BasicConfigProvider implements ConfigProviderInterface
     // PagandoAccount
     public function getCountries(){
 
-      $countries_response = $this->_paymentFactory->request('countries/countries', null, "POST");
-      if(!$res->error) {
-          $this->countries = $countries_response->data;
-      }
-      echo $this->countries;
+     // $countries_response = $this->_paymentFactory->request('countries/countries', null, "POST");
+     // if(!$res->error) {
+      //    $this->countries = $countries_response->data;
+     // }
+     // echo $this->countries;
 
       $result = array();
       $result['0'] = "Pais1";
