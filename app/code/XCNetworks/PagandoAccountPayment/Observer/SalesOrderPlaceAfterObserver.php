@@ -1,8 +1,8 @@
 <?php
 
-namespace XCNetworks\PagandoPayment\Observer;
+namespace XCNetworks\PagandoAccountPayment\Observer;
 
-use XCNetworks\PagandoPayment\Model\PagandoPayment;
+use XCNetworks\PagandoAccountPayment\Model\PagandoAccountPayment;
 use Magento\Framework\App\ActionFlag;
 
 class SalesOrderPlaceAfterObserver implements \Magento\Framework\Event\ObserverInterface
