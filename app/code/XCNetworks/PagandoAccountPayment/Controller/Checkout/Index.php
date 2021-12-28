@@ -1,6 +1,6 @@
 <?php
 
-namespace XCNetworks\PagandoPayment\Controller\Checkout;
+namespace XCNetworks\PagandoAccountPayment\Controller\Checkout;
 
 use Magento\Sales\Model\Order;
 
@@ -14,7 +14,7 @@ class Index extends AbstractAction {
             <form id='form' action='$checkoutUrl' method='get'>
             <input type='hidden' name='orderId' value='$orderId'>
             <input type='hidden' name='token' value='$token'>";
-        
+
         echo
             '</form>
             </body>';

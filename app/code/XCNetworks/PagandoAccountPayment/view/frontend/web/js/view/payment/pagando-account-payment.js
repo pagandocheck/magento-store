@@ -7,7 +7,7 @@ define([
     rendererList.push(
         {
             type: 'pagandoAccountPayment',
-            component: 'XCNetworks_PagandoPayment/js/view/payment/method-renderer/pagandoAccountPayment-method'
+            component: 'XCNetworks_PagandoAccountPayment/js/view/payment/method-renderer/pagandoAccountPayment-method'
         }
     );
 

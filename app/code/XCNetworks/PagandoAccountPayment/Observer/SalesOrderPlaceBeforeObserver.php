@@ -14,7 +14,7 @@ class SalesOrderPlaceBeforeObserver implements \Magento\Framework\Event\Observer
         \Magento\Framework\App\ResponseFactory $responseFactory,
         \Psr\Log\LoggerInterface $logger,
         \Magento\Framework\UrlInterface $url,
-        PagandoPayment $paymentFactory,
+        PagandoAccountPayment $paymentFactory,
         ActionFlag $actionFlag
     ) {
         $this->url = $url;
