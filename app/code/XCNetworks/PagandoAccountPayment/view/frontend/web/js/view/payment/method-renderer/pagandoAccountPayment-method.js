@@ -56,5 +56,18 @@
                 }
             });
         },
+
+        getStoreCard: function() {
+            return  window.checkoutConfig.payment.checkmo.storedCards;
+        },
+
+        getCardList: function() {
+            return _.map(this.getStoreCard(), function(value, key) {
+                return {
+                    'value': key,
+                    'type': value
+                }
+            });
+        },
     });
 });
