@@ -93,7 +93,7 @@ class SimpleConfigProvider implements ConfigProviderInterface
                         ),
                         'countries' => $this->getCountries()
                     ],
-                    'XCNetworks\PagandoAccountPayment\Model\PagandoAccountPayment::CODE => [
+                    'XCNetworks\PagandoAccountPayment\Model\PagandoAccountPayment::CODE' => [
                         'storedCards' => $this->getStoredCards(),
                     ],
                 ],
