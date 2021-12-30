@@ -88,10 +88,13 @@ class SimpleConfigProvider implements ConfigProviderInterface
                         'logoUrl' => $this->_assetRepo->getUrl("XCNetworks_PagandoAccountPayment::images/logo-color.png"),
                         'platform_version' => $this->_productMetaData->getVersion(),
                         'allowed_countries' => $this->_scopeConfig->getValue(
-                            'payment/pagandoPayment/specificcountry',
+                            'payment/pagandoAccountPayment/specificcountry',
                             ScopeInterface::SCOPE_STORE
                         ),
                         'countries' => $this->getCountries()
+                    ],
+                    'XCNetworks\PagandoAccountPayment\Model\PagandoAccountPayment::CODE => [
+                        'storedCards' => $this->getStoredCards(),
                     ],
                 ],
             ];
@@ -114,6 +117,13 @@ class SimpleConfigProvider implements ConfigProviderInterface
       $result = array();
       $result['0'] = "Pais1";
       $result['1'] = "Pais 2";
+      return $result;
+    }
+
+    public function getStoredCards(){
+      $result = array();
+      $result['0'] = "Test";
+      $result['1'] = "Test1";
       return $result;
     }
 

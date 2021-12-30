@@ -203,7 +203,6 @@ class PagandoAccountPayment extends AbstractMethod
         if(!$res->error) {
             $this->countries = $countries_response->data;
         }
-        echo $this->countries;
         return $this->countries;
     }
 }

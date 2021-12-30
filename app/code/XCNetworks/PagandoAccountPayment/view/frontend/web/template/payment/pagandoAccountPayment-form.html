@@ -72,6 +72,15 @@
                                     optionsCaption: $t('--Please Select--'),
                                     ">
                     </select>
+                    <select name="payment[subscription_id]" class="select input-text required-entry"
+                            data-bind="
+                                    attr: {id: getCode()+'_payment_profile_id'},
+                                    options: getCardList(),
+                                    optionsValue: 'value',
+                                    optionsText: 'type',
+                                    optionsCaption: $t('--Please Select--'),
+                                    ">
+                    </select>
                 </div>
 
                 <div class="pagando-two-block-content">
@@ -159,7 +168,7 @@
                 <input type="hidden" id="aft_token" name="aft_token">
             </div>
         </form>
-        
+
         <div class="checkout-agreements-block">
             <!-- ko foreach: $parent.getRegion('before-place-order') -->
             <!-- ko template: getTemplate() --><!-- /ko -->
@@ -182,3 +191,9 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    var carnr;
+    carnr = "<?php print($getCountriesList()); ?>"
+    console.log("ENTROOO", carnr);
+</script>
