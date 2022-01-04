@@ -19,6 +19,28 @@ use XCNetworks\PagandoAccountPayment\Model\PagandoAccountPayment;
  */
 class SimpleConfigProvider implements ConfigProviderInterface
 {
+
+    public function getStoredCards(){
+      $result = array();
+      $result['0'] = "Test";
+      $result['1'] = "Test1";
+      return $result;
+    }
+
+    public function getConfig()
+    {
+
+    $config = array_merge_recursive($config, [
+        'payment' => [
+            XCNetworks\PagandoAccountPayment\Model\PagandoAccountPayment::CODE => [
+                'storedCards' => $this->getStoredCards(),
+            ],
+        ],
+    ]);
+    return $config;
+   }
+}
+/**{
     protected $methodCode = 'pagandoAccountPayment';
     protected $_scopeConfig;
     protected $_methodInstance;
@@ -67,7 +89,7 @@ class SimpleConfigProvider implements ConfigProviderInterface
     /**
      * @return array
      */
-    public function getConfig()
+   /** public function getConfig()
     {
         try {
             if (!$this->_methodInstance->isAvailable()) {
@@ -103,7 +125,7 @@ class SimpleConfigProvider implements ConfigProviderInterface
         } catch (\Exception $e) {
             return [];
         }
-    }
+    }*/
 
     // PagandoAccount
     public function getCountries(){
@@ -127,4 +149,4 @@ class SimpleConfigProvider implements ConfigProviderInterface
       return $result;
     }
 
-}
+}*/
