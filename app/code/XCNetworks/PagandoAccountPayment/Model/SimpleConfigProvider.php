@@ -21,6 +21,8 @@ use XCNetworks\PagandoAccountPayment\Model\PagandoAccountPayment;
 class SimpleConfigProvider implements ConfigProviderInterface
 {
 
+    protected $_config;
+
     public function getStoredCards(){
       $result = array();
       $result['0'] = "Test";
@@ -30,14 +32,15 @@ class SimpleConfigProvider implements ConfigProviderInterface
 
     public function getConfig()
     {
+        $this->_config = [];
 
-    $config = array_merge_recursive($config, [
-        'payment' => [
-            XCNetworks\PagandoAccountPayment\Model\PagandoAccountPayment::CODE => [
-                'storedCards' => $this->getStoredCards(),
+        $this->_config = array_merge_recursive($config, [
+            'payment' => [
+                XCNetworks\PagandoAccountPayment\Model\PagandoAccountPayment::CODE => [
+                    'storedCards' => $this->getStoredCards(),
+                ],
             ],
-        ],
-    ]);
-    return $config;
+        ]);
+        return $this->_config;
    }
 }
