@@ -62,23 +62,23 @@
         },
 
         getCardList: function() {
-            var testOptions= [{
-                'value': "Test1",
-                'type': "Test1"
-            },
-                {
-                    'value': "Test2",
-                    'type': "Test2"
-                }];
+            // var testOptions= [{
+            //     'value': "Test1",
+            //     'type': "Test1"
+            // },
+            //     {
+            //         'value': "Test2",
+            //         'type': "Test2"
+            //     }];
 
-            console.log("TESTTTT", testOptions);
-            return testOptions;
-            // return _.map(this.getStoreCard(), function(value, key) {
-            //     return {
-            //         'value': key,
-            //         'type': value
-            //     }
-            // });
+            console.log("TESTTTT", this.getStoreCard());
+            // return testOptions;
+            return _.map(this.getStoreCard(), function(value, key) {
+                return {
+                    'value': key,
+                    'type': value
+                }
+            });
         },
     });
 });
