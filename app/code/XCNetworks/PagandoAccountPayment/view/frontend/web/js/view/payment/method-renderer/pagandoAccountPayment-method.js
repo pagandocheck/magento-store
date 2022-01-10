@@ -71,7 +71,8 @@
             //         'type': "Test2"
             //     }];
 
-            console.log("TESTTTT", this.getStoreCard());
+            console.log("TESTTTT222", window.checkoutConfig);
+            console.log("TESTTTT", window.checkoutConfig.payment);
             // return testOptions;
             return _.map(this.getStoreCard(), function(value, key) {
                 return {
