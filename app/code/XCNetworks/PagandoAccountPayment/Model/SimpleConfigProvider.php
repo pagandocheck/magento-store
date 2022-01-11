@@ -40,9 +40,9 @@ class SimpleConfigProvider implements ConfigProviderInterface
 
             $data = [
                 'payment' => [
-                    XCNetworks\PagandoAccountPayment\Model\PagandoAccountPayment::CODE => [
-                        'storedCards' => $this->getStoredCards(),
-                    ],
+                    'checkmo' => [
+                            'storedCards' => $this->getStoredCards()
+                      ]
                 ],
             ];
 
