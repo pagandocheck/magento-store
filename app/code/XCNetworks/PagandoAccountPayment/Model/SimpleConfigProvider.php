@@ -31,25 +31,26 @@ class SimpleConfigProvider implements ConfigProviderInterface
     /**
      * @return array
      */
+
     public function getConfig()
-    {
-        try {
-            if (!$this->_methodInstance->isAvailable()) {
+        {
+            try {
+                if (!$this->_methodInstance->isAvailable()) {
+                    return [];
+                }
+
+                $data = [
+                    'payment' => [
+                        $this->methodCode => [
+                            'storedCards' => $this->getStoredCards()
+                        ],
+                    ],
+                ];
+
+                return $data;
+            } catch (\Exception $e) {
                 return [];
             }
-
-            $data = [
-                'payment' => [
-                    'checkmo' => [
-                            'storedCards' => $this->getStoredCards()
-                      ]
-                ],
-            ];
-
-            return $data;
-        } catch (\Exception $e) {
-            return [];
         }
-    }
 
 }
