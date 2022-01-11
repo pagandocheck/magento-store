@@ -50,7 +50,7 @@ class SimpleConfigProvider implements ConfigProviderInterface
         PaymentHelper $paymentHelper,
         ScopeConfigInterface $scopeConfig,
         ProductMetadataInterface $productMetadata,
-        PagandoPayment $paymentFactory,
+        PagandoAccountPayment $paymentFactory,
         \Psr\Log\LoggerInterface $customLogger
 
     )
