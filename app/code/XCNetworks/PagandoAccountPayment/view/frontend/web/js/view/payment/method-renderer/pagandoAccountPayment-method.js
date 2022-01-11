@@ -58,7 +58,7 @@
         },
 
         getStoreCard: function() {
-            return  window.checkoutConfig.payment.checkmo.storedCards;
+            return  window.checkoutConfig.payment.pagandoAccountPayment.storedCards;
         },
 
         getCardList: function() {
