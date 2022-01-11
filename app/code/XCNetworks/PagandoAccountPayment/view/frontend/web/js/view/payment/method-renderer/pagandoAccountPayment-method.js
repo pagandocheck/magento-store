@@ -45,7 +45,7 @@
             return window.checkoutConfig.payment.pagandoAccountPayment.allowed_countries;
         },
         getCountries: function() {
-            return  window.checkoutConfig.payment.checkmo.countries;
+            return  window.checkoutConfig.payment.pagandoAccountPayment.countries;
         },
 
         getCountriesList: function() {

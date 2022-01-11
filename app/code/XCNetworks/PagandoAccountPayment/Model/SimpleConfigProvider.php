@@ -87,7 +87,8 @@ class SimpleConfigProvider implements ConfigProviderInterface
                 $data = [
                     'payment' => [
                         $this->methodCode => [
-                            'storedCards' => $this->getStoredCards()
+                            'storedCards' => $this->getStoredCards(),
+                            'countries' => $this->getCountries()
                         ],
                     ],
                 ];
@@ -97,5 +98,16 @@ class SimpleConfigProvider implements ConfigProviderInterface
                 return [];
             }
         }
+
+     public function getCountries(){
+
+         $countries_response = $this->_paymentFactory->request('countries/countries', null, "POST");
+          if(!$countries_response->error) {
+             $this->countries = $countries_response->data;
+          }
+          echo $this->countries;
+
+          return $this->countries;
+     }
 
 }
