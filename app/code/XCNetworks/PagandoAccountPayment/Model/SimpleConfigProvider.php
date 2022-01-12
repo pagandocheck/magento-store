@@ -101,18 +101,18 @@ class SimpleConfigProvider implements ConfigProviderInterface
 
      public function getCountries(){
 
-        /** $countries_response = $this->_paymentFactory->request('countries/countries', null, "POST");
+          $countries_response = $this->_paymentFactory->request('countries/countries', null, "GET");
           if(!$countries_response->error) {
              $this->countries = $countries_response->data;
           }
 
           return $this->countries;
-          */
 
-        $result = array();
-        $result['0'] = "Test";
-        $result['1'] = "Test1";
-        return $result;
+
+        // $result = array();
+        // $result['0'] = "Test";
+        // $result['1'] = "Test1";
+        // return $result;
      }
 
 }
