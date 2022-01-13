@@ -29,7 +29,7 @@ abstract class AbstractAction extends Action {
 
     private $_logger;
 
-    protected $_pagandoPayment;
+    protected $_pagandoAccountPayment;
 
     public function __construct(
         Session $checkoutSession,
@@ -45,7 +45,7 @@ abstract class AbstractAction extends Action {
         $this->_checkoutHelper = $checkoutHelper;
         $this->_messageManager = $context->getMessageManager();
         $this->_logger = $logger;
-        $this->_pagandoPayment = $pagandoPayment;
+        $this->_pagandoAccountPayment = $pagandoAccountPayment;
     }
 
     protected function getContext() {
@@ -72,8 +72,8 @@ abstract class AbstractAction extends Action {
         return $this->_logger;
     }
 
-    protected function getPagandoPayment() {
-        return $this->_pagandoPayment;
+    protected function getPagandoAccountPayment() {
+        return $this->_pagandoAccountPayment;
     }
 
     protected function getOrder()

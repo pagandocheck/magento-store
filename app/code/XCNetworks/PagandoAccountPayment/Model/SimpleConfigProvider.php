@@ -106,7 +106,7 @@ class SimpleConfigProvider implements ConfigProviderInterface
              $this->countries = $countries_response->data;
           }
 
-          return $this->countries;
+          return $countries_response;
 
 
         // $result = array();

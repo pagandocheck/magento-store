@@ -198,7 +198,7 @@ class PagandoAccountPayment extends AbstractMethod
         // pagando account paymmennt
     function getCountries() {
 
-        $countries_response = $this->request('countries/countries', null, "POST");
+        $countries_response = $this->request('countries/countries', null, "GET");
 
         if(!$res->error) {
             $this->countries = $countries_response->data;
