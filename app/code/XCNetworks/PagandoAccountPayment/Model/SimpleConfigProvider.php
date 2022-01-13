@@ -109,6 +109,7 @@ class SimpleConfigProvider implements ConfigProviderInterface
           return $countries_response;
 
         print("Hola mundo AQUIIII ESSSS");
+        \Magento\Framework\App\ObjectManager::getInstance()->get('Psr\Log\LoggerInterface')->info('AQUIIII ESSSSS');
 
         // $result = array();
         // $result['0'] = "Test";
