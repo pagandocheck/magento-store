@@ -62,24 +62,32 @@
         },
 
         getCardList: function() {
-            // var testOptions= [{
-            //     'value': "Test1",
-            //     'type': "Test1"
-            // },
-            //     {
-            //         'value': "Test2",
-            //         'type': "Test2"
-            //     }];
+            var testOptions= [{
+                'value': "Test1",
+                 'type': "Test1"
+                },
+                 {
+                     'value': "Test2",
+                     'type': "Test2"
+                 }];
 
             console.log("TESTTTT222", window.checkoutConfig);
             console.log("TESTTTT", window.checkoutConfig.payment);
-            // return testOptions;
-            return _.map(this.getStoreCard(), function(value, key) {
+            $.ajax({
+                method: "GET",
+                url: "https://api.pagandocheck.com/v1/pagando/countries/countries",
+                data: {}
+            })
+                .done(function( msg ) {
+                    console.log("AQUIIIII ENTROOOO");
+                });
+            return testOptions;
+            /**return _.map(, function(value, key) {
                 return {
                     'value': key,
                     'type': value
                 }
-            });
+            });*/
         },
     });
 });

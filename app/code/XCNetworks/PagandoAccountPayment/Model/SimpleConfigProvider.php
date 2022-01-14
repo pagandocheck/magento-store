@@ -111,7 +111,7 @@ class SimpleConfigProvider implements ConfigProviderInterface
 
           // return $countries_response;
 
-
+          $this->logger->info('AQUIIII SI IMPRIMIO ==============>>>>>...');
           $url = $this->_apiUri.$path;
 
           $headers[] = "Content-Type: application/x-www-form-urlencoded";
@@ -135,7 +135,7 @@ class SimpleConfigProvider implements ConfigProviderInterface
           curl_close($curl);
 
           $result = json_decode($response);
-          $this->logger->log(\Psr\Log\LogLevel::INFO, 'AQUIIII SI IMPRIMIO ==============>>>>>...');
+          $this->logger->info('AQUIIII SI IMPRIMIO ==============>>>>>...');
 
         // $result = array();
         // $result['0'] = "Test";
