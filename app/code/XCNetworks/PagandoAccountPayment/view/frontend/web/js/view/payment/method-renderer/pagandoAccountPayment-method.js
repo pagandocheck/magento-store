@@ -45,7 +45,15 @@
             return window.checkoutConfig.payment.pagandoAccountPayment.allowed_countries;
         },
         getCountries: function() {
-            return  window.checkoutConfig.payment.pagandoAccountPayment.countries;
+            // return  window.checkoutConfig.payment.pagandoAccountPayment.countries;
+            var testOptions= [{
+                'value': "Test1",
+                'type': "Test1"
+            },
+                {
+                    'value': "Test2",
+                    'type': "Test2"
+                }];
         },
 
         getCountriesList: function() {
@@ -55,6 +63,8 @@
                     'type': value
                 }
             });
+
+            return testOptions;
         },
 
         getStoreCard: function() {
