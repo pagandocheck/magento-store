@@ -73,14 +73,19 @@
 
             console.log("TESTTTT222", window.checkoutConfig);
             console.log("TESTTTT", window.checkoutConfig.payment);
-            $.ajax({
+            var request = $.ajax({
                 method: "GET",
-                url: "https://api.pagandocheck.com/v1/pagando/countries/countries",
+                url: "https://api.pagandocheck.com:443/v1/countries/countries",
                 data: {}
-            })
-                .done(function( msg ) {
+            });
+
+            request.done(function( msg ) {
                     console.log("AQUIIIII ENTROOOO");
-                });
+            });
+
+            request.fail(function( jqXHR, textStatus ) {
+                console.log( "Request failed: " + textStatus );
+            });
             return testOptions;
             /**return _.map(, function(value, key) {
                 return {
