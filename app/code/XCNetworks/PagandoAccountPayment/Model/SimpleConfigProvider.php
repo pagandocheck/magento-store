@@ -21,6 +21,7 @@ use XCNetworks\PagandoAccountPayment\Model\PagandoAccountPayment;
 class SimpleConfigProvider implements ConfigProviderInterface
 {
 
+    protected const API_URI = 'https://api.pagandocheck.com/v1/pagando/';
     protected $methodCode = 'pagandoAccountPayment';
     protected $_scopeConfig;
     protected $_methodInstance;
@@ -32,6 +33,8 @@ class SimpleConfigProvider implements ConfigProviderInterface
     protected $_paymentFactory;
     protected $logger;
     protected $countries;
+    protected $_apiUri = self::API_URI;
+
 
     /**
      * SimpleConfigProvider constructor.
@@ -101,20 +104,43 @@ class SimpleConfigProvider implements ConfigProviderInterface
 
      public function getCountries(){
 
-          $countries_response = $this->_paymentFactory->request('countries/countries', null, "GET");
-          if(!$countries_response->error) {
-             $this->countries = $countries_response->data;
+          // $countries_response = $this->_paymentFactory->request('countries/countries', null, "GET");
+          // if(!$countries_response->error) {
+             // $this->countries = $countries_response->data;
+          // }
+
+          // return $countries_response;
+
+
+          $url = $this->_apiUri.$path;
+
+          $headers[] = "Content-Type: application/x-www-form-urlencoded";
+
+          if(!empty($this->_checkoutSession->getToken())){
+              $headers[] = "Authorization: ".$this->_checkoutSession->getToken();
           }
 
-          return $countries_response;
+          $settings = array(
+              CURLOPT_URL => $url,
+              CURLOPT_RETURNTRANSFER => true,
+              CURLOPT_FOLLOWLOCATION => true,
+              CURLOPT_SSL_VERIFYPEER => false,
+              CURLOPT_SSL_VERIFYHOST => false,
+              CURLOPT_HTTPHEADER => $headers,
+          );
 
-        print("Hola mundo AQUIIII ESSSS");
-        \Magento\Framework\App\ObjectManager::getInstance()->get('Psr\Log\LoggerInterface')->info('AQUIIII ESSSSS');
+          $curl = curl_init();
+          curl_setopt_array($curl, $settings);
+          $response = curl_exec($curl);
+          curl_close($curl);
+
+          $result = json_decode($response);
+          $this->logger->log(\Psr\Log\LogLevel::INFO, 'AQUIIII SI IMPRIMIO ==============>>>>>...');
 
         // $result = array();
         // $result['0'] = "Test";
         // $result['1'] = "Test1";
-        // return $result;
+         return $result;
      }
 
 }
