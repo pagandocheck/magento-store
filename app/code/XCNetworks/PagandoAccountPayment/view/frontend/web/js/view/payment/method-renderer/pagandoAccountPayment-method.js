@@ -78,7 +78,7 @@
                 url: "https://api.pagandocheck.com:443/v1/countries/countries",
                 data: {}
             });
-
+            console.log("AQUIIIII ENTROOOO", request);
             request.done(function( msg ) {
                     console.log("AQUIIIII ENTROOOO");
             });
