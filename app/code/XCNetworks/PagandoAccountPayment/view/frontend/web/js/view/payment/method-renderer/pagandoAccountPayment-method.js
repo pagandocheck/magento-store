@@ -84,9 +84,11 @@
             console.log("TESTTTT11111", window.checkoutConfig);
             console.log("TESTTTT2222", window.checkoutConfig.payment);
             console.log("AQUIIIII ENTROOOO 1");
+
             var request = $.ajax({
                 method: "GET",
                 url: "https://api.pagandocheck.com:443/v1/countries/countries",
+                dataType: 'jsonp',
                 data: {}
             });
             console.log("AQUIIIII ENTROOOO", request);
