@@ -83,7 +83,7 @@
 
             console.log("TESTTTT11111", window.checkoutConfig);
             console.log("TESTTTT2222", window.checkoutConfig.payment);
-            console.log("AQUIIIII ENTROOOO 1");
+            console.log("AQUIIIII ENTROOOO 2");
 
             var request = $.ajax({
                 method: "GET",
