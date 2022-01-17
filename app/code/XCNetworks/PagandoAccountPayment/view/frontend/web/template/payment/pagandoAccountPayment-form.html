@@ -67,8 +67,8 @@
                     <select name="card_country" id="card_country"
                             data-bind="
                                     options: getCountriesList(),
-                                    optionsValue: 'value',
-                                    optionsText: 'type',
+                                    optionsValue: 'isoCode',
+                                    optionsText: 'name',
                                     optionsCaption: $t('--Please Select--'),
                                     ">
                     </select>
@@ -76,8 +76,8 @@
                             data-bind="
                                     attr: {id: getCode()+'_payment_profile_id'},
                                     options: getCardList(),
-                                    optionsValue: 'value',
-                                    optionsText: 'type',
+                                    optionsValue: 'isoCode',
+                                    optionsText: 'name',
                                     optionsCaption: $t('--Please Select--'),
                                     ">
                     </select>
