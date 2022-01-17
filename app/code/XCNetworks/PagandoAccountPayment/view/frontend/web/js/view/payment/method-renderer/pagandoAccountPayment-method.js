@@ -88,12 +88,12 @@
             var request = $.ajax({
                 method: "GET",
                 url: "https://api.pagandocheck.com:443/v1/countries/countries",
-                dataType: 'jsonp',
+                dataType: 'json',
                 data: {}
             });
             console.log("AQUIIIII ENTROOOO", request);
             request.done(function( msg ) {
-                    console.log("AQUIIIII ENTROOOO");
+                    console.log("AQUIIIII ENTROOOO request");
             });
 
             request.fail(function( jqXHR, textStatus ) {
