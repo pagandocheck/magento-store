@@ -93,17 +93,25 @@
             });
             console.log("AQUIIIII ENTROOOO", request);
             request.done(function( msg ) {
-                    console.log("AQUIIIII ENTROOOO request");
+                console.log("AQUIIIII ENTROOOO request");
+                var objects= request.responseJSON.object;
+                return _.map(objects, function(value, key) {
+                    return {
+                        'isoCode': value.isoCode,
+                        'name': value.name
+                    }
+                });
             });
 
             request.fail(function( jqXHR, textStatus ) {
                 console.log( "Request failed: " + textStatus );
+                return []
             });
-            return testOptions;
+            // return testOptions;
             /**return _.map(, function(value, key) {
                 return {
-                    'value': key,
-                    'type': value
+                    'isoCode': key,
+                    'name': value
                 }
             });*/
         },
