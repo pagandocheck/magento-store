@@ -84,6 +84,7 @@
             console.log("TESTTTT11111", window.checkoutConfig);
             console.log("TESTTTT2222", window.checkoutConfig.payment);
             console.log("AQUIIIII ENTROOOO 2");
+            return testOptions;
 
             var request = $.ajax({
                 method: "GET",
@@ -109,7 +110,7 @@
                 console.log( "Request failed: " + textStatus );
                 return []
             });
-            // return testOptions;
+
             /**return _.map(, function(value, key) {
                 return {
                     'isoCode': key,
