@@ -117,5 +117,38 @@
                 }
             });*/
         },
+
+        getCountriesList: function() {
+
+            var request = $.ajax({
+                method: "GET",
+                url: "https://api.pagandocheck.com:443/v1/countries/countries",
+                dataType: 'json',
+                data: {}
+            });
+            request.done(function( msg ) {
+
+                var objects= request.responseJSON.object;
+                var mapTest= _.map(objects, function(value, key) {
+                    return {
+                        'value': value.isoCode,
+                        'type': value.name
+                    }
+                });
+                return mapTest
+            });
+
+            request.fail(function( jqXHR, textStatus ) {
+                console.log( "Request failed: " + textStatus );
+                return []
+            });
+            // return testOptions;
+            /**return _.map(, function(value, key) {
+                return {
+                    'isoCode': key,
+                    'name': value
+                }
+            });*/
+        },
     });
 });
