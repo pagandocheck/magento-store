@@ -83,7 +83,7 @@
 
             console.log("TESTTTT11111", window.checkoutConfig);
             console.log("TESTTTT2222", window.checkoutConfig.payment);
-            console.log("AQUIIIII ENTROOOO 2");
+            console.log("AQUIIIII ENTROOOO 2" , testOptions);
             return testOptions;
 
             var request = $.ajax({
@@ -136,6 +136,7 @@
                         'type': value.name
                     }
                 });
+                console.log("MAPTEST", mapTest);
                 return mapTest
             });
 
