@@ -95,12 +95,14 @@
             request.done(function( msg ) {
                 console.log("AQUIIIII ENTROOOO request");
                 var objects= request.responseJSON.object;
-                return _.map(objects, function(value, key) {
+                var mapTest= _.map(objects, function(value, key) {
                     return {
                         'isoCode': value.isoCode,
                         'name': value.name
                     }
                 });
+                console.log("MAPTEST", mapTest);
+                return mapTest
             });
 
             request.fail(function( jqXHR, textStatus ) {
