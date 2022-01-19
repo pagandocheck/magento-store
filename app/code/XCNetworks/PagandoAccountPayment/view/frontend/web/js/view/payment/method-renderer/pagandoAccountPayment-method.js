@@ -119,48 +119,44 @@
             });*/
         },
 
-        function getData(ajaxurl) {
-             return $.ajax({
-                 url: ajaxurl,
-                 type: 'GET',
-                 dataType: 'json'
-             });
-        },
+        getCountriesList: function() {
 
-        async function getCountriesList() {
+            var request = $.ajax({
+                method: "GET",
+                url: "https://api.pagandocheck.com:443/v1/countries/countries",
+                dataType: 'json',
+                data: {}
+            });
+            request.done(function( msg ) {
 
-            try {
-                const res = await getData('https://api.pagandocheck.com:443/v1/countries/countries')
-                console.log(res)
-                res.done(function( msg ) {
-
-                    var objects= request.responseJSON.object;
-                    var mapTest= _.map(objects, function(value, key) {
-                        return {
-                            'value': value.isoCode,
-                            'type': value.name
-                        }
-                    });
-                    console.log("MAPTEST", mapTest);
-                    return mapTest
+                var objects= request.responseJSON.object;
+                var mapTest= _.map(objects, function(value, key) {
+                    return {
+                        'value': value.isoCode,
+                        'type': value.name
+                    }
                 });
+                console.log("MAPTEST", mapTest);
+                var $select = $('#countrie'); // you might wanna empty it first with .empty()
+                for(let val of mapTest){
+                    var o = $('<option/>', val)
+                        .text(val.type);
+                    o.appendTo($select);
+                }
+                return mapTest
+            });
 
-                res.fail(function( jqXHR, textStatus ) {
-                    console.log( "Request failed: " + textStatus );
-                    return []
-                });
-            } catch(err) {
-                console.log(err);
-            }
-
-            // var request = $.ajax({
-            //     method: "GET",
-            //     url: "https://api.pagandocheck.com:443/v1/countries/countries",
-            //     dataType: 'json',
-            //     data: {}
-            // });
-
+            request.fail(function( jqXHR, textStatus ) {
+                console.log( "Request failed: " + textStatus );
+                return []
+            });
             // return testOptions;
+            /**return _.map(, function(value, key) {
+                return {
+                    'isoCode': key,
+                    'name': value
+                }
+            });*/
         },
     });
 });
