@@ -81,8 +81,8 @@
                      'type': "Test2"
                  }];
 
-            console.log("TESTTTT11111", window.checkoutConfig);
-            console.log("TESTTTT2222", window.checkoutConfig.payment);
+            // console.log("TESTTTT11111", window.checkoutConfig);
+            // console.log("TESTTTT2222", window.checkoutConfig.payment);
             console.log("AQUIIIII ENTROOOO 2" , testOptions);
             return testOptions;
 
@@ -129,7 +129,7 @@
             });
             request.done(function( msg ) {
 
-                var objects= request.responseJSON.object[0];
+                var objects= request.responseJSON.object;
                 var mapTest= _.map(objects, function(value, key) {
                     return {
                         'value': value.isoCode,
