@@ -129,8 +129,7 @@
             });
             request.done(function( msg ) {
 
-                var objects= request.responseJSON.object.get(0);
-                var arrTest= [];
+                var objects= request.responseJSON.object[0];
                 var mapTest= _.map(objects, function(value, key) {
                     return {
                         'value': value.isoCode,
