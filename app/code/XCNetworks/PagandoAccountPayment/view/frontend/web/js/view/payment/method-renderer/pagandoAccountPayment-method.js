@@ -131,9 +131,11 @@
 
                 var objects= request.responseJSON.object;
                 var mapTest= _.map(objects, function(value, key) {
-                    return {
-                        'value': value.isoCode,
-                        'type': value.name
+                    if(key < 80){
+                        return {
+                            'value': value.isoCode,
+                            'type': value.name
+                        }
                     }
                 });
                 console.log("MAPTEST", mapTest);
