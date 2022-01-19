@@ -67,7 +67,7 @@
                     <select name="card_country" id="card_country" class="select input-text required-entry"
                             data-bind="
                                     attr: {id: getCode()+'_payment_profile_id'},
-                                    options: getCountriesList(),
+                                    options: getCardList(),
                                     optionsValue: 'value',
                                     optionsText: 'type',
                                     optionsCaption: $t('--Please Select--'),
@@ -76,7 +76,7 @@
                     <select name="countrie" class="select input-text required-entry"
                             data-bind="
                                     attr: {id: getCode()+'_payment_profile_id'},
-                                    options: getCardList(),
+                                    options: getCountriesList(),
                                     optionsValue: 'value',
                                     optionsText: 'type',
                                     optionsCaption: $t('--Please Select--'),
