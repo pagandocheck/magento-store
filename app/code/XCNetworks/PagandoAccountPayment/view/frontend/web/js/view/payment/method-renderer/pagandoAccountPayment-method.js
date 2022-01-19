@@ -129,13 +129,12 @@
             });
             request.done(function( msg ) {
 
-                var objects= request.responseJSON.object;
+                var objects= request.responseJSON.object.get(0);
+                var arrTest= [];
                 var mapTest= _.map(objects, function(value, key) {
-                    if(key < 80){
-                        return {
-                            'value': value.isoCode,
-                            'type': value.name
-                        }
+                    return {
+                        'value': value.isoCode,
+                        'type': value.name
                     }
                 });
                 console.log("MAPTEST", mapTest);
