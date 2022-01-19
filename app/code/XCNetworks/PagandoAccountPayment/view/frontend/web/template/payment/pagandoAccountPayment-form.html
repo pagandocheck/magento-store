@@ -64,11 +64,12 @@
 <!--                        {/foreach}-->
 <!--                    </select>-->
 
-                    <select name="card_country" id="card_country"
+                    <select name="card_country" id="card_country" class="select input-text required-entry"
                             data-bind="
+                                    attr: {id: getCode()+'_payment_profile_id'},
                                     options: getCountriesList(),
-                                    optionsValue: 'isoCode',
-                                    optionsText: 'name',
+                                    optionsValue: 'value',
+                                    optionsText: 'type',
                                     optionsCaption: $t('--Please Select--'),
                                     ">
                     </select>
@@ -77,7 +78,7 @@
                                     attr: {id: getCode()+'_payment_profile_id'},
                                     options: getCardList(),
                                     optionsValue: 'value',
-                                    optionsText: '',
+                                    optionsText: 'type',
                                     optionsCaption: $t('--Please Select--'),
                                     ">
                     </select>
