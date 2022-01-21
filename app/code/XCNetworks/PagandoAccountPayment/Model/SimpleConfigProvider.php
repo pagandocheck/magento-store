@@ -35,6 +35,9 @@ class SimpleConfigProvider implements ConfigProviderInterface
     protected $countries;
     protected $_apiUri = self::API_URI;
 
+    public $error_msg, $error, $id, $token;
+    protected $api_user, $api_pass;
+
 
     /**
      * SimpleConfigProvider constructor.
@@ -66,6 +69,8 @@ class SimpleConfigProvider implements ConfigProviderInterface
         $this->_productMetaData = $productMetadata;
         $this->_paymentFactory = $paymentFactory;
         $this->logger = $customLogger;
+        $this->api_user = $this->_scopeConfig->getValue('payment/pagandoAccountPayment/user', \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
+        $this->api_pass = $this->_scopeConfig->getValue('payment/pagandoAccountPayment/public_key', \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
 
     }
 
@@ -90,7 +95,8 @@ class SimpleConfigProvider implements ConfigProviderInterface
                 $data = [
                     'payment' => [
                         $this->methodCode => [
-                            'storedCards' => $this->getStoredCards()
+                            'storedCards' => $this->getStoredCards(),
+                            'getToken' => $this->getToken()
                         ],
                     ],
                 ];
@@ -100,6 +106,16 @@ class SimpleConfigProvider implements ConfigProviderInterface
                 return [];
             }
         }
+
+    function getToken(){
+        $jwt_token = $this->paymentFactory->getToken();
+
+        if($jwt_token->error){
+            $this->redirectError($this->paymentFactory->error_msg);
+        }
+
+        return $jwt_token;
+    }
 
 
 }
