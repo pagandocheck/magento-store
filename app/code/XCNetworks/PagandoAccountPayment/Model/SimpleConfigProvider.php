@@ -111,7 +111,8 @@ class SimpleConfigProvider implements ConfigProviderInterface
         $jwt_token = $this->paymentFactory->getToken();
 
         if($jwt_token->error){
-            $this->redirectError($this->paymentFactory->error_msg);
+            $jwt_token = $jwt_token->error;
+            // $this->redirectError($this->paymentFactory->error_msg);
         }
 
         return $jwt_token;
