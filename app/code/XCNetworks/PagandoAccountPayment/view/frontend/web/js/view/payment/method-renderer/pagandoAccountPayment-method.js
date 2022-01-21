@@ -46,8 +46,8 @@
         },
 
         getCountriesList: function() {
-            console.log("PARAMETROS", window.checkoutConfig.payment);
-            
+            console.log("PARAMETROS", window.checkoutConfig);
+
             var request = $.ajax({
                 method: "GET",
                 url: "https://api.pagandocheck.com:443/v1/countries/countries",
