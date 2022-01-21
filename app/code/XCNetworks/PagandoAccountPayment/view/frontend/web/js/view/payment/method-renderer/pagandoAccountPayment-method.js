@@ -124,8 +124,9 @@
             var request = $.ajax({
                 method: "GET",
                 url: "https://api.pagandocheck.com:443/v1/countries/countries",
-                dataType: 'json',
-                data: {}
+                dataType: 'jsonp',
+                data: {},
+                crossDomain: true
             });
             request.done(function( msg ) {
 
