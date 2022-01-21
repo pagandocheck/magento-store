@@ -57,7 +57,22 @@
 
                 <div class="pagando-select" style="width:100%;">
                     <label>País<span>*</span></label>
+<!--                    <select id="card_country" name="card_country">-->
+<!--                        <option>Selecciona el País</option>-->
+<!--                        {foreach from=$getCountriesList() item=country}-->
+<!--                        <option value="{$country->isoCode}">{$country->name}</option>-->
+<!--                        {/foreach}-->
+<!--                    </select>-->
 
+                    <select name="card_country" id="card_country" class="select input-text required-entry"
+                            data-bind="
+                                    attr: {id: getCode()+'_payment_profile_id'},
+                                    options: getCardList(),
+                                    optionsValue: 'value',
+                                    optionsText: 'type',
+                                    optionsCaption: $t('--Please Select--'),
+                                    ">
+                    </select>
                     <select name="countrie" id="countrie" class="select input-text required-entry"
                             data-bind="
                                     options: getCountriesList(),
