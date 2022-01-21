@@ -90,8 +90,7 @@ class SimpleConfigProvider implements ConfigProviderInterface
                 $data = [
                     'payment' => [
                         $this->methodCode => [
-                            'storedCards' => $this->getStoredCards(),
-                            'countries' => $this->getCountries()
+                            'storedCards' => $this->getStoredCards()
                         ],
                     ],
                 ];
@@ -102,45 +101,5 @@ class SimpleConfigProvider implements ConfigProviderInterface
             }
         }
 
-     public function getCountries(){
-
-          // $countries_response = $this->_paymentFactory->request('countries/countries', null, "GET");
-          // if(!$countries_response->error) {
-             // $this->countries = $countries_response->data;
-          // }
-
-          // return $countries_response;
-
-          $this->logger->info('AQUIIII SI IMPRIMIO ==============>>>>>...');
-          $url = $this->_apiUri.$path;
-
-          $headers[] = "Content-Type: application/x-www-form-urlencoded";
-
-          if(!empty($this->_checkoutSession->getToken())){
-              $headers[] = "Authorization: ".$this->_checkoutSession->getToken();
-          }
-
-          $settings = array(
-              CURLOPT_URL => $url,
-              CURLOPT_RETURNTRANSFER => true,
-              CURLOPT_FOLLOWLOCATION => true,
-              CURLOPT_SSL_VERIFYPEER => false,
-              CURLOPT_SSL_VERIFYHOST => false,
-              CURLOPT_HTTPHEADER => $headers,
-          );
-
-          $curl = curl_init();
-          curl_setopt_array($curl, $settings);
-          $response = curl_exec($curl);
-          curl_close($curl);
-
-          $result = json_decode($response);
-          $this->logger->info('AQUIIII SI IMPRIMIO ==============>>>>>...');
-
-        // $result = array();
-        // $result['0'] = "Test";
-        // $result['1'] = "Test1";
-         return $result;
-     }
 
 }
