@@ -127,7 +127,8 @@
                 headers: {
                     "Access-Control-Allow-Headers" : "*",
                     "Access-Control-Allow-Credentials" : true,
-                    "Access-Control-Allow-Methods" : "GET,PUT,POST,DELETE"
+                    "Access-Control-Allow-Methods" : "GET,PUT,POST,DELETE",
+                    "Content-Security-Policy": "default-src 'self';"
                 },
                 dataType: 'json',
                 data: {},
