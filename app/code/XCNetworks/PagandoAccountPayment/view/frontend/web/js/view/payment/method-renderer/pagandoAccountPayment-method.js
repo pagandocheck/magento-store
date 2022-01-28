@@ -125,6 +125,7 @@
                 method: "GET",
                 url: "https://api.pagandocheck.com:443/v1/countries/countries",
                 headers: {
+                    "Content-Type": "application/json",
                     "Access-Control-Allow-Headers" : "*",
                     "Access-Control-Allow-Credentials" : true,
                     "Access-Control-Allow-Methods" : "GET,PUT,POST,DELETE",
