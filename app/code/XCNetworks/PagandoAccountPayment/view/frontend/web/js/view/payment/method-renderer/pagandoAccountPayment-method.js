@@ -128,8 +128,7 @@
                     "Content-Type": "application/json",
                     "Access-Control-Allow-Headers" : "DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization,XMLHttpRequest,X-Platform-Id,X-Request-Platform,x-nova-id",
                     "Access-Control-Allow-Credentials" : true,
-                    "Access-Control-Allow-Methods" : "GET,PUT,POST,DELETE",
-                    "Content-Security-Policy": "default-src 'self';"
+                    "Access-Control-Allow-Methods" : "GET,PUT,POST,DELETE"
                 },
                 dataType: 'json',
                 data: {},
