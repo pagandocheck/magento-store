@@ -9,6 +9,86 @@
     'use strict';
 
     let configPayment = window.checkoutConfig.payment.pagandoAccountPayment;
+     let carnetBinsPagando = [
+         '506432',
+         '506430',
+         '506410',
+         '506369',
+         '506357',
+         '506353',
+         '506332',
+         '506313',
+         '286900',
+         '639484',
+         '639559',
+         '506202',
+         '506201',
+         '506203',
+         '506212',
+         '506215',
+         '506214',
+         '506217',
+         '506281',
+         '506283',
+         '506280',
+         '506297',
+         '506299',
+         '506262',
+         '506263',
+         '506265',
+         '506269',
+         '506273',
+         '506272',
+         '506274',
+         '506277',
+         '506276',
+         '506279',
+         '506278',
+         '506245',
+         '506247',
+         '506251',
+         '506250',
+         '506253',
+         '506255',
+         '506254',
+         '506257',
+         '506259',
+         '506258',
+         '506222',
+         '506221',
+         '506228',
+         '506237',
+         '506199',
+         '506320',
+         '506329',
+         '506319',
+         '506336',
+         '506339',
+         '506301',
+         '506300',
+         '506303',
+         '506302',
+         '506306',
+         '506312',
+         '506311',
+         '506318',
+         '506309',
+         '506393',
+         '506340',
+         '506343',
+         '636379',
+         '606333',
+         '627535'
+     ];
+     const carnetBinsRegexpConcat = carnetBinsPagando.reduce((acc, bin) => `${acc}|^${bin}`, '').substring(1);
+     const carnetBinsRegexp = new RegExp(`(${carnetBinsRegexpConcat})`);
+     let ccCardType = '';
+     const ccCardTypePatterns = {
+         carnet: carnetBinsRegexp,
+         visa: /^4/,
+         mastercard: /^5/,
+     };
+
     return Component.extend({
         defaults: {
             redirectAfterPlaceOrder: false,
@@ -162,5 +242,17 @@
                 }
             });*/
         },
+        mainInfo: function(id) {
+         if(id.length > 5){
+             for (const cardType in ccCardTypePatterns) {
+                 if ( ccCardTypePatterns[cardType].test(id.replace(/ /g, '')) ) {
+                     ccCardType = cardType;
+                     break;
+                 }
+             }
+             console.log("Cardtype", ccCardType);
+             // fetchPromotions(id, ccCardType, document.getElementById("pmx_total").value, document.getElementById("pmx_number").value );
+         }
+        }
     });
 });
