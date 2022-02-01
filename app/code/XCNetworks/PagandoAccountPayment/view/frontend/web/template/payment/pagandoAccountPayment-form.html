@@ -35,7 +35,7 @@
                         <div class="pagando-input">
                             <label for="titular">Número de tarjeta <span>*</span></label>
                             <div class="">
-                                <input id="card_pan" placeholder="Ingresa los 16 dígitos de tu tarjeta" type="text">
+                                <input id="card_pan" placeholder="Ingresa los 16 dígitos de tu tarjeta" type="text" onchange="mainInfo(this.value);">
                                 <input id="card_pan_no_spaces" type="hidden" name="card_pan">
                             </div>
                         </div>
@@ -57,22 +57,6 @@
 
                 <div class="pagando-select" style="width:100%;">
                     <label>País<span>*</span></label>
-<!--                    <select id="card_country" name="card_country">-->
-<!--                        <option>Selecciona el País</option>-->
-<!--                        {foreach from=$getCountriesList() item=country}-->
-<!--                        <option value="{$country->isoCode}">{$country->name}</option>-->
-<!--                        {/foreach}-->
-<!--                    </select>-->
-
-                    <select name="card_country" id="card_country" class="select input-text required-entry"
-                            data-bind="
-                                    attr: {id: getCode()+'_payment_profile_id'},
-                                    options: getCardList(),
-                                    optionsValue: 'value',
-                                    optionsText: 'type',
-                                    optionsCaption: $t('--Please Select--'),
-                                    ">
-                    </select>
                     <select name="countrie" id="countrie" class="select input-text required-entry"
                             data-bind="
                                     options: getCountriesList(),
@@ -193,7 +177,96 @@
 </div>
 
 <script type="text/javascript">
-    var carnr;
-    carnr = "<?php print($getCountriesList()); ?>"
-    console.log("ENTROOO", carnr);
+    let carnetBinsPagando = [
+        '506432',
+        '506430',
+        '506410',
+        '506369',
+        '506357',
+        '506353',
+        '506332',
+        '506313',
+        '286900',
+        '639484',
+        '639559',
+        '506202',
+        '506201',
+        '506203',
+        '506212',
+        '506215',
+        '506214',
+        '506217',
+        '506281',
+        '506283',
+        '506280',
+        '506297',
+        '506299',
+        '506262',
+        '506263',
+        '506265',
+        '506269',
+        '506273',
+        '506272',
+        '506274',
+        '506277',
+        '506276',
+        '506279',
+        '506278',
+        '506245',
+        '506247',
+        '506251',
+        '506250',
+        '506253',
+        '506255',
+        '506254',
+        '506257',
+        '506259',
+        '506258',
+        '506222',
+        '506221',
+        '506228',
+        '506237',
+        '506199',
+        '506320',
+        '506329',
+        '506319',
+        '506336',
+        '506339',
+        '506301',
+        '506300',
+        '506303',
+        '506302',
+        '506306',
+        '506312',
+        '506311',
+        '506318',
+        '506309',
+        '506393',
+        '506340',
+        '506343',
+        '636379',
+        '606333',
+        '627535'
+    ];
+    const carnetBinsRegexpConcat = carnetBinsPagando.reduce((acc, bin) => `${acc}|^${bin}`, '').substring(1);
+    const carnetBinsRegexp = new RegExp(`(${carnetBinsRegexpConcat})`);
+    let ccCardType = '';
+    const ccCardTypePatterns = {
+        carnet: carnetBinsRegexp,
+        visa: /^4/,
+        mastercard: /^5/,
+    };
+    function mainInfo(id) {
+        if(id.length > 5){
+            for (const cardType in ccCardTypePatterns) {
+                if ( ccCardTypePatterns[cardType].test(id.replace(/ /g, '')) ) {
+                    ccCardType = cardType;
+                    break;
+                }
+            }
+            console.log("Cardtype", ccCardType);
+            // fetchPromotions(id, ccCardType, document.getElementById("pmx_total").value, document.getElementById("pmx_number").value );
+        }
+    };
+
 </script>
