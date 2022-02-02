@@ -89,11 +89,9 @@
          mastercard: /^5/,
      };
 
-     $("#card_pan").change(function() {
-         // Do whatever you need to do on actual change of the value of the input field
-
+     $("#card_pan").on('change', function(e){
+         console.log("ENTROOOO al change", ccCardTypePatterns);
      });
-     console.log("ENTROOOO", ccCardTypePatterns);
 
     return Component.extend({
         defaults: {
