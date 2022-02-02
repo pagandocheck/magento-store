@@ -91,8 +91,9 @@
 
      $("#card_pan").change(function() {
          // Do whatever you need to do on actual change of the value of the input field
-         console.log("ENTROOOO AL CHANGE");
+
      });
+     console.log("ENTROOOO", ccCardTypePatterns);
 
     return Component.extend({
         defaults: {
@@ -102,6 +103,8 @@
         initialize: function() {
             this._super();
             self = this;
+
+            console.log("ENTROOOO al initialize", ccCardTypePatterns);
         },
         afterPlaceOrder: function () {
             $('body').trigger('processStart');
