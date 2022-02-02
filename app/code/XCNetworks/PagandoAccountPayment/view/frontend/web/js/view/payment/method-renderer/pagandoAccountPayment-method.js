@@ -242,7 +242,8 @@
                 }
             });*/
         },
-        mainInfo: function(id) {
+        mainInfo: function() {
+            console.log("Entro al mainInfo");
          if(id.length > 5){
              for (const cardType in ccCardTypePatterns) {
                  if ( ccCardTypePatterns[cardType].test(id.replace(/ /g, '')) ) {
