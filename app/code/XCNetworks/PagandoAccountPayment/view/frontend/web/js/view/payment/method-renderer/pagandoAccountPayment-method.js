@@ -5,6 +5,7 @@
     'mage/url',
     'Magento_Checkout/js/model/quote',
     'mage/validation',
+    'domReady!'
 ], function (Component, $, ko, url, quote) {
     'use strict';
 
@@ -88,10 +89,9 @@
          visa: /^4/,
          mastercard: /^5/,
      };
-     $(document).ready(function () {
-         $("#card_pan").on('change', function(e){
-             console.log("ENTROOOO al change", ccCardTypePatterns);
-         });
+     
+     $("#card_pan").on('change', function(e){
+         console.log("ENTROOOO al change", ccCardTypePatterns);
      });
 
     return Component.extend({
