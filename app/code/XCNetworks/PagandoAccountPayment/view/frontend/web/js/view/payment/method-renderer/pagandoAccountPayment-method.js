@@ -89,6 +89,11 @@
          mastercard: /^5/,
      };
 
+     $("#card_pan").change(function() {
+         // Do whatever you need to do on actual change of the value of the input field
+         console.log("ENTROOOO AL CHANGE");
+     });
+
     return Component.extend({
         defaults: {
             redirectAfterPlaceOrder: false,
