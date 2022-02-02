@@ -89,7 +89,7 @@
          visa: /^4/,
          mastercard: /^5/,
      };
-     
+
      $("#card_pan").on('change', function(e){
          console.log("ENTROOOO al change", ccCardTypePatterns);
      });
