@@ -249,7 +249,7 @@
                 }
             });*/
         },
-        mainInfo: function() {
+        mainInfo: function(val) {
             console.log("Entro al mainInfo");
          if(id.length > 5){
              for (const cardType in ccCardTypePatterns) {
