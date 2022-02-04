@@ -249,6 +249,9 @@
                 }
             });*/
         },
+        myFunction: function(data, event) {
+            console.log("Entroooo", data);
+        },
         mainInfo: function(val) {
             console.log("Entro al mainInfo");
          if(id.length > 5){
