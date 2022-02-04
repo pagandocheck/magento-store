@@ -250,8 +250,11 @@
             });*/
         },
         myFunction: function(data, event) {
-            console.log("Entroooo1", event);
-            console.log("Entroooo 2", data);
+            var number = document.getElementById("card_pan").value;
+            console.log("Entroooo1", number);
+            var ccNumberInput = document.querySelector('#card_pan');
+            console.log("ENTROOO 2", ccNumberInput);
+
         },
         mainInfo: function(val) {
             console.log("Entro al mainInfo");
