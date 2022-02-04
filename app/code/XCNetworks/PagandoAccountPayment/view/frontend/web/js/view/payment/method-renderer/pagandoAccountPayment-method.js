@@ -250,7 +250,7 @@
             });*/
         },
         myFunction: function(data, event) {
-            console.log("Entroooo", data);
+            console.log("Entroooo", event);
         },
         mainInfo: function(val) {
             console.log("Entro al mainInfo");
