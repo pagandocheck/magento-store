@@ -250,10 +250,10 @@
             });*/
         },
         myFunction: function(data, event) {
-            var number = document.getElementById("card_pan").value;
-            console.log("Entroooo1", number);
-            var ccNumberInput = document.querySelector('#card_pan');
-            console.log("ENTROOO 2", ccNumberInput);
+            // var number = document.getElementById("card_pan").value;
+            console.log("Entroooo1", data);
+            // var ccNumberInput = document.querySelector('#card_pan');
+            console.log("ENTROOO 2", event);
 
         },
         mainInfo: function(val) {
