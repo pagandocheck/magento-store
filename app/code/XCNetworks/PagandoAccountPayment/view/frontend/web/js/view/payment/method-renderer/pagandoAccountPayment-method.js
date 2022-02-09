@@ -94,6 +94,8 @@
          console.log("ENTROOOO al change", ccCardTypePatterns);
      });
 
+     let cardPan= '';
+
     return Component.extend({
         defaults: {
             redirectAfterPlaceOrder: false,
@@ -254,6 +256,8 @@
             console.log("Entroooo1", data);
             // var ccNumberInput = document.querySelector('#card_pan');
             console.log("ENTROOO 2", event);
+            cardPan= cardPan + event.key;
+            document.getElementById("card_pan").value = cardPan;
 
         },
         mainInfo: function(val) {
