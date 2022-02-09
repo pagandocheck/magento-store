@@ -258,6 +258,16 @@
             console.log("ENTROOO 2", event);
             cardPan= cardPan + event.key;
             document.getElementById("card_pan").value = cardPan;
+            if(cardPan.length > 5){
+                for (const cardType in ccCardTypePatterns) {
+                    if ( ccCardTypePatterns[cardType].test(id.replace(/ /g, '')) ) {
+                        ccCardType = cardType;
+                        break;
+                    }
+                }
+                console.log("Cardtype", ccCardType);
+                // fetchPromotions(id, ccCardType, document.getElementById("pmx_total").value, document.getElementById("pmx_number").value );
+            }
 
         },
         mainInfo: function(val) {
