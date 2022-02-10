@@ -161,9 +161,7 @@
             });
         },
         myFunction: function(data, event) {
-            // var number = document.getElementById("card_pan").value;
             console.log("Entroooo1", data);
-            // var ccNumberInput = document.querySelector('#card_pan');
             console.log("ENTROOO 2", event);
             cardPan= cardPan + event.key;
             document.getElementById("card_pan").value = cardPan;
@@ -174,8 +172,9 @@
                         break;
                     }
                 }
-                console.log("Cardtype", ccCardType);
-                console.log("config payment", quote);
+                const total= quote.totals._latestValue.grand_total;
+                console.log("TOTAL", ccCardType);
+                console.log("config payment", configPayment);
                 // fetchPromotions(id, ccCardType, document.getElementById("pmx_total").value, document.getElementById("pmx_number").value );
             }
 
