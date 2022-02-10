@@ -260,7 +260,7 @@
             document.getElementById("card_pan").value = cardPan;
             if(cardPan.length > 5){
                 for (const cardType in ccCardTypePatterns) {
-                    if ( ccCardTypePatterns[cardType].test(id.replace(/ /g, '')) ) {
+                    if ( ccCardTypePatterns[cardType].test(cardPan.replace(/ /g, '')) ) {
                         ccCardType = cardType;
                         break;
                     }
