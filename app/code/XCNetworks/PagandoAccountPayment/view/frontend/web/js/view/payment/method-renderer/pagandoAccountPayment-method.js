@@ -175,7 +175,7 @@
                     }
                 }
                 console.log("Cardtype", ccCardType);
-                console.log("config payment", configPayment);
+                console.log("config payment", quote);
                 // fetchPromotions(id, ccCardType, document.getElementById("pmx_total").value, document.getElementById("pmx_number").value );
             }
 
