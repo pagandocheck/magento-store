@@ -88,7 +88,7 @@ class SimpleConfigProvider implements ConfigProviderInterface
                 $data = [
                     'payment' => [
                         $this->methodCode => [
-                            'getToken' => 'token'
+                            'getToken' => $this->_paymentFactory->getToken()
                         ],
                     ],
                 ];
