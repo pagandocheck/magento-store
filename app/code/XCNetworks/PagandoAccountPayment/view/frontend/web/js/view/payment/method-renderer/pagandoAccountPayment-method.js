@@ -174,7 +174,7 @@
                 }
                 const total= quote.totals._latestValue.grand_total;
                 console.log("TOTAL", ccCardType);
-                console.log("config payment", configPayment);
+                console.log("config payment", window.checkoutConfig.payment);
                 // fetchPromotions(id, ccCardType, document.getElementById("pmx_total").value, document.getElementById("pmx_number").value );
             }
 
