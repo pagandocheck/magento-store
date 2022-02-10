@@ -74,13 +74,6 @@ class SimpleConfigProvider implements ConfigProviderInterface
 
     }
 
-    public function getStoredCards(){
-      $result = array();
-      $result['0'] = "Test";
-      $result['1'] = "Test1";
-      return $result;
-    }
-
     /**
      * @return array
      */
@@ -95,7 +88,7 @@ class SimpleConfigProvider implements ConfigProviderInterface
                 $data = [
                     'payment' => [
                         $this->methodCode => [
-                            'storedCards' => $this->getStoredCards()
+
                         ],
                     ],
                 ];
@@ -105,17 +98,6 @@ class SimpleConfigProvider implements ConfigProviderInterface
                 return [];
             }
         }
-
-    /** function getToken(){
-        $jwt_token = $this->paymentFactory->getToken();
-
-        if($jwt_token->error){
-            $jwt_token = $jwt_token->error;
-            // $this->redirectError($this->paymentFactory->error_msg);
-        }
-
-        return $jwt_token;
-    }*/
 
 
 }

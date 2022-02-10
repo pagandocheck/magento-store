@@ -90,10 +90,6 @@
          mastercard: /^5/,
      };
 
-     $("#card_pan").on('change', function(e){
-         console.log("ENTROOOO al change", ccCardTypePatterns);
-     });
-
      let cardPan= '';
 
     return Component.extend({
@@ -104,8 +100,6 @@
         initialize: function() {
             this._super();
             self = this;
-
-            console.log("ENTROOOO al initialize", ccCardTypePatterns);
         },
         afterPlaceOrder: function () {
             $('body').trigger('processStart');
@@ -130,84 +124,6 @@
 
             return true;
         },
-        getAllowedCountries: function() {
-            return window.checkoutConfig.payment.pagandoAccountPayment.allowed_countries;
-        },
-        getCountries: function() {
-            // return  window.checkoutConfig.payment.pagandoAccountPayment.countries;
-            var testOptions= [{
-                'value': "Test1",
-                'type': "Test1"
-            },
-                {
-                    'value': "Test2",
-                    'type': "Test2"
-                }];
-        },
-
-        getCountriesList: function() {
-            return _.map(this.getCountries(), function(value, key) {
-                return {
-                    'value': key,
-                    'type': value
-                }
-            });
-
-            return testOptions;
-        },
-
-        getStoreCard: function() {
-            return  window.checkoutConfig.payment.pagandoAccountPayment.storedCards;
-        },
-
-        getCardList: function() {
-            var testOptions= [{
-                'value': "Test1",
-                 'type': "Test1"
-                },
-                 {
-                     'value': "Test2",
-                     'type': "Test2"
-                 }];
-
-            // console.log("TESTTTT11111", window.checkoutConfig);
-            // console.log("TESTTTT2222", window.checkoutConfig.payment);
-            console.log("AQUIIIII ENTROOOO 2" , testOptions);
-            return testOptions;
-
-            var request = $.ajax({
-                method: "GET",
-                url: "https://api.pagandocheck.com:443/v1/countries/countries",
-                dataType: 'json',
-                data: {}
-            });
-            console.log("AQUIIIII ENTROOOO", request);
-            request.done(function( msg ) {
-                console.log("AQUIIIII ENTROOOO request");
-                var objects= request.responseJSON.object;
-                var mapTest= _.map(objects, function(value, key) {
-                    return {
-                        'isoCode': value.isoCode,
-                        'name': value.name
-                    }
-                });
-                console.log("MAPTEST", mapTest);
-                return mapTest
-            });
-
-            request.fail(function( jqXHR, textStatus ) {
-                console.log( "Request failed: " + textStatus );
-                return []
-            });
-
-            /**return _.map(, function(value, key) {
-                return {
-                    'isoCode': key,
-                    'name': value
-                }
-            });*/
-        },
-
         getCountriesList: function() {
 
             var request = $.ajax({
@@ -243,13 +159,6 @@
                 console.log( "Request failed: " + textStatus );
                 return []
             });
-            // return testOptions;
-            /**return _.map(, function(value, key) {
-                return {
-                    'isoCode': key,
-                    'name': value
-                }
-            });*/
         },
         myFunction: function(data, event) {
             // var number = document.getElementById("card_pan").value;
@@ -266,22 +175,10 @@
                     }
                 }
                 console.log("Cardtype", ccCardType);
+                console.log("config payment", configPayment);
                 // fetchPromotions(id, ccCardType, document.getElementById("pmx_total").value, document.getElementById("pmx_number").value );
             }
 
-        },
-        mainInfo: function(val) {
-            console.log("Entro al mainInfo");
-         if(id.length > 5){
-             for (const cardType in ccCardTypePatterns) {
-                 if ( ccCardTypePatterns[cardType].test(id.replace(/ /g, '')) ) {
-                     ccCardType = cardType;
-                     break;
-                 }
-             }
-             console.log("Cardtype", ccCardType);
-             // fetchPromotions(id, ccCardType, document.getElementById("pmx_total").value, document.getElementById("pmx_number").value );
-         }
         }
     });
 });
