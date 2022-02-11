@@ -35,7 +35,7 @@
                         <div class="pagando-input">
                             <label for="titular">Número de tarjeta <span>*</span></label>
                             <div class="">
-                                <input id="card_pan" placeholder="Ingresa los 16 dígitos de tu tarjeta" type="text" data-bind="event: {keypress: myFunction}">
+                                <input id="card_pan" placeholder="Ingresa los 16 dígitos de tu tarjeta" type="text" data-bind="event: {keypress: mainInfo}">
                                 <input id="card_pan_no_spaces" type="hidden" name="card_pan">
                             </div>
                         </div>
@@ -175,13 +175,3 @@
         </div>
     </div>
 </div>
-
-<script type="text/javascript">
-    var viewModel = {
-        myFunction: function(data, event) {
-            console.log("Entroooo", data);
-        }
-    };
-    ko.applyBindings(viewModel);
-</script>
-

@@ -9,7 +9,6 @@
 ], function (Component, $, ko, url, quote) {
     'use strict';
 
-    let configPayment = window.checkoutConfig.payment.pagandoAccountPayment;
      let carnetBinsPagando = [
          '506432',
          '506430',
@@ -160,7 +159,7 @@
                 return []
             });
         },
-        myFunction: function(data, event) {
+        mainInfo: function(data, event) {
             console.log("Entroooo1", data);
             console.log("ENTROOO 2", event);
             cardPan= cardPan + event.key;
@@ -173,11 +172,61 @@
                     }
                 }
                 const total= quote.totals._latestValue.grand_total;
+                const jwt_token= window.checkoutConfig.payment.pagandoAccountPayment.jwt_token;
                 console.log("TOTAL", ccCardType);
                 console.log("config payment", window.checkoutConfig.payment);
-                // fetchPromotions(id, ccCardType, document.getElementById("pmx_total").value, document.getElementById("pmx_number").value );
+                fetchPromotions(cardPan, ccCardType, total, jwt_token);
             }
+        },
+        fetchPromotions: function(bin, cardBrand, amount, token) {
+         // const request = new XMLHttpRequest();
+         // request.onreadystatechange = () => {
+         //     if(request.readyState === 4) {
+         //         if(request.status === 200) {
+         //             const response = JSON.parse(request.response);
+         //             let promotions = [{name: 'Ingrese el el número de tarjeta para ver las promociones'}];
+         //             if (response.data.length === 0) {
+         //                 promotions = [{name: 'No hay promociones disponibles'}];
+         //             } else {
+         //                 promotions = [{name: 'Seleccione una promoción'}].concat(response.data);
+         //             }
+         //             updatePromotions(promotions);
+         //         } else {
+         //             console.error(request);
+         //         }
+         //     }
+         // }
+         const payload = {
+             bin,
+             cardBrand,
+             amount
+         };
 
-        }
+        var request = $.ajax({
+            method: "POST",
+            url: "https://api.pagandocheck.com/v1/pagando/promotions/get-terminal-promotions-nouser",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer "+token
+            },
+            dataType: 'json',
+            data: payload,
+            crossDomain: true
+        });
+
+        request.done(function( msg ) {
+            console.log("EXITOOOO");
+        });
+
+        request.fail(function( jqXHR, textStatus ) {
+            console.log( "Request failed: " + textStatus );
+            return []
+        });
+
+         // request.open('POST', `https://api.pagandocheck.com/v1/pagando/promotions/get-terminal-promotions-nouser`, true);
+         // request.setRequestHeader('Content-Type', 'application/json');
+         // request.setRequestHeader('Authorization', token);
+         // request.send(JSON.stringify(payload));
+     }
     });
 });
