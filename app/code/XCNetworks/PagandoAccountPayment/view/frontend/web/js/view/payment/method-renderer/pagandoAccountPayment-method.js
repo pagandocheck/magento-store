@@ -178,8 +178,8 @@
                 //fetchPromotions(cardPan, ccCardType, total, jwt_token);
                 const payload = {
                     bin: cardPan,
-                    cardBrand,
-                    amount
+                    cardBrand: ccCardType,
+                    amount: total
                 };
                 console.log("PAYLOAD", payload);
                 var request = $.ajax({
