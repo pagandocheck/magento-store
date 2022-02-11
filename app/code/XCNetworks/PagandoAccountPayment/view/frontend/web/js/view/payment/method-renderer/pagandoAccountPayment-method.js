@@ -175,7 +175,33 @@
                 const jwt_token= window.checkoutConfig.payment.pagandoAccountPayment.jwt_token;
                 console.log("TOTAL", ccCardType);
                 console.log("config payment", window.checkoutConfig.payment);
-                fetchPromotions(cardPan, ccCardType, total, jwt_token);
+                //fetchPromotions(cardPan, ccCardType, total, jwt_token);
+                const payload = {
+                    cardPan,
+                    cardBrand,
+                    amount
+                };
+
+                var request = $.ajax({
+                    method: "POST",
+                    url: "https://api.pagandocheck.com/v1/pagando/promotions/get-terminal-promotions-nouser",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": "Bearer "+token
+                    },
+                    dataType: 'json',
+                    data: payload,
+                    crossDomain: true
+                });
+
+                request.done(function( msg ) {
+                    console.log("EXITOOOO");
+                });
+
+                request.fail(function( jqXHR, textStatus ) {
+                    console.log( "Request failed: " + textStatus );
+                    return []
+                });
             }
         },
         fetchPromotions: function(bin, cardBrand, amount, token) {
