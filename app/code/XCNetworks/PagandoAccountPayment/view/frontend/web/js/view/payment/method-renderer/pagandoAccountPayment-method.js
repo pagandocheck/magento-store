@@ -177,11 +177,11 @@
                 console.log("config payment", window.checkoutConfig.payment);
                 //fetchPromotions(cardPan, ccCardType, total, jwt_token);
                 const payload = {
-                    cardPan,
+                    bin: cardPan,
                     cardBrand,
                     amount
                 };
-
+                console.log("PAYLOAD", payload);
                 var request = $.ajax({
                     method: "POST",
                     url: "https://api.pagandocheck.com/v1/pagando/promotions/get-terminal-promotions-nouser",
