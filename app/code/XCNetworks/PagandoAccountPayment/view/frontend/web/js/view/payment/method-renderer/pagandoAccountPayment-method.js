@@ -187,7 +187,7 @@
                     url: "https://55b5-2806-104e-4-15d4-cccc-621-56e4-cf2c.ngrok.io/v1/pagando/promotions/get-terminal-promotions-nouser",
                     headers: {
                         "Content-Type": "application/json",
-                        "Authorization": "Bearer "+token
+                        "Authorization": "Bearer "+jwt_token
                     },
                     dataType: 'json',
                     data: payload,
