@@ -88,7 +88,7 @@ class SimpleConfigProvider implements ConfigProviderInterface
                 $data = [
                     'payment' => [
                         $this->methodCode => [
-                            'getToken' => $this->_paymentFactory->getToken()
+                            'jwt_token' => $this->getToken()
                         ],
                     ],
                 ];
@@ -98,6 +98,16 @@ class SimpleConfigProvider implements ConfigProviderInterface
                 return [];
             }
         }
+
+    public function getToken(){
+        $token= '';
+        $jwt_token= $this->_paymentFactory->getToken();
+        if(!$jwt_token->error){
+            $token= $jwt_token.data.token;
+        }
+
+        return $token;
+    }
 
 
 }
