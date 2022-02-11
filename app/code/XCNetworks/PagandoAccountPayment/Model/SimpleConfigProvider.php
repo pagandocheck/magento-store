@@ -102,7 +102,7 @@ class SimpleConfigProvider implements ConfigProviderInterface
     public function getToken(){
         $token= '';
         $jwt_token= $this->_paymentFactory->getToken();
-        if(!$jwt_token->error){
+        if($jwt_token->error !== 0){
             $token= $jwt_token.data.token;
         }
 
