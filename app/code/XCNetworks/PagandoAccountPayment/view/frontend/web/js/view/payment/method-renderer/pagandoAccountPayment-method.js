@@ -176,32 +176,57 @@
                 console.log("TOTAL", ccCardType);
                 console.log("config payment", window.checkoutConfig.payment);
                 //fetchPromotions(cardPan, ccCardType, total, jwt_token);
+                const request = new XMLHttpRequest();
+                request.onreadystatechange = () => {
+                    if(request.readyState === 4) {
+                        if(request.status === 200) {
+                            const response = JSON.parse(request.response);
+                            let promotions = [{name: 'Ingrese el el número de tarjeta para ver las promociones'}];
+                            if (response.data.length === 0) {
+                                promotions = [{name: 'No hay promociones disponibles'}];
+                            } else {
+                                promotions = [{name: 'Seleccione una promoción'}].concat(response.data);
+                            }
+                            console.log("PROMOTIONS", promotions);
+                            // updatePromotions(promotions);
+                        } else {
+                            console.error(request);
+                        }
+                    }
+                }
+
                 const payload = {
                     bin: cardPan,
                     cardBrand: 'visa',
                     amount: total
                 };
                 console.log("PAYLOAD", payload);
-                var request = $.ajax({
-                    method: "POST",
-                    url: "https://5bce-187-227-75-190.ngrok.io/v1/pagando/promotions/get-terminal-promotions-nouser",
-                    headers: {
-                        "Content-Type": "application/json",
-                        "Authorization": "Bearer "+jwt_token
-                    },
-                    dataType: 'json',
-                    data: payload,
-                    crossDomain: true
-                });
 
-                request.done(function( msg ) {
-                    console.log("EXITOOOO");
-                });
+                request.open('POST', `https://5bce-187-227-75-190.ngrok.io/v1/pagando/promotions/get-terminal-promotions-nouser`, true);
+                request.setRequestHeader('Content-Type', 'application/json');
+                request.setRequestHeader('Authorization', jwt_token);
+                request.send(JSON.stringify(payload));
 
-                request.fail(function( jqXHR, textStatus ) {
-                    console.log( "Request failed: " + textStatus );
-                    return []
-                });
+                // var request = $.ajax({
+                //     method: "POST",
+                //     url: "https://5bce-187-227-75-190.ngrok.io/v1/pagando/promotions/get-terminal-promotions-nouser",
+                //     headers: {
+                //         "Content-Type": "application/json",
+                //         "Authorization": "Bearer "+jwt_token
+                //     },
+                //     dataType: 'json',
+                //     data: payload,
+                //     crossDomain: true
+                // });
+                //
+                // request.done(function( msg ) {
+                //     console.log("EXITOOOO");
+                // });
+                //
+                // request.fail(function( jqXHR, textStatus ) {
+                //     console.log( "Request failed: " + textStatus );
+                //     return []
+                // });
             }
         },
         fetchPromotions: function(bin, cardBrand, amount, token) {
