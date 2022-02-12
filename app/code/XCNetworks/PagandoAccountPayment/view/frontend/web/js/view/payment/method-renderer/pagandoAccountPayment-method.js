@@ -178,7 +178,7 @@
                 //fetchPromotions(cardPan, ccCardType, total, jwt_token);
                 const payload = {
                     bin: cardPan,
-                    cardBrand: ccCardType,
+                    cardBrand: 'visa',
                     amount: total
                 };
                 console.log("PAYLOAD", payload);
