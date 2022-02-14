@@ -173,7 +173,7 @@
                 }
                 const total= quote.totals._latestValue.grand_total;
                 const jwt_token= window.checkoutConfig.payment.pagandoAccountPayment.jwt_token;
-                console.log("TOTAL", ccCardType);
+                console.log("TOKEN", jwt_token);
                 console.log("config payment", window.checkoutConfig.payment);
                 //fetchPromotions(cardPan, ccCardType, total, jwt_token);
 
