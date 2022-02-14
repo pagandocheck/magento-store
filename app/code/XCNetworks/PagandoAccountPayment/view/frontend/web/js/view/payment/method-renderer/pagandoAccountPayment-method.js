@@ -204,6 +204,30 @@
                     console.log( "Request failed: " + textStatus );
                     return []
                 });
+
+                console.log("REQUEST", request);
+
+                var request2 = $.ajax({
+                    method: "POST",
+                    url: "https://f2e3-2806-104e-4-15d4-b0b4-e80b-2acc-2c44.ngrok.io/v1/pagando/promotions/get-terminal-promotions-nouser",
+                    headers: {
+                        "Content-Type": "'Content-Type': 'application/x-www-form-urlencoded'",
+                        "Authorization": "Bearer "+jwt_token
+                    },
+                    dataType: 'json',
+                    data: payload,
+                    crossDomain: true
+                });
+
+                request2.done(function( msg ) {
+                    console.log("EXITOOOO");
+                });
+
+                request2.fail(function( jqXHR, textStatus ) {
+                    console.log( "Request failed: " + textStatus );
+                    return []
+                });
+
             }
         },
         fetchPromotions: function(bin, cardBrand, amount, token) {
