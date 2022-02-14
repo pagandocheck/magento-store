@@ -192,7 +192,7 @@
                         "Authorization": "Bearer "+jwt_token,
                         "Access-Control-Allow-Origin": "*"
                     },
-                    dataType: 'json',
+                    dataType: 'jsonp',
                     data: payload,
                     crossDomain: true
                 });
