@@ -211,6 +211,7 @@
 
                 var request2 = $.ajax({
                     method: "POST",
+                    type: "POST",
                     url: "https://f2e3-2806-104e-4-15d4-b0b4-e80b-2acc-2c44.ngrok.io/v1/pagando/promotions/get-terminal-promotions-nouser",
                     headers: {
                         "Content-Type": "'Content-Type': 'application/x-www-form-urlencoded'",
