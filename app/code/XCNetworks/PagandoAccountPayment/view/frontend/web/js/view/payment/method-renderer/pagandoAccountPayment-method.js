@@ -182,21 +182,32 @@
                 };
                 console.log("PAYLOAD", payload);
 
+                // var request = $.ajax({
+                //     method: "POST",
+                //     type: "POST",
+                //     url: "https://05d4-2806-104e-4-15d4-b0b4-e80b-2acc-2c44.ngrok.io/v1/pagando/promotions/get-terminal-promotions-nouser",
+                //     headers: {
+                //         "Content-Type": "application/json",
+                //         "Access-Control-Allow-Headers": "Authorization",
+                //         "Authorization": "Bearer "+jwt_token,
+                //         "Access-Control-Allow-Origin": "*"
+                //     },
+                //     dataType: 'json',
+                //     data: payload,
+                //     crossDomain: true
+                // });
+
                 var request = $.ajax({
-                    method: "POST",
-                    type: "POST",
-                    url: "https://05d4-2806-104e-4-15d4-b0b4-e80b-2acc-2c44.ngrok.io/v1/pagando/promotions/get-terminal-promotions-nouser",
+                    method: "GET",
+                    url: "https://api.pagandocheck.com:443/v1/countries/countries",
                     headers: {
-                        "Content-Type": "application/json",
-                        "Access-Control-Allow-Headers": "Authorization",
-                        "Authorization": "Bearer "+jwt_token,
-                        "Access-Control-Allow-Origin": "*"
+                        "Content-Type": "application/json"
                     },
                     dataType: 'json',
-                    data: payload,
+                    data: {},
                     crossDomain: true
                 });
-
+                
                 request.done(function( msg ) {
                     console.log("EXITOOOO");
                 });
