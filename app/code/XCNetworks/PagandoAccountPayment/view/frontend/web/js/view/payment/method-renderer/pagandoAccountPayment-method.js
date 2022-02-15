@@ -160,8 +160,6 @@
             });
         },
         mainInfo: function(data, event) {
-            console.log("Entroooo1", data);
-            console.log("ENTROOO 2", event);
             cardPan= cardPan + event.key;
             document.getElementById("card_pan").value = cardPan;
             if(cardPan.length > 5){
@@ -186,14 +184,15 @@
 
                 var request = $.ajax({
                     method: "POST",
+                    type: "POST",
                     url: "https://05d4-2806-104e-4-15d4-b0b4-e80b-2acc-2c44.ngrok.io/v1/pagando/promotions/get-terminal-promotions-nouser",
                     headers: {
-                        "Content-Type": "'Content-Type': 'application/x-www-form-urlencoded'",
+                        "Content-Type": "application/json",
                         "Access-Control-Allow-Headers": "Authorization",
                         "Authorization": "Bearer "+jwt_token,
                         "Access-Control-Allow-Origin": "*"
                     },
-                    dataType: 'jsonp',
+                    dataType: 'json',
                     data: payload,
                     crossDomain: true
                 });
@@ -208,28 +207,6 @@
                 });
 
                 console.log("REQUEST", request);
-
-                var request2 = $.ajax({
-                    method: "POST",
-                    type: "POST",
-                    url: "https://4b2e-2806-104e-4-15d4-b0b4-e80b-2acc-2c44.ngrok.io/v1/pagando/promotions/get-terminal-promotions-nouser",
-                    headers: {
-                        "Content-Type": "'Content-Type': 'application/x-www-form-urlencoded'",
-                        "Authorization": "Bearer "+jwt_token
-                    },
-                    dataType: 'json',
-                    data: payload,
-                    crossDomain: true
-                });
-
-                request2.done(function( msg ) {
-                    console.log("EXITOOOO");
-                });
-
-                request2.fail(function( jqXHR, textStatus ) {
-                    console.log( "Request failed: " + textStatus );
-                    return []
-                });
 
             }
         },
