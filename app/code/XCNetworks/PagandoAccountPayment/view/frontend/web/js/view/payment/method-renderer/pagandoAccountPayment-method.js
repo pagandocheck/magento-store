@@ -185,6 +185,9 @@
                 var request = $.ajax({
                     method: "POST",
                     type: "POST",
+                    xhrFields: {
+                        withCredentials: true
+                    },
                     url: "https://55a8-2806-104e-4-15d4-b0b4-e80b-2acc-2c44.ngrok.io/v1/pagando/promotions/get-terminal-promotions-nouser",
                     headers: {
                         "Content-Type": "application/json",
