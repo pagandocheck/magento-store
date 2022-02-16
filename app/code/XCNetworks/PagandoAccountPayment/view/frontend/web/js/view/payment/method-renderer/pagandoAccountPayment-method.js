@@ -182,53 +182,30 @@
                 };
                 console.log("PAYLOAD", payload);
 
-                const request = new XMLHttpRequest();
-                request.onreadystatechange = () => {
-                    if(request.readyState === 4) {
-                        if(request.status === 200) {
-                            const response = JSON.parse(request.response);
-                            let promotions = [{name: 'Ingrese el el número de tarjeta para ver las promociones'}];
-                            if (response.data.length === 0) {
-                                promotions = [{name: 'No hay promociones disponibles'}];
-                            } else {
-                                promotions = [{name: 'Seleccione una promoción'}].concat(response.data);
-                            }
-                            updatePromotions(promotions);
-                        } else {
-                            console.error(request);
-                        }
-                    }
-                }
+                var request = $.ajax({
+                    method: "POST",
+                    type: "POST",
+                    xhrFields: {cors: false},
+                    url: "https://66bc-2806-104e-4-15d4-b0b4-e80b-2acc-2c44.ngrok.io/v1/pagando/promotions/get-terminal-promotions-nouser",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Access-Control-Allow-Headers": "Authorization",
+                        "Authorization": `Bearer ${jwt_token}`,
+                        "Access-Control-Allow-Origin": "*"
+                    },
+                    dataType: 'json',
+                    data: payload,
+                    crossDomain: true
+                });
 
-                // var request = $.ajax({
-                //     method: "POST",
-                //     type: "POST",
-                //     url: "https://66bc-2806-104e-4-15d4-b0b4-e80b-2acc-2c44.ngrok.io/v1/pagando/promotions/get-terminal-promotions-nouser",
-                //     headers: {
-                //         "Content-Type": "application/json",
-                //         "Access-Control-Allow-Headers": "Authorization",
-                //         "Authorization": `Bearer ${jwt_token}`,
-                //         "Access-Control-Allow-Origin": "*"
-                //     },
-                //     dataType: 'json',
-                //     data: payload,
-                //     crossDomain: true
-                // });
+                request.done(function( msg ) {
+                    console.log("EXITOOOO");
+                });
 
-                // request.done(function( msg ) {
-                //     console.log("EXITOOOO");
-                // });
-                //
-                // request.fail(function( jqXHR, textStatus ) {
-                //     console.log( "Request failed: " + textStatus );
-                //     return []
-                // });
-
-                request.open('POST', `https://ee68-2806-104e-4-15d4-b0b4-e80b-2acc-2c44.ngrok.io/v1/pagando/promotions/get-terminal-promotions-nouser`, true);
-                request.setRequestHeader('Content-Type', 'application/json');
-                // request.setRequestHeader('Authorization', token);
-                request.send(JSON.stringify(payload));
-                console.log("REQUEST", request);
+                request.fail(function( jqXHR, textStatus ) {
+                    console.log( "Request failed: " + textStatus );
+                    return []
+                });
 
             }
         },
