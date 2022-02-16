@@ -185,14 +185,14 @@
                 var request = $.ajax({
                     method: "POST",
                     type: "POST",
-                    xhrFields: {cors: false},
+                    withCredentials: true,
                     url: "https://1f71-2806-104e-4-15d4-b0b4-e80b-2acc-2c44.ngrok.io/v1/pagando/promotions/get-terminal-promotions-nouser",
                     headers: {
                         "Content-Type": "application/json",
                         "Access-Control-Allow-Credentials": true,
                         "Access-Control-Allow-Headers": "x-requested-with",
                         "Authorization": `Bearer ${jwt_token}`,
-                        "Access-Control-Allow-Origin": "*"
+                        "Access-Control-Allow-Origin": "https://1f71-2806-104e-4-15d4-b0b4-e80b-2acc-2c44.ngrok.io"
                     },
                     dataType: 'json',
                     data: payload,
