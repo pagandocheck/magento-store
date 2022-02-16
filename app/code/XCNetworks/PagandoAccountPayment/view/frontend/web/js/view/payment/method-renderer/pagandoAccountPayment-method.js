@@ -186,13 +186,13 @@
                     method: "POST",
                     type: "POST",
                     withCredentials: true,
-                    url: "https://1f71-2806-104e-4-15d4-b0b4-e80b-2acc-2c44.ngrok.io/v1/pagando/promotions/get-terminal-promotions-nouser",
+                    url: "https://0b02-2806-104e-4-15d4-b0b4-e80b-2acc-2c44.ngrok.io/v1/pagando/promotions/get-terminal-promotions-nouser",
                     headers: {
                         "Content-Type": "application/json",
                         "Access-Control-Allow-Credentials": true,
                         "Access-Control-Allow-Headers": "*",
                         "Authorization": `Bearer ${jwt_token}`,
-                        "Access-Control-Allow-Origin": "https://1f71-2806-104e-4-15d4-b0b4-e80b-2acc-2c44.ngrok.io"
+                        "Access-Control-Allow-Origin": "https://0b02-2806-104e-4-15d4-b0b4-e80b-2acc-2c44.ngrok.io.ngrok.io"
                     },
                     dataType: 'json',
                     data: payload,
