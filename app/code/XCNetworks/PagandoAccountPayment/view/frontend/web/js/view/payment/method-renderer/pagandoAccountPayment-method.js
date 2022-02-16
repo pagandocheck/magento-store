@@ -190,7 +190,7 @@
                     headers: {
                         "Content-Type": "application/json",
                         "Access-Control-Allow-Credentials": true,
-                        "Access-Control-Allow-Headers": "Authorization",
+                        "Access-Control-Allow-Headers": "x-requested-with",
                         "Authorization": `Bearer ${jwt_token}`,
                         "Access-Control-Allow-Origin": "*"
                     },
