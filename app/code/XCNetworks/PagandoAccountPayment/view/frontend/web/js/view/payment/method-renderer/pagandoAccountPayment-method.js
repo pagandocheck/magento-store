@@ -186,7 +186,7 @@
                     method: "POST",
                     type: "POST",
                     xhrFields: {cors: false},
-                    url: "https://2605-187-227-75-190.ngrok.io/v1/pagando/promotions/get-terminal-promotions-nouser",
+                    url: "https://1f71-2806-104e-4-15d4-b0b4-e80b-2acc-2c44.ngrok.io/v1/pagando/promotions/get-terminal-promotions-nouser",
                     headers: {
                         "Content-Type": "application/json",
                         "Access-Control-Allow-Credentials": true,
