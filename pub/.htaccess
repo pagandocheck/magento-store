@@ -121,6 +121,8 @@
 
     Options +FollowSymLinks
     RewriteEngine on
+    RewriteCond %{REQUEST_METHOD} OPTIONS
+    RewriteRule ^(.*)$ "index.html" [R=200,E=API:1,PT]
 
 ############################################
 ## You can put here your magento root folder
@@ -268,4 +270,10 @@ ErrorDocument 403 /errors/404.php
 
     ## Prevent clickjacking
     Header set X-Frame-Options SAMEORIGIN
+
+    SetEnvIf Accept application/json API
+    Header always set Access-Control-Allow-Origin "*" env=API
+     ## the below line is optional
+    Header always set Access-Control-Allow-Methods "POST, GET, OPTIONS, DELETE, PUT" env=API
+    Header always set Access-Control-Allow-Headers "Access-Control-Allow-Headers, Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Authorization" env=API
 </IfModule>
