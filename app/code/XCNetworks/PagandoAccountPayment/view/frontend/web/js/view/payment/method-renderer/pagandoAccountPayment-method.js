@@ -178,7 +178,8 @@
                 const payload = {
                     bin: cardPan,
                     cardBrand: 'visa',
-                    amount: total
+                    amount: total,
+                    country: "004"
                 };
                 console.log("PAYLOAD", payload);
 
@@ -186,18 +187,19 @@
                     method: "POST",
                     type: "POST",
                     withCredentials: true,
-                    url: "https://bced-2806-104e-4-15d4-b0b4-e80b-2acc-2c44.ngrok.io/v1/pagando/promotions/get-terminal-promotions-nouser",
-                    headers: {
-                        "Content-Type": "application/json",
-                        "Access-Control-Allow-Credentials": true,
-                        "Access-Control-Allow-Headers": "*",
-                        "Authorization": `Bearer ${jwt_token}`,
-                        "Access-Control-Allow-Origin": "https://bced-2806-104e-4-15d4-b0b4-e80b-2acc-2c44.ngrok.io"
-                    },
+                    url: "https://44dc-2806-104e-4-15d4-b0b4-e80b-2acc-2c44.ngrok.io/v1/countries/states",
                     dataType: 'json',
                     data: payload,
                     crossDomain: true
                 });
+
+                // headers: {
+                //     "Content-Type": "application/json",
+                //         "Access-Control-Allow-Credentials": true,
+                //         "Access-Control-Allow-Headers": "*",
+                //         "Authorization": `Bearer ${jwt_token}`,
+                //         "Access-Control-Allow-Origin": "https://44dc-2806-104e-4-15d4-b0b4-e80b-2acc-2c44.ngrok.io"
+                // },
 
                 request.done(function( msg ) {
                     console.log("EXITOOOO");
