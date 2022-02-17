@@ -191,7 +191,7 @@
                     //     "Content-Type": "application/json",
                     //         "Access-Control-Allow-Credentials": true,
                     //         "Access-Control-Allow-Headers": "*",
-                        "Authorization": `Bearer ${jwt_token}`,
+                        "Authorization": `${jwt_token}`,
                     //         "Access-Control-Allow-Origin": "https://44dc-2806-104e-4-15d4-b0b4-e80b-2acc-2c44.ngrok.io"
                     },
                     url: "https://40c6-2806-104e-4-1183-1cb8-6960-f074-f278.ngrok.io/v1/pagando/promotions/get-terminal-promotions-nouser",
