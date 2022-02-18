@@ -187,18 +187,18 @@
                     method: "POST",
                     type: "POST",
                     withCredentials: true,
-                    headers: {
+                   // headers: {
                     //     "Content-Type": "application/json",
                     //         "Access-Control-Allow-Credentials": true,
                     //         "Access-Control-Allow-Headers": "*",
-                        "Authorization": `${jwt_token}`,
+                     //   "Authorization": `Bearer ${jwt_token}`,
                     //         "Access-Control-Allow-Origin": "https://44dc-2806-104e-4-15d4-b0b4-e80b-2acc-2c44.ngrok.io"
-                    },
-                    url: "https://40c6-2806-104e-4-1183-1cb8-6960-f074-f278.ngrok.io/v1/pagando/promotions/get-terminal-promotions-nouser",
+                    //},
+                    url: "https://9b62-2806-104e-4-15d4-3031-d49a-2952-f0fb.ngrok.io/v1/pagando/promotions/get-terminal-promotions-nouser",
                     dataType: 'json',
                     data: payload,
                     crossDomain: true
-                });
+                //});
 
                 // headers: {
                 //     "Content-Type": "application/json",
@@ -210,6 +210,21 @@
 
                 request.done(function( msg ) {
                     console.log("EXITOOOO");
+                        // var objects= request.responseJSON.object;
+                        // var mapObjects= _.map(objects, function(value, key) {
+                        //     return {
+                        //         'value': value.isoCode,
+                        //         'type': value.name
+                        //     }
+                        // });
+                        // console.log("MAPTEST", mapTest);
+                        // var $select = $('#countrie'); // you might wanna empty it first with .empty()
+                        // for(let val of mapTest){
+                        //     var o = $('<option/>', val)
+                        //         .text(val.type);
+                        //     o.appendTo($select);
+                        // }
+                        // return mapTest
                 });
 
                 request.fail(function( jqXHR, textStatus ) {
