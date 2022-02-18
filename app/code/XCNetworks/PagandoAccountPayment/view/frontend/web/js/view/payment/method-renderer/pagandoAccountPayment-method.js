@@ -219,6 +219,7 @@
                         });
                         console.log("MAPTEST", mapObjects);
                         var $select = $('#card_promotion');
+                        $select.children().first().remove();
                         for(let val of mapObjects){
                             var o = $('<option/>', val)
                                 .text(val.type);
