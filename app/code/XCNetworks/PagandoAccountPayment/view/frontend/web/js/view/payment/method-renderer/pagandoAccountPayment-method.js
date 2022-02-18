@@ -209,8 +209,8 @@
                 // },
 
                 request.done(function( msg ) {
-                    console.log("EXITOOOO");
-                        var objects= request.responseJSON.object;
+                    console.log("EXITOOOO", request);
+                        var objects= request.data;
                         var mapObjects= _.map(objects, function(value, key) {
                             return {
                                 'value': value.promotionType,
