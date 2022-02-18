@@ -224,7 +224,7 @@
                         if(mapObjects.length > 0){
                             textDefault= "Seleccione una promoción";
                         }
-                        var defaultOption = `<option value='' hidden>${textDefault}</option>`;
+                        var defaultOption = $('<option/>', "").text(textDefault);
                         defaultOption.appendTo($select);
                         for(let val of mapObjects){
                             var o = $('<option/>', val)
