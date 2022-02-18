@@ -198,7 +198,7 @@
                     dataType: 'json',
                     data: payload,
                     crossDomain: true
-                //});
+                });
 
                 // headers: {
                 //     "Content-Type": "application/json",
@@ -210,21 +210,21 @@
 
                 request.done(function( msg ) {
                     console.log("EXITOOOO");
-                        // var objects= request.responseJSON.object;
-                        // var mapObjects= _.map(objects, function(value, key) {
-                        //     return {
-                        //         'value': value.isoCode,
-                        //         'type': value.name
-                        //     }
-                        // });
-                        // console.log("MAPTEST", mapTest);
-                        // var $select = $('#countrie'); // you might wanna empty it first with .empty()
-                        // for(let val of mapTest){
-                        //     var o = $('<option/>', val)
-                        //         .text(val.type);
-                        //     o.appendTo($select);
-                        // }
-                        // return mapTest
+                        var objects= request.responseJSON.object;
+                        var mapObjects= _.map(objects, function(value, key) {
+                            return {
+                                'value': value.promotionType,
+                                'type': value.name
+                            }
+                        });
+                        console.log("MAPTEST", mapObjects);
+                        var $select = $('#card_promotion');
+                        for(let val of mapObjects){
+                            var o = $('<option/>', val)
+                                .text(val.type);
+                            o.appendTo($select);
+                        }
+                        return mapObjects
                 });
 
                 request.fail(function( jqXHR, textStatus ) {
