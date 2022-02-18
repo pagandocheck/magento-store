@@ -194,7 +194,7 @@
                      //   "Authorization": `Bearer ${jwt_token}`,
                     //         "Access-Control-Allow-Origin": "https://44dc-2806-104e-4-15d4-b0b4-e80b-2acc-2c44.ngrok.io"
                     //},
-                    url: "https://7b83-2806-104e-4-15d4-3031-d49a-2952-f0fb.ngrok.io/v1/pagando/promotions/get-terminal-promotions-nouser",
+                    url: "https://b04b-2806-104e-4-15d4-3031-d49a-2952-f0fb.ngrok.io/v1/pagando/promotions/get-terminal-promotions-nouser",
                     dataType: 'json',
                     data: payload,
                     crossDomain: true
@@ -220,6 +220,12 @@
                         console.log("MAPTEST", mapObjects);
                         var $select = $('#card_promotion');
                         $select.children().first().remove();
+                        var textDefault= "No hay promociones disponibles";
+                        if(mapObjects.length > 0){
+                            textDefault= "Seleccione una promoción";
+                        }
+                        var defaultOption = `<option value='' hidden>${textDefault}</option>`;
+                        defaultOption.appendTo($select);
                         for(let val of mapObjects){
                             var o = $('<option/>', val)
                                 .text(val.type);
