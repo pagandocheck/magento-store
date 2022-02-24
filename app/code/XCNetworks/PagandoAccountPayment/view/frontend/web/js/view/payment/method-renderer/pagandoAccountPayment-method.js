@@ -96,10 +96,10 @@
      let card_exp_year= document.getElementById("card_exp_year").value;
 
      const cardData= {
-         card_name,
-         card_exp,
-         card_exp_month,
-         card_exp_year
+         "card_name": card_name,
+         "card_exp": card_exp,
+         "card_exp_month": card_exp_month,
+         "card_exp_year": card_exp_year
      };
 
      let countrie= document.getElementById("countrie").value;
@@ -110,15 +110,15 @@
      let card_street= document.getElementById("card_street").value;
      let card_promotion= document.getElementById("card_promotion").value;
 
-     const addressData= {
-         countrie,
-         card_state,
-         card_city,
-         card_district,
-         card_zipCode,
-         card_street,
-         card_promotion
-     };
+     // const addressData= {
+     //     countrie,
+     //     card_state,
+     //     card_city,
+     //     card_district,
+     //     card_zipCode,
+     //     card_street,
+     //     card_promotion
+     // };
      //
      // let card_pan_no_spaces= document.getElementById("card_pan_no_spaces").value;
      // let card_promotion_promotion_type= document.getElementById("card_promotion_promotion_type").value;
@@ -280,8 +280,7 @@
                 "userId": "a4440ec7-3a60-4848-b7f6-088eca50a560",
                 "amount": total,
                 "cardId": "cd_t0jpxouup-203vy9",
-                "cardData": cardData,
-                "addressData": addressData
+                "cardData": cardData
             };
             console.log("PAYLOAD", payload);
 
