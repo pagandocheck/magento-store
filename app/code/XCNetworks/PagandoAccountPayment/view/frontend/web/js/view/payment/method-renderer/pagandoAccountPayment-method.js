@@ -107,6 +107,7 @@
      // let card_promotion_promotion_time_to_apply= document.getElementById("card_promotion_promotion_time_to_apply").value;
      // let card_promotion_promotion_months_to_wait= document.getElementById("card_promotion_promotion_months_to_wait").value;
 
+     const total= quote.totals._latestValue.grand_total;
     return Component.extend({
         defaults: {
             redirectAfterPlaceOrder: false,
@@ -185,7 +186,7 @@
                         break;
                     }
                 }
-                const total= quote.totals._latestValue.grand_total;
+
                 const jwt_token= window.checkoutConfig.payment.pagandoAccountPayment.jwt_token;
                 console.log("TOKEN", jwt_token);
                 console.log("window.checkoutConfig.payment", window.checkoutConfig.payment);
@@ -209,7 +210,7 @@
                      //   "Authorization": `Bearer ${jwt_token}`,
                     //         "Access-Control-Allow-Origin": "https://44dc-2806-104e-4-15d4-b0b4-e80b-2acc-2c44.ngrok.io"
                     //},
-                    url: "https://b04b-2806-104e-4-15d4-3031-d49a-2952-f0fb.ngrok.io/v1/pagando/promotions/get-terminal-promotions-nouser",
+                    url: "https://2a33-2806-104e-4-f559-d596-b653-b734-c392.ngrok.io/v1/pagando/promotions/get-terminal-promotions-nouser",
                     dataType: 'json',
                     data: payload,
                     crossDomain: true
@@ -257,7 +258,38 @@
             }
         },
         payOrder: function(data, event) {
+            var bodyOrder = {
+                    "userId": "a4440ec7-3a60-4848-b7f6-088eca50a560",
+                    "amount": total,
+                    "cardId": "cd_t0jpxouup-203vy9"
 
+            }
+
+            const payload = {
+                "userId": "a4440ec7-3a60-4848-b7f6-088eca50a560",
+                "amount": total,
+                "cardId": "cd_t0jpxouup-203vy9"
+            };
+            console.log("PAYLOAD", payload);
+
+            var request = $.ajax({
+                method: "POST",
+                type: "POST",
+                withCredentials: true,
+                url: "https://2a33-2806-104e-4-f559-d596-b653-b734-c392.ngrok.io/v1/pagando/promotions/get-terminal-promotions-nouser",
+                dataType: 'json',
+                data: payload,
+                crossDomain: true
+            });
+
+            request.done(function( msg ) {
+                console.log("EXITOOOO", request);
+            });
+
+            request.fail(function( jqXHR, textStatus ) {
+                console.log( "Request failed: " + textStatus );
+                return []
+            });
         }
 
     });
