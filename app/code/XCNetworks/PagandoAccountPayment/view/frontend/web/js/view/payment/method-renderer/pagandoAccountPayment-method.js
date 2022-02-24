@@ -90,10 +90,10 @@
      };
 
      let cardPan= '';
-     let card_name= document.getElementById("card_name").value;
-     let card_exp= document.getElementById("card_exp").value;
-     let card_exp_month= document.getElementById("card_exp_month").value;
-     let card_exp_year= document.getElementById("card_exp_year").value;
+     // let card_name= document.getElementById("card_name").value;
+     // let card_exp= document.getElementById("card_exp").value;
+     // let card_exp_month= document.getElementById("card_exp_month").value;
+     // let card_exp_year= document.getElementById("card_exp_year").value;
 
      // const cardData= {
      //     "card_name": card_name,
@@ -102,13 +102,13 @@
      //     "card_exp_year": card_exp_year
      // };
 
-     let countrie= document.getElementById("countrie").value;
-     let card_state= document.getElementById("card_state").value;
-     let card_city= document.getElementById("card_city").value;
-     let card_district= document.getElementById("card_district").value;
-     let card_zipCode= document.getElementById("card_zipCode").value;
-     let card_street= document.getElementById("card_street").value;
-     let card_promotion= document.getElementById("card_promotion").value;
+     // let countrie= document.getElementById("countrie").value;
+     // let card_state= document.getElementById("card_state").value;
+     // let card_city= document.getElementById("card_city").value;
+     // let card_district= document.getElementById("card_district").value;
+     // let card_zipCode= document.getElementById("card_zipCode").value;
+     // let card_street= document.getElementById("card_street").value;
+     // let card_promotion= document.getElementById("card_promotion").value;
 
      // const addressData= {
      //     countrie,
