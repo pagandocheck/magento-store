@@ -90,17 +90,35 @@
      };
 
      let cardPan= '';
-     // let card_name= document.getElementById("card_name").value;
-     // let card_exp= document.getElementById("card_exp").value;
-     // let card_exp_month= document.getElementById("card_exp_month").value;
-     // let card_exp_year= document.getElementById("card_exp_year").value;
-     // let countrie= document.getElementById("countrie").value;
-     // let card_state= document.getElementById("card_state").value;
-     // let card_city= document.getElementById("card_city").value;
-     // let card_district= document.getElementById("card_district").value;
-     // let card_zipCode= document.getElementById("card_zipCode").value;
-     // let card_street= document.getElementById("card_street").value;
-     // let card_promotion= document.getElementById("card_promotion").value;
+     let card_name= document.getElementById("card_name").value;
+     let card_exp= document.getElementById("card_exp").value;
+     let card_exp_month= document.getElementById("card_exp_month").value;
+     let card_exp_year= document.getElementById("card_exp_year").value;
+
+     const cardData= {
+         card_name,
+         card_exp,
+         card_exp_month,
+         card_exp_year
+     };
+
+     let countrie= document.getElementById("countrie").value;
+     let card_state= document.getElementById("card_state").value;
+     let card_city= document.getElementById("card_city").value;
+     let card_district= document.getElementById("card_district").value;
+     let card_zipCode= document.getElementById("card_zipCode").value;
+     let card_street= document.getElementById("card_street").value;
+     let card_promotion= document.getElementById("card_promotion").value;
+
+     const addressData= {
+         countrie,
+         card_state,
+         card_city,
+         card_district,
+         card_zipCode,
+         card_street,
+         card_promotion
+     };
      //
      // let card_pan_no_spaces= document.getElementById("card_pan_no_spaces").value;
      // let card_promotion_promotion_type= document.getElementById("card_promotion_promotion_type").value;
@@ -210,7 +228,7 @@
                      //   "Authorization": `Bearer ${jwt_token}`,
                     //         "Access-Control-Allow-Origin": "https://44dc-2806-104e-4-15d4-b0b4-e80b-2acc-2c44.ngrok.io"
                     //},
-                    url: "https://2a33-2806-104e-4-f559-d596-b653-b734-c392.ngrok.io/v1/pagando/promotions/get-terminal-promotions-nouser",
+                    url: "https://4dae-2806-104e-4-f559-d596-b653-b734-c392.ngrok.io/v1/pagando/promotions/get-terminal-promotions-nouser",
                     dataType: 'json',
                     data: payload,
                     crossDomain: true
@@ -258,17 +276,12 @@
             }
         },
         payOrder: function(data, event) {
-            var bodyOrder = {
-                    "userId": "a4440ec7-3a60-4848-b7f6-088eca50a560",
-                    "amount": total,
-                    "cardId": "cd_t0jpxouup-203vy9"
-
-            }
-
             const payload = {
                 "userId": "a4440ec7-3a60-4848-b7f6-088eca50a560",
                 "amount": total,
-                "cardId": "cd_t0jpxouup-203vy9"
+                "cardId": "cd_t0jpxouup-203vy9",
+                "cardData": cardData,
+                "addressData": addressData
             };
             console.log("PAYLOAD", payload);
 
@@ -276,7 +289,7 @@
                 method: "POST",
                 type: "POST",
                 withCredentials: true,
-                url: "https://2a33-2806-104e-4-f559-d596-b653-b734-c392.ngrok.io/v1/pagando/promotions/get-terminal-promotions-nouser",
+                url: "https://4dae-2806-104e-4-f559-d596-b653-b734-c392.ngrok.io/v1/pagando/orders/create-order",
                 dataType: 'json',
                 data: payload,
                 crossDomain: true
