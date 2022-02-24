@@ -90,6 +90,22 @@
      };
 
      let cardPan= '';
+     // let card_name= document.getElementById("card_name").value;
+     // let card_exp= document.getElementById("card_exp").value;
+     // let card_exp_month= document.getElementById("card_exp_month").value;
+     // let card_exp_year= document.getElementById("card_exp_year").value;
+     // let countrie= document.getElementById("countrie").value;
+     // let card_state= document.getElementById("card_state").value;
+     // let card_city= document.getElementById("card_city").value;
+     // let card_district= document.getElementById("card_district").value;
+     // let card_zipCode= document.getElementById("card_zipCode").value;
+     // let card_street= document.getElementById("card_street").value;
+     // let card_promotion= document.getElementById("card_promotion").value;
+     //
+     // let card_pan_no_spaces= document.getElementById("card_pan_no_spaces").value;
+     // let card_promotion_promotion_type= document.getElementById("card_promotion_promotion_type").value;
+     // let card_promotion_promotion_time_to_apply= document.getElementById("card_promotion_promotion_time_to_apply").value;
+     // let card_promotion_promotion_months_to_wait= document.getElementById("card_promotion_promotion_months_to_wait").value;
 
     return Component.extend({
         defaults: {
@@ -172,8 +188,6 @@
                 const total= quote.totals._latestValue.grand_total;
                 const jwt_token= window.checkoutConfig.payment.pagandoAccountPayment.jwt_token;
                 console.log("TOKEN", jwt_token);
-                console.log("config payment", window.checkoutConfig.payment);
-                //fetchPromotions(cardPan, ccCardType, total, jwt_token);
 
                 const payload = {
                     bin: cardPan,
@@ -241,55 +255,9 @@
 
             }
         },
-        fetchPromotions: function(bin, cardBrand, amount, token) {
-         // const request = new XMLHttpRequest();
-         // request.onreadystatechange = () => {
-         //     if(request.readyState === 4) {
-         //         if(request.status === 200) {
-         //             const response = JSON.parse(request.response);
-         //             let promotions = [{name: 'Ingrese el el número de tarjeta para ver las promociones'}];
-         //             if (response.data.length === 0) {
-         //                 promotions = [{name: 'No hay promociones disponibles'}];
-         //             } else {
-         //                 promotions = [{name: 'Seleccione una promoción'}].concat(response.data);
-         //             }
-         //             updatePromotions(promotions);
-         //         } else {
-         //             console.error(request);
-         //         }
-         //     }
-         // }
-         const payload = {
-             bin,
-             cardBrand,
-             amount
-         };
+        payOrder: function(data, event) {
 
-        var request = $.ajax({
-            method: "POST",
-            url: "https://api.pagandocheck.com/v1/pagando/promotions/get-terminal-promotions-nouser",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": "Bearer "+token
-            },
-            dataType: 'json',
-            data: payload,
-            crossDomain: true
-        });
+        }
 
-        request.done(function( msg ) {
-            console.log("EXITOOOO");
-        });
-
-        request.fail(function( jqXHR, textStatus ) {
-            console.log( "Request failed: " + textStatus );
-            return []
-        });
-
-         // request.open('POST', `https://api.pagandocheck.com/v1/pagando/promotions/get-terminal-promotions-nouser`, true);
-         // request.setRequestHeader('Content-Type', 'application/json');
-         // request.setRequestHeader('Authorization', token);
-         // request.send(JSON.stringify(payload));
-     }
     });
 });
