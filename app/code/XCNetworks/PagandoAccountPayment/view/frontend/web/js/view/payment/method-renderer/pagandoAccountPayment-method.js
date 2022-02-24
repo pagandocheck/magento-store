@@ -275,33 +275,33 @@
             }
         },
         payOrder: function(data, event) {
-            const total= quote.totals._latestValue.grand_total;
-            const payload = {
-                "userId": "a4440ec7-3a60-4848-b7f6-088eca50a560",
-                "amount": total,
-                "cardId": "cd_t0jpxouup-203vy9",
-                "cardData": cardData
-            };
-            console.log("PAYLOAD", payload);
-
-            var request = $.ajax({
-                method: "POST",
-                type: "POST",
-                withCredentials: true,
-                url: "https://4dae-2806-104e-4-f559-d596-b653-b734-c392.ngrok.io/v1/pagando/orders/create-order",
-                dataType: 'json',
-                data: payload,
-                crossDomain: true
-            });
-
-            request.done(function( msg ) {
-                console.log("EXITOOOO", request);
-            });
-
-            request.fail(function( jqXHR, textStatus ) {
-                console.log( "Request failed: " + textStatus );
-                return []
-            });
+            // const total= quote.totals._latestValue.grand_total;
+            // const payload = {
+            //     "userId": "a4440ec7-3a60-4848-b7f6-088eca50a560",
+            //     "amount": total,
+            //     "cardId": "cd_t0jpxouup-203vy9",
+            //     "cardData": cardData
+            // };
+            // console.log("PAYLOAD", payload);
+            //
+            // var request = $.ajax({
+            //     method: "POST",
+            //     type: "POST",
+            //     withCredentials: true,
+            //     url: "https://4dae-2806-104e-4-f559-d596-b653-b734-c392.ngrok.io/v1/pagando/orders/create-order",
+            //     dataType: 'json',
+            //     data: payload,
+            //     crossDomain: true
+            // });
+            //
+            // request.done(function( msg ) {
+            //     console.log("EXITOOOO", request);
+            // });
+            //
+            // request.fail(function( jqXHR, textStatus ) {
+            //     console.log( "Request failed: " + textStatus );
+            //     return []
+            // });
         }
 
     });
