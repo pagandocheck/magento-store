@@ -95,12 +95,12 @@
      let card_exp_month= document.getElementById("card_exp_month").value;
      let card_exp_year= document.getElementById("card_exp_year").value;
 
-     const cardData= {
-         "card_name": card_name,
-         "card_exp": card_exp,
-         "card_exp_month": card_exp_month,
-         "card_exp_year": card_exp_year
-     };
+     // const cardData= {
+     //     "card_name": card_name,
+     //     "card_exp": card_exp,
+     //     "card_exp_month": card_exp_month,
+     //     "card_exp_year": card_exp_year
+     // };
 
      let countrie= document.getElementById("countrie").value;
      let card_state= document.getElementById("card_state").value;
@@ -125,7 +125,6 @@
      // let card_promotion_promotion_time_to_apply= document.getElementById("card_promotion_promotion_time_to_apply").value;
      // let card_promotion_promotion_months_to_wait= document.getElementById("card_promotion_promotion_months_to_wait").value;
 
-     const total= quote.totals._latestValue.grand_total;
     return Component.extend({
         defaults: {
             redirectAfterPlaceOrder: false,
@@ -208,7 +207,7 @@
                 const jwt_token= window.checkoutConfig.payment.pagandoAccountPayment.jwt_token;
                 console.log("TOKEN", jwt_token);
                 console.log("window.checkoutConfig.payment", window.checkoutConfig.payment);
-
+                const total= quote.totals._latestValue.grand_total;
                 const payload = {
                     bin: cardPan,
                     cardBrand: 'visa',
@@ -276,6 +275,7 @@
             }
         },
         payOrder: function(data, event) {
+            const total= quote.totals._latestValue.grand_total;
             const payload = {
                 "userId": "a4440ec7-3a60-4848-b7f6-088eca50a560",
                 "amount": total,
