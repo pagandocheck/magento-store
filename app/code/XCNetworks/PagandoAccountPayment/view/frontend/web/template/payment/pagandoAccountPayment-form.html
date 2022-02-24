@@ -6,8 +6,6 @@
                data-bind="attr: {'id': getCode()}, value: getCode(), checked: isChecked, click: selectPaymentMethod, visible: isRadioButtonVisible()"/>
         <label data-bind="attr: {'for': getCode()}" class="label">
             Pagar con tarjeta de crédito o débito
-            <img data-bind="attr: { src: require.toUrl('XCNetworks_PagandoAccountPayment/images/logo-pagando-check-color.svg'), alt: $t('Pay via Pagando Check')}"
-            class="payment-icon" style="width: 30%;"/>
         </label>
     </div>
     <div class="payment-method-content">

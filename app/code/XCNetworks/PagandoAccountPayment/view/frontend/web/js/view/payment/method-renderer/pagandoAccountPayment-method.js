@@ -90,18 +90,6 @@
      };
 
      let cardPan= '';
-     // let card_name= document.getElementById("card_name").value;
-     // let card_exp= document.getElementById("card_exp").value;
-     // let card_exp_month= document.getElementById("card_exp_month").value;
-     // let card_exp_year= document.getElementById("card_exp_year").value;
-
-     // const cardData= {
-     //     "card_name": card_name,
-     //     "card_exp": card_exp,
-     //     "card_exp_month": card_exp_month,
-     //     "card_exp_year": card_exp_year
-     // };
-
      // let countrie= document.getElementById("countrie").value;
      // let card_state= document.getElementById("card_state").value;
      // let card_city= document.getElementById("card_city").value;
@@ -275,33 +263,44 @@
             }
         },
         payOrder: function(data, event) {
-            // const total= quote.totals._latestValue.grand_total;
-            // const payload = {
-            //     "userId": "a4440ec7-3a60-4848-b7f6-088eca50a560",
-            //     "amount": total,
-            //     "cardId": "cd_t0jpxouup-203vy9",
-            //     "cardData": cardData
-            // };
-            // console.log("PAYLOAD", payload);
-            //
-            // var request = $.ajax({
-            //     method: "POST",
-            //     type: "POST",
-            //     withCredentials: true,
-            //     url: "https://0662-2806-104e-4-f559-d596-b653-b734-c392.ngrok.io/v1/pagando/orders/create-order",
-            //     dataType: 'json',
-            //     data: payload,
-            //     crossDomain: true
-            // });
-            //
-            // request.done(function( msg ) {
-            //     console.log("EXITOOOO", request);
-            // });
-            //
-            // request.fail(function( jqXHR, textStatus ) {
-            //     console.log( "Request failed: " + textStatus );
-            //     return []
-            // });
+            const total= quote.totals._latestValue.grand_total;
+            let card_name= document.getElementById("card_name").value;
+            let card_exp= document.getElementById("card_exp").value;
+            let card_exp_month= document.getElementById("card_exp_month").value;
+            let card_exp_year= document.getElementById("card_exp_year").value;
+
+            const cardData= {
+                "card_name": card_name,
+                "card_exp": card_exp,
+                "card_exp_month": card_exp_month,
+                "card_exp_year": card_exp_year
+            };
+            const payload = {
+                "userId": "a4440ec7-3a60-4848-b7f6-088eca50a560",
+                "amount": total,
+                "cardId": "cd_t0jpxouup-203vy9",
+                "cardData": cardData
+            };
+            console.log("PAYLOAD", payload);
+
+            var request = $.ajax({
+                method: "POST",
+                type: "POST",
+                withCredentials: true,
+                url: "https://0662-2806-104e-4-f559-d596-b653-b734-c392.ngrok.io/v1/pagando/orders/create-order",
+                dataType: 'json',
+                data: payload,
+                crossDomain: true
+            });
+
+            request.done(function( msg ) {
+                console.log("EXITOOOO", request);
+            });
+
+            request.fail(function( jqXHR, textStatus ) {
+                console.log( "Request failed: " + textStatus );
+                return []
+            });
         }
 
     });
