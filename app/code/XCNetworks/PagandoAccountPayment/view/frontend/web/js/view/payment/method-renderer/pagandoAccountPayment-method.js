@@ -188,6 +188,7 @@
                 const total= quote.totals._latestValue.grand_total;
                 const jwt_token= window.checkoutConfig.payment.pagandoAccountPayment.jwt_token;
                 console.log("TOKEN", jwt_token);
+                console.log("window.checkoutConfig.payment", window.checkoutConfig.payment);
 
                 const payload = {
                     bin: cardPan,
