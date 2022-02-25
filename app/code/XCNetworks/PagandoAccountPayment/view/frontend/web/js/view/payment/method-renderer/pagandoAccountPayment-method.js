@@ -281,7 +281,7 @@
                 "cardId": "cd_t0jpxouup-203vy9",
                 "cardData": cardData
             };
-            console.log("PAYLOAD", payload);
+            console.log("PAYLOAD", quote);
 
             var request = $.ajax({
                 method: "POST",
@@ -297,19 +297,22 @@
                 console.log("EXITOOOO", request);
                 const response= request.responseJSON;
                 if(response.key !== "SUCCESS_ORDER"){
+                    console.log("EXITOOOO1");
                     self.messageContainer.addErrorMessage({'message': 'Ha ocurrido un error inesperado.'});
                     window.location.replace(url.build('pagando/checkout/index'));
                 }
+                console.log("EXITOOOO2");
                 const data= request.responseJSON.data;
                 self.messageContainer.addSuccessMessage({'message': 'Your payment with Pagando is complete.'});
-                window.location.replace(url.build('pagando/checkout/onepage/success'));
+                window.location.replace(url.build('checkout/onepage/success'));
 
             });
 
             request.fail(function( jqXHR, textStatus ) {
+                console.log("EXITOOOO3");
                 console.log( "Request failed: " + textStatus );
                 self.messageContainer.addErrorMessage({'message': 'Ha ocurrido un error inesperado.'});
-                window.location.replace(url.build('pagando/checkout/index'));
+                window.location.replace(url.build('checkout/index'));
             });
         }
 
