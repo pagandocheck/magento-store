@@ -305,6 +305,14 @@
                 const data= request.responseJSON.data;
                 self.messageContainer.addSuccessMessage({'message': 'Your payment with Pagando is complete.'});
                 // window.location.replace(url.build('checkout/onepage/success'));
+                $.ajax({
+                    method: "POST",
+                    url: "processResponse.php",
+                    data: { orderStatus: response.key }
+                })
+                    .done(function( response ) {
+                        console.log("Si se hizooooooo");
+                    });
 
             });
 
