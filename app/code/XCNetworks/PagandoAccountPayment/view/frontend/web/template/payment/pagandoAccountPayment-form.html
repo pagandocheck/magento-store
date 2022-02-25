@@ -1,3 +1,255 @@
+<style>
+    .pagando-check {
+        max-width: 440px;
+    }
+    .pagando-check .pagando-input {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .pagando-check .pagando-input label {
+        font-family: "Avenir Next", arial, sans-serif;
+        font-size: 14px;
+        font-weight: normal;
+        line-height: normal;
+        color: #547286;
+        margin-bottom: 5px;
+        display: block;
+        text-transform: none;
+    }
+    .pagando-check .pagando-input label span {
+        font-weight: normal;
+        font-size: 14px;
+        color: #C23E37;
+    }
+    .pagando-check .pagando-input input {
+        box-sizing: border-box;
+        width: 100%;
+        border-radius: 3px;
+        border: solid 1px #dde3e8;
+        padding: 10px 14px;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: normal;
+        color: #294F68;
+        outline: none;
+        font-family: "Avenir Next", arial, sans-serif;
+        margin-top: 0px;
+        transition: 0.3s;
+    }
+    .pagando-check .pagando-input input[type=number]::-webkit-inner-spin-button,
+    .pagando-check .pagando-input input[type=number]::-webkit-outer-spin-button {
+        display: none;
+    }
+    .pagando-check .pagando-input input:focus {
+        border-color: #0077e2;
+    }
+    .pagando-check .pagando-input ::placeholder {
+        color: #A9B9C3;
+        opacity: 1;
+        font-weight: normal;
+    }
+    .pagando-check .pagando-input :-ms-input-placeholder {
+        color: #A9B9C3;
+        font-weight: normal;
+    }
+    .pagando-check .pagando-input ::-ms-input-placeholder {
+        color: #A9B9C3;
+        font-weight: normal;
+    }
+    .pagando-check .pagando-input input::-webkit-outer-spin-button,
+    .pagando-check .pagando-input input::-webkit-inner-spin-button {
+        -webkit-appearance: none !important;
+        margin: 0;
+    }
+    .pagando-check .pagando-input input[type=number] {
+        -moz-appearance: textfield !important;
+    }
+    .pagando-check .pagando-input.select-inside input {
+        padding-left: 110px;
+    }
+    .pagando-check .pagando-input .date-input {
+        text-transform: uppercase;
+    }
+    .pagando-check .pagando-input ::-webkit-inner-spin-button,
+    .pagando-check .pagando-input ::-webkit-calendar-picker-indicator {
+        display: none;
+        -webkit-appearance: none;
+    }
+    .pagando-check .pagando-card-container {
+        display: flex;
+        justify-content: space-between;
+    }
+    .pagando-check .pagando-card-container img {
+        height: 23px;
+        margin: 0px 1px;
+        opacity: 0.5;
+        border-radius: 5px;
+        object-fit: cover;
+    }
+    .pagando-check .pagando-card-container img.active {
+        opacity: 1;
+    }
+    .pagando-check .pagando-two-block-content {
+        display: flex;
+        justify-content: space-between;
+    }
+    .pagando-check .pagando-two-block-content .left-block {
+        padding-right: 5px;
+        width: 100%;
+    }
+    .pagando-check .pagando-two-block-content .right-block {
+        padding-left: 5px;
+        width: 100%;
+    }
+    .pagando-check .pagando-generic-title {
+        font-weight: 600;
+        font-size: 18px;
+        color: #294F68;
+        margin: 0px;
+        margin-bottom: 10px;
+        margin-top: 20px;
+        line-height: 1;
+        font-family: "Avenir Next", arial, sans-serif;
+    }
+    .pagando-check .pagando-select {
+        position: relative;
+        font-family: arial, sans-serif;
+        margin-bottom: 10px;
+        cursor: pointer;
+    }
+    .pagando-check .pagando-select label {
+        font-family: "Avenir Next", arial, sans-serif;
+        font-size: 14px;
+        font-weight: normal;
+        line-height: normal;
+        color: #547286;
+        margin-bottom: 5px;
+        display: block;
+        text-transform: none;
+    }
+    .pagando-check .pagando-select label span {
+        font-weight: normal;
+        font-size: 14px;
+        color: #C23E37;
+    }
+    .pagando-check .pagando-select ::-webkit-scrollbar {
+        width: 5px;
+        border-radius: 20px;
+    }
+    .pagando-check .pagando-select ::-webkit-scrollbar-track {
+        box-shadow: none;
+        background-color: #d4d9dd;
+    }
+    .pagando-check .pagando-select ::-webkit-scrollbar-thumb {
+        background-color: #788995;
+        border-radius: 20px;
+    }
+    .pagando-check .pagando-select.inside-input {
+        position: absolute;
+        margin: 0;
+        top: 0px;
+    }
+    .pagando-check .pagando-select.inside-input .pagando-select-selected {
+        padding: 16px 15px;
+    }
+    .pagando-check .pagando-select select {
+        display: none;
+    }
+    .pagando-check .pagando-select .placeholder-select {
+        color: #788995;
+    }
+    .pagando-check .pagando-select-selected {
+        background-color: #fff;
+        border: solid 1px #dde3e8;
+        padding: 10px 14px;
+        position: relative;
+        transition: 0.3s;
+        border-radius: 3px;
+        font-family: "Avenir Next", arial, sans-serif;
+        font-size: 14px;
+        color: #294F68;
+    }
+    .pagando-check .selected-option {
+        font-weight: 600;
+    }
+    .pagando-check .pagando-select-selected:after {
+        position: absolute;
+        content: "";
+        top: 7px;
+        right: 12px;
+        width: 20px;
+        height: 20px;
+        clip-path: polygon(100% 40%, 40% 100%, 100% 100%);
+        background: #A9B9C3;
+    }
+    .pagando-check .pagando-select-selected.pagando-select-arrow-active {
+        border: solid 1px #0077e2;
+    }
+    .pagando-check .pagando-select-items {
+        max-height: 253px;
+        overflow: auto;
+        position: absolute;
+        background: #fff;
+        cursor: pointer;
+        font-family: "Avenir Next", arial, sans-serif;
+        font-size: 16px;
+        color: #1d252a;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 99;
+        border-radius: 0 0 3px 3px;
+        box-shadow: 0 2px 6px 0 rgba(36, 36, 36, 0.3);
+    }
+    .pagando-check .pagando-select-items div {
+        padding: 10px 14px;
+        cursor: pointer;
+        border-bottom: solid 1px #dde3e8;
+        transition: 0.3s;
+        font-family: "Avenir Next", arial, sans-serif;
+        font-size: 14px;
+        font-weight: normal;
+        line-height: normal;
+        color: #547286;
+    }
+    .pagando-check .pagando-select-items div:last-child {
+        border-bottom: none;
+    }
+    .pagando-check .pagando-select-hide {
+        display: none;
+    }
+    .pagando-check .pagando-select-items div:hover, .pagando-check .pagando-selected-option {
+        background-color: rgba(221, 227, 232, 0.5);
+    }
+    .pagando-check .bottom-text p {
+        font-family: "Avenir Next", arial, sans-serif;
+        font-size: 14px;
+        font-weight: normal;
+        line-height: normal;
+        color: #547286;
+        margin-bottom: 20px;
+    }
+    .pagando-check .bottom-text p span {
+        font-weight: normal;
+        color: #C23E37;
+    }
+
+    @media (max-width: 576px) {
+        .pagando-check .pagando-two-block-content {
+            display: initial !important;
+        }
+        .pagando-check .pagando-two-block-content .left-block {
+            padding-right: 0px;
+        }
+        .pagando-check .pagando-two-block-content .right-block {
+            padding-left: 0px;
+        }
+        .pagando-check .pagando-card-container {
+            margin-bottom: 10px !important;
+            margin-top: -10px !important;
+        }
+    }
+</style>
 <div class="payment-method" data-bind="css: {'_active': (getCode() == isChecked())}">
     <div class="payment-method-title field choice">
         <input type="radio"
