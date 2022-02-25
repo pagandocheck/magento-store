@@ -215,7 +215,7 @@
                      //   "Authorization": `Bearer ${jwt_token}`,
                     //         "Access-Control-Allow-Origin": "https://44dc-2806-104e-4-15d4-b0b4-e80b-2acc-2c44.ngrok.io"
                     //},
-                    url: "https://0662-2806-104e-4-f559-d596-b653-b734-c392.ngrok.io/v1/pagando/promotions/get-terminal-promotions-nouser",
+                    url: "https://3a36-2806-104e-4-f559-4517-7336-18fa-70e3.ngrok.io/v1/pagando/promotions/get-terminal-promotions-nouser",
                     dataType: 'json',
                     data: payload,
                     crossDomain: true
@@ -287,7 +287,7 @@
                 method: "POST",
                 type: "POST",
                 withCredentials: true,
-                url: "https://0662-2806-104e-4-f559-d596-b653-b734-c392.ngrok.io/v1/pagando/orders/create-order",
+                url: "https://3a36-2806-104e-4-f559-4517-7336-18fa-70e3.ngrok.io/v1/pagando/orders/create-order",
                 dataType: 'json',
                 data: payload,
                 crossDomain: true
@@ -295,11 +295,21 @@
 
             request.done(function( msg ) {
                 console.log("EXITOOOO", request);
+                const response= request.responseJSON;
+                if(response.key !== "SUCCESS_ORDER"){
+                    self.messageContainer.addErrorMessage({'message': 'Ha ocurrido un error inesperado.'});
+                    window.location.replace(url.build('pagando/checkout/index'));
+                }
+                const data= request.responseJSON.data;
+                self.messageContainer.addSuccessMessage({'message': 'Your payment with Pagando is complete.'});
+                window.location.replace(url.build('pagando/checkout/onepage/success'));
+
             });
 
             request.fail(function( jqXHR, textStatus ) {
                 console.log( "Request failed: " + textStatus );
-                return []
+                self.messageContainer.addErrorMessage({'message': 'Ha ocurrido un error inesperado.'});
+                window.location.replace(url.build('pagando/checkout/index'));
             });
         }
 
