@@ -90,7 +90,8 @@ class SimpleConfigProvider implements ConfigProviderInterface
                         $this->methodCode => [
                             'jwt_token' => $this->getToken(),
                             'user' => $this->api_user,
-                            'pass' => $this->api_pass
+                            'pass' => $this->api_pass,
+                            'orderId' => $this->getOrderId()
                         ],
                     ],
                 ];
@@ -109,6 +110,16 @@ class SimpleConfigProvider implements ConfigProviderInterface
         }
 
         return $token;
+    }
+
+    protected function getObjectManager()
+    {
+        return \Magento\Framework\App\ObjectManager::getInstance();
+    }
+
+    public function getOrderId(){
+        $request = $this->getObjectManager()->get('Magento\Framework\App\Request\Http');
+        $orderId = $request->getParam('orderId');
     }
 
 
