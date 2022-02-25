@@ -307,7 +307,7 @@
                 // window.location.replace(url.build('checkout/onepage/success'));
                 $.ajax({
                     method: "POST",
-                    url: "processResponse.php",
+                    url: "XCNetworks/PagandoPayment/Controller/CheckoutprocessResponse.php",
                     data: { orderStatus: response.key }
                 })
                     .done(function( response ) {
