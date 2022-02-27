@@ -122,49 +122,51 @@
         initialize: function() {
             this._super();
             self = this;
-            var x, i, j, selElmnt, a, b, c;
-            x = document.getElementsByClassName("pagando-select");
-            for (i = 0; i < x.length; i++) {
-                selElmnt = x[i].getElementsByTagName("select")[0];
-                a = document.createElement("DIV");
-                a.setAttribute("class", "pagando-select-selected");
-                a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
-                x[i].appendChild(a);
-                b = document.createElement("DIV");
-                b.setAttribute("class", "pagando-select-items pagando-select-hide");
-                for (j = 1; j < selElmnt.length; j++) {
-                    c = document.createElement("DIV");
-                    c.innerHTML = selElmnt.options[j].innerHTML;
-                    c.addEventListener("click", function(e) {
-                        var y, i, k, s, h;
-                        s = this.parentNode.parentNode.getElementsByTagName("select")[0];
-                        h = this.parentNode.previousSibling;
-                        for (i = 0; i < s.length; i++) {
-                            if (s.options[i].innerHTML == this.innerHTML) {
-                                s.selectedIndex = i;
-                                h.innerHTML = this.innerHTML;
-                                y = this.parentNode.getElementsByClassName("pagando-selected-option");
-                                for (k = 0; k < y.length; k++) {
-                                    y[k].removeAttribute("class");
+            setTimeout(function(){
+                var x, i, j, selElmnt, a, b, c;
+                x = document.getElementsByClassName("pagando-select");
+                for (i = 0; i < x.length; i++) {
+                    selElmnt = x[i].getElementsByTagName("select")[0];
+                    a = document.createElement("DIV");
+                    a.setAttribute("class", "pagando-select-selected");
+                    a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+                    x[i].appendChild(a);
+                    b = document.createElement("DIV");
+                    b.setAttribute("class", "pagando-select-items pagando-select-hide");
+                    for (j = 1; j < selElmnt.length; j++) {
+                        c = document.createElement("DIV");
+                        c.innerHTML = selElmnt.options[j].innerHTML;
+                        c.addEventListener("click", function(e) {
+                            var y, i, k, s, h;
+                            s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+                            h = this.parentNode.previousSibling;
+                            for (i = 0; i < s.length; i++) {
+                                if (s.options[i].innerHTML == this.innerHTML) {
+                                    s.selectedIndex = i;
+                                    h.innerHTML = this.innerHTML;
+                                    y = this.parentNode.getElementsByClassName("pagando-selected-option");
+                                    for (k = 0; k < y.length; k++) {
+                                        y[k].removeAttribute("class");
+                                    }
+                                    this.setAttribute("class", "pagando-selected-option");
+                                    break;
                                 }
-                                this.setAttribute("class", "pagando-selected-option");
-                                break;
                             }
-                        }
-                        h.click();
+                            h.click();
+                        });
+                        b.appendChild(c);
+                    }
+                    x[i].appendChild(b);
+                    a.addEventListener("click", function(e) {
+                        e.stopPropagation();
+                        closeAllSelect(this);
+                        this.nextSibling.classList.toggle("pagando-select-hide");
+                        this.classList.add("selected-option");
                     });
-                    b.appendChild(c);
                 }
-                x[i].appendChild(b);
-                a.addEventListener("click", function(e) {
-                    e.stopPropagation();
-                    closeAllSelect(this);
-                    this.nextSibling.classList.toggle("pagando-select-hide");
-                    this.classList.add("selected-option");
-                });
-            }
 
-            document.addEventListener("click", self.closeAllSelect);
+                document.addEventListener("click", self.closeAllSelect);
+            }, 2000);
         },
         closeAllSelect: function(elmnt) {
              var x, y, i, arrNo = [];
