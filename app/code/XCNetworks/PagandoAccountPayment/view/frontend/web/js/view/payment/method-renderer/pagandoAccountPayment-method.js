@@ -164,7 +164,7 @@
                 });
             }
 
-            document.addEventListener("click", closeAllSelect);
+            document.addEventListener("click", self.closeAllSelect);
         },
         closeAllSelect: function(elmnt) {
              var x, y, i, arrNo = [];
