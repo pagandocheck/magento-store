@@ -341,8 +341,8 @@
 
             // create ecommerce-order
             const shippingAddress= quote.shippingAddress._latestValue;
-            const data= self.getEcommerceData(shippingAddress);
-            console.log("DATAAA", data);
+            const dataOrder= self.getEcommerceData(shippingAddress);
+            console.log("DATAAA", dataOrder);
             // self.createEcommerceOrder();
 
             const payload = {
