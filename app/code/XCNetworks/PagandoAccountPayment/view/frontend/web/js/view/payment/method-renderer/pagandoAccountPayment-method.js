@@ -277,7 +277,7 @@
                      //   "Authorization": `Bearer ${jwt_token}`,
                     //         "Access-Control-Allow-Origin": "https://44dc-2806-104e-4-15d4-b0b4-e80b-2acc-2c44.ngrok.io"
                     //},
-                    url: "https://ee4c-2806-104e-4-bab-f85f-831c-3ece-9f13.ngrok.io/v1/pagando/promotions/get-terminal-promotions-nouser",
+                    url: "https://49dc-2806-104e-4-bab-f85f-831c-3ece-9f13.ngrok.io/v1/pagando/promotions/get-terminal-promotions-nouser",
                     dataType: 'json',
                     data: payload,
                     crossDomain: true
@@ -349,7 +349,7 @@
                 method: "POST",
                 type: "POST",
                 withCredentials: true,
-                url: "https://ee4c-2806-104e-4-bab-f85f-831c-3ece-9f13.ngrok.io/v1/pagando/orders/create-order",
+                url: "https://49dc-2806-104e-4-bab-f85f-831c-3ece-9f13.ngrok.io/v1/pagando/orders/create-order",
                 dataType: 'json',
                 data: payload,
                 crossDomain: true
