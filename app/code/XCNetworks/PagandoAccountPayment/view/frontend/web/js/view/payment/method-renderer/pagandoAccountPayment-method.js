@@ -277,7 +277,7 @@
                      //   "Authorization": `Bearer ${jwt_token}`,
                     //         "Access-Control-Allow-Origin": "https://44dc-2806-104e-4-15d4-b0b4-e80b-2acc-2c44.ngrok.io"
                     //},
-                    url: "https://44cc-2806-104e-4-bab-f85f-831c-3ece-9f13.ngrok.io/v1/pagando/promotions/get-terminal-promotions-nouser",
+                    url: "https://6946-2806-104e-4-bab-f85f-831c-3ece-9f13.ngrok.io/v1/pagando/promotions/get-terminal-promotions-nouser",
                     dataType: 'json',
                     data: payload,
                     crossDomain: true
@@ -341,9 +341,48 @@
 
             // create ecommerce-order
             const shippingAddress= quote.shippingAddress._latestValue;
-            const dataOrder= self.getEcommerceData(shippingAddress);
+            // const dataOrder= self.getEcommerceData(shippingAddress);
+            const dataOrder= {
+                'email': quote.guestEmail,
+                'name': shippingAddress.firstname,
+                'lastName': shippingAddress.lastname,
+                'phone': shippingAddress.telephone,
+                'street': shippingAddress.street[0],
+                'zipCode': shippingAddress.postcode,
+                'city': shippingAddress.city,
+                'state': shippingAddress.region,
+                'country': shippingAddress.countryId,
+                'cartId': '',
+                'total': quote.totals._latestValue.grand_total,
+                'paymentToken': '',
+                'originECommerce': 'MAGENTO',
+                'productsList': new Array()
+            }
+
+            const shippingInfo= {
+                'street': shippingAddress.street[0],
+                'noExt': '11',
+                'district': '',
+                'zipCode': shippingAddress.postcode,
+                'city': shippingAddress.city,
+                'state': shippingAddress.region,
+                'country': shippingAddress.countryId
+            };
+
+            dataOrder['shippingInfo'] = shippingInfo;
+            console.log("shippingAddress.items", shippingAddress.items);
+            for(var item in quote.totals._latestValue.items){
+                tempItem= {};
+                tempItem['quantity'] = item["qty"];
+                tempItem['productName'] = item["name"];
+                tempItem['unitPrice'] = item["price"];
+                tempItem['totalAmount'] = item["row_total"];
+                console.log("Item", item);
+                console.log("tempItem", tempItem);
+                dataOrder['productsList'].push(tempItem);
+            };
             console.log("DATAAA", dataOrder);
-            // self.createEcommerceOrder();
+            self.createEcommerceOrder(dataOrder);
 
             const payload = {
                 "userId": "a4440ec7-3a60-4848-b7f6-088eca50a560",
@@ -357,7 +396,7 @@
                 method: "POST",
                 type: "POST",
                 withCredentials: true,
-                url: "https://44cc-2806-104e-4-bab-f85f-831c-3ece-9f13.ngrok.io/v1/pagando/orders/create-order",
+                url: "https://6946-2806-104e-4-bab-f85f-831c-3ece-9f13.ngrok.io/v1/pagando/orders/create-order",
                 dataType: 'json',
                 data: payload,
                 crossDomain: true
@@ -441,7 +480,7 @@
                 method: "POST",
                 type: "POST",
                 withCredentials: true,
-                url: "https://44cc-2806-104e-4-bab-f85f-831c-3ece-9f13.ngrok.io/v1/pagando/orders/create-ecommerce-order",
+                url: "https://6946-2806-104e-4-bab-f85f-831c-3ece-9f13.ngrok.io/v1/pagando/orders/create-ecommerce-order",
                 dataType: 'json',
                 data: data,
                 crossDomain: true
@@ -450,23 +489,6 @@
             request.done(function( msg ) {
                 console.log("EXITOOOO", request);
                 const response= request.responseJSON;
-                if(response.key !== "SUCCESS_ORDER"){
-                    console.log("EXITOOOO1");
-                    self.messageContainer.addErrorMessage({'message': 'Ha ocurrido un error inesperado.'});
-                    window.location.replace(url.build('pagando/checkout/index'));
-                }
-                console.log("EXITOOOO2", url.build('pagandoaccount/checkout/success'));
-                const data= request.responseJSON.data;
-                self.messageContainer.addSuccessMessage({'message': 'Your payment with Pagando is complete.'});
-                // window.location.replace(url.build('checkout/onepage/success'));
-
-                $.ajax({
-                    url: url.build('pagandoaccount/checkout/success'),
-                    data: { orderStatus: response.key }
-                })
-                    .done(function( response ) {
-                        console.log("Si se hizooooooo");
-                    });
 
             });
 
