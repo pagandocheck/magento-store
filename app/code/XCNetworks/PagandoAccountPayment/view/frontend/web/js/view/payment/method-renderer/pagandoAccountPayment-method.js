@@ -4,10 +4,9 @@
     'ko',
     'mage/url',
     'Magento_Checkout/js/model/quote',
-     'Magento_Checkout/js/model/order',
     'mage/validation',
     'domReady!'
-], function (Component, $, ko, url, quote, order) {
+], function (Component, $, ko, url, quote) {
     'use strict';
 
      let carnetBinsPagando = [
@@ -367,22 +366,9 @@
                 const data= request.responseJSON.data;
                 self.messageContainer.addSuccessMessage({'message': 'Your payment with Pagando is complete.'});
                 // window.location.replace(url.build('checkout/onepage/success'));
-                var options={
-                    method: 'get',
-                    parameters: 'orderStatus='+response.key,
-                    onSuccess: function(xhr) {
-                        // TODO: Whatever needs to happen on success
-                        console.log("Si se hizooooooo");
-                        // alert('it worked');
-                    },
-                    onFailure: function(xhr) {
-                        // TODO: Whatever needs to happen on failure
-                        console.log('it failed');
-                    }
-                };
 
                 $.ajax({
-                    url: "processResponse.php",
+                    url: url.build('pagandoAccount/checkout/success'),
                     data: { orderStatus: response.key }
                 })
                     .done(function( response ) {
