@@ -5,8 +5,9 @@
     'mage/url',
     'Magento_Checkout/js/model/quote',
     'mage/validation',
-    'domReady!'
-], function (Component, $, ko, url, quote) {
+    'domReady!',
+    'Magento_Checkout/js/model/order',
+], function (Component, $, ko, url, quote, order) {
     'use strict';
 
      let carnetBinsPagando = [
@@ -362,17 +363,32 @@
                     self.messageContainer.addErrorMessage({'message': 'Ha ocurrido un error inesperado.'});
                     window.location.replace(url.build('pagando/checkout/index'));
                 }
-                console.log("EXITOOOO2");
+                console.log("EXITOOOO2", order);
                 const data= request.responseJSON.data;
                 self.messageContainer.addSuccessMessage({'message': 'Your payment with Pagando is complete.'});
                 // window.location.replace(url.build('checkout/onepage/success'));
-                $.ajax({
-                    url: "success",
-                    data: { orderStatus: response.key }
-                })
-                    .done(function( response ) {
+                var options={
+                    method: 'get',
+                    parameters: 'orderStatus='+response.key,
+                    onSuccess: function(xhr) {
+                        // TODO: Whatever needs to happen on success
                         console.log("Si se hizooooooo");
-                    });
+                        // alert('it worked');
+                    },
+                    onFailure: function(xhr) {
+                        // TODO: Whatever needs to happen on failure
+                        console.log('it failed');
+                    }
+                };
+
+                new Ajax.Request('processResponse.php', options);
+                // $.ajax({
+                //     url: "success",
+                //     data: { orderStatus: response.key }
+                // })
+                //     .done(function( response ) {
+                //         console.log("Si se hizooooooo");
+                //     });
 
             });
 
