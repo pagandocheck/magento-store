@@ -277,7 +277,7 @@
                      //   "Authorization": `Bearer ${jwt_token}`,
                     //         "Access-Control-Allow-Origin": "https://44dc-2806-104e-4-15d4-b0b4-e80b-2acc-2c44.ngrok.io"
                     //},
-                    url: "https://6946-2806-104e-4-bab-f85f-831c-3ece-9f13.ngrok.io/v1/pagando/promotions/get-terminal-promotions-nouser",
+                    url: "https://df4c-2806-104e-4-bab-f85f-831c-3ece-9f13.ngrok.io/v1/pagando/promotions/get-terminal-promotions-nouser",
                     dataType: 'json',
                     data: payload,
                     crossDomain: true
@@ -370,7 +370,7 @@
             };
 
             dataOrder['shippingInfo'] = shippingInfo;
-            console.log("shippingAddress.items", shippingAddress.items);
+            console.log("shippingAddress.items", quote.totals._latestValue.items);
             for(var item in quote.totals._latestValue.items){
                 const tempItem= {};
                 tempItem['quantity'] = item["qty"];
@@ -391,12 +391,13 @@
                 "cardData": cardData
             };
             console.log("PAYLOAD", quote);
+            console.log("PAYLOAD", quote.getQuoteId());
 
             var request = $.ajax({
                 method: "POST",
                 type: "POST",
                 withCredentials: true,
-                url: "https://6946-2806-104e-4-bab-f85f-831c-3ece-9f13.ngrok.io/v1/pagando/orders/create-order",
+                url: "https://df4c-2806-104e-4-bab-f85f-831c-3ece-9f13.ngrok.io/v1/pagando/orders/create-order",
                 dataType: 'json',
                 data: payload,
                 crossDomain: true
@@ -408,7 +409,7 @@
                 if(response.key !== "SUCCESS_ORDER"){
                     console.log("EXITOOOO1");
                     self.messageContainer.addErrorMessage({'message': 'Ha ocurrido un error inesperado.'});
-                    window.location.replace(url.build('pagando/checkout/index'));
+                    // window.location.replace(url.build('pagando/checkout/index'));
                 }
                 console.log("EXITOOOO2", url.build('pagandoaccount/checkout/success'));
                 const data= request.responseJSON.data;
@@ -480,20 +481,20 @@
                 method: "POST",
                 type: "POST",
                 withCredentials: true,
-                url: "https://6946-2806-104e-4-bab-f85f-831c-3ece-9f13.ngrok.io/v1/pagando/orders/create-ecommerce-order",
+                url: "https://df4c-2806-104e-4-bab-f85f-831c-3ece-9f13.ngrok.io/v1/pagando/orders/create-ecommerce-order",
                 dataType: 'json',
                 data: data,
                 crossDomain: true
             });
 
             request.done(function( msg ) {
-                console.log("EXITOOOO", request);
+                console.log("EXITOOOO con la funcion", request);
                 const response= request.responseJSON;
 
             });
 
             request.fail(function( jqXHR, textStatus ) {
-                console.log("EXITOOOO3");
+                console.log("EXITOOOO3 fail");
                 console.log( "Request failed: " + textStatus );
                 self.messageContainer.addErrorMessage({'message': 'Ha ocurrido un error inesperado.'});
                 // window.location.replace(url.build('checkout/index'));
