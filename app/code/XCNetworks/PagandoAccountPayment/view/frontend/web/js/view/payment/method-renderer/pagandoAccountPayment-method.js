@@ -367,7 +367,6 @@
                 self.messageContainer.addSuccessMessage({'message': 'Your payment with Pagando is complete.'});
                 // window.location.replace(url.build('checkout/onepage/success'));
                 $.ajax({
-                    method: "POST",
                     url: "success",
                     data: { orderStatus: response.key }
                 })
