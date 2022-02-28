@@ -351,7 +351,7 @@
                 "cardId": "cd_t0jpxouup-203vy9",
                 "cardData": cardData
             };
-            console.log("PAYLOAD", data);
+            console.log("PAYLOAD", quote);
 
             var request = $.ajax({
                 method: "POST",
@@ -422,13 +422,15 @@
             };
 
             data['shippingInfo'] = shippingInfo;
-
+            console.log("shippingAddress.items", shippingAddress.items);
             for(var item in shippingAddress.items){
                 tempItem= {};
                 tempItem['quantity'] = item["qty"];
                 tempItem['productName'] = item["name"];
                 tempItem['unitPrice'] = item["price"];
                 tempItem['totalAmount'] = item["row_total"];
+                console.log("Item", item);
+                console.log("tempItem", tempItem);
                 data['productsList'].push(tempItem);
             };
 
