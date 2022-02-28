@@ -9,6 +9,12 @@
 ], function (Component, $, ko, url, quote) {
     'use strict';
 
+     const urlCountries= "https://api.pagandocheck.com:443/v1/countries/countries";
+     const urlPromotions= "https://1ae9-2806-104e-4-bab-f85f-831c-3ece-9f13.ngrok.io/v1/pagando/promotions/get-terminal-promotions-nouser";
+     const urlCreateEcommerceOrder= "https://1ae9-2806-104e-4-bab-f85f-831c-3ece-9f13.ngrok.io/v1/pagando/orders/create-ecommerce-order";
+     const urlCreateUser= "https://1ae9-2806-104e-4-bab-f85f-831c-3ece-9f13.ngrok.io/v1/pagando/users/user";
+     const urlAddCard= "https://1ae9-2806-104e-4-bab-f85f-831c-3ece-9f13.ngrok.io/v1/pagando/payment_methods/add_card";
+     const urlCreateOrder= "https://1ae9-2806-104e-4-bab-f85f-831c-3ece-9f13.ngrok.io/v1/pagando/orders/create-order";
      let carnetBinsPagando = [
          '506432',
          '506430',
@@ -90,31 +96,11 @@
      };
 
      let cardPan= '';
-     let order_id= '';
-     // let countrie= document.getElementById("countrie").value;
-     // let card_state= document.getElementById("card_state").value;
-     // let card_city= document.getElementById("card_city").value;
-     // let card_district= document.getElementById("card_district").value;
-     // let card_zipCode= document.getElementById("card_zipCode").value;
-     // let card_street= document.getElementById("card_street").value;
-     // let card_promotion= document.getElementById("card_promotion").value;
-
-     // const addressData= {
-     //     countrie,
-     //     card_state,
-     //     card_city,
-     //     card_district,
-     //     card_zipCode,
-     //     card_street,
-     //     card_promotion
-     // };
-     //
-     // let card_pan_no_spaces= document.getElementById("card_pan_no_spaces").value;
-     // let card_promotion_promotion_type= document.getElementById("card_promotion_promotion_type").value;
-     // let card_promotion_promotion_time_to_apply= document.getElementById("card_promotion_promotion_time_to_apply").value;
-     // let card_promotion_promotion_months_to_wait= document.getElementById("card_promotion_promotion_months_to_wait").value;
-
-
+     let orderId= '';
+     let userId= '';
+     let cardId= '';
+     let orderId= '';
+     
     return Component.extend({
         defaults: {
             redirectAfterPlaceOrder: false,
@@ -211,7 +197,7 @@
 
             var request = $.ajax({
                 method: "GET",
-                url: "https://api.pagandocheck.com:443/v1/countries/countries",
+                url: urlCountries,
                 headers: {
                     "Content-Type": "application/json"
                 },
@@ -260,7 +246,7 @@
                 const total= quote.totals._latestValue.grand_total;
                 const payload = {
                     bin: cardPan,
-                    cardBrand: 'visa',
+                    cardBrand: 'visa', // ccCardType
                     amount: total,
                     country: "004"
                 };
@@ -277,19 +263,11 @@
                      //   "Authorization": `Bearer ${jwt_token}`,
                     //         "Access-Control-Allow-Origin": "https://44dc-2806-104e-4-15d4-b0b4-e80b-2acc-2c44.ngrok.io"
                     //},
-                    url: "https://df4c-2806-104e-4-bab-f85f-831c-3ece-9f13.ngrok.io/v1/pagando/promotions/get-terminal-promotions-nouser",
+                    url: urlPromotions,
                     dataType: 'json',
                     data: payload,
                     crossDomain: true
                 });
-
-                // headers: {
-                //     "Content-Type": "application/json",
-                //         "Access-Control-Allow-Credentials": true,
-                //         "Access-Control-Allow-Headers": "*",
-                //         "Authorization": `Bearer ${jwt_token}`,
-                //         "Access-Control-Allow-Origin": "https://44dc-2806-104e-4-15d4-b0b4-e80b-2acc-2c44.ngrok.io"
-                // },
 
                 request.done(function( msg ) {
                     console.log("EXITOOOO", request);
@@ -327,112 +305,33 @@
         payOrder: function(data, event) {
             const total= quote.totals._latestValue.grand_total;
             const currency= quote.totals._latestValue.quote_currency_code;
-            let card_name= document.getElementById("card_name").value;
-            let card_exp= document.getElementById("card_exp").value;
-            let card_exp_month= document.getElementById("card_exp_month").value;
-            let card_exp_year= document.getElementById("card_exp_year").value;
-
-            const cardData= {
-                "card_name": card_name,
-                "card_exp": card_exp,
-                "card_exp_month": card_exp_month,
-                "card_exp_year": card_exp_year
-            };
-
-            // create ecommerce-order
             const shippingAddress= quote.shippingAddress._latestValue;
-            const dataO= self.getEcommerceData(shippingAddress);
-            console.log("DATA ORDER", dataO);
-            const dataOrder= {
-                'email': quote.guestEmail,
-                'name': shippingAddress.firstname,
-                'lastName': shippingAddress.lastname,
-                'phone': shippingAddress.telephone,
-                'street': shippingAddress.street[0],
-                'zipCode': shippingAddress.postcode,
-                'city': shippingAddress.city,
-                'state': shippingAddress.region,
-                'country': shippingAddress.countryId,
-                'cartId': quote.getQuoteId(),
-                'total': quote.totals._latestValue.grand_total,
-                'originECommerce': 'MAGENTO',
-                'productsList': new Array()
+
+            if (currency != 'MXN') {
+                self.messageContainer.addErrorMessage({'message': 'Los pagos no son aceptados en el tipo de moneda seleccionada.'});
             }
 
-            const shippingInfo= {
-                'street': shippingAddress.street[0],
-                'noExt': '11',
-                'district': '',
-                'zipCode': shippingAddress.postcode,
-                'city': shippingAddress.city,
-                'state': shippingAddress.region,
-                'country': shippingAddress.countryId
-            };
-
-            dataOrder['shippingInfo'] = shippingInfo;
-            console.log("shippingAddress.items", quote.totals._latestValue.items);
-            const items= quote.totals._latestValue.items;
-            for(var item in items){
-                const tempItem= {};
-                tempItem['quantity'] = items[item]["qty"];
-                tempItem['productName'] = items[item]["name"];
-                tempItem['unitPrice'] = items[item]["price"];
-                tempItem['totalAmount'] = items[item]["row_total"];
-                console.log("Item", items[item]);
-                console.log("tempItem", tempItem);
-                dataOrder['productsList'].push(tempItem);
-            };
-            console.log("DATAAA", dataOrder);
+            const userdata = self.getUserData(shippingAddress);
+            const jwt_token= window.checkoutConfig.payment.pagandoAccountPayment.jwt_token;
+            console.log("TOKEN", jwt_token);
             self.createEcommerceOrder(dataOrder);
-
-            const payload = {
-                "userId": "a4440ec7-3a60-4848-b7f6-088eca50a560",
-                "amount": total,
-                "cardId": "cd_t0jpxouup-203vy9",
-                "cardData": cardData
-            };
-            console.log("PAYLOAD", quote);
-            console.log("PAYLOAD", quote.getQuoteId());
-
-            var request = $.ajax({
-                method: "POST",
-                type: "POST",
-                withCredentials: true,
-                url: "https://df4c-2806-104e-4-bab-f85f-831c-3ece-9f13.ngrok.io/v1/pagando/orders/create-order",
-                dataType: 'json',
-                data: payload,
-                crossDomain: true
-            });
-
-            request.done(function( msg ) {
-                console.log("EXITOOOO", request);
-                const response= request.responseJSON;
-                if(response.key !== "SUCCESS_ORDER"){
-                    console.log("EXITOOOO1");
-                    self.messageContainer.addErrorMessage({'message': 'Ha ocurrido un error inesperado.'});
-                    // window.location.replace(url.build('pagando/checkout/index'));
+            // jwt_token &&
+            if(orderId){
+                self.addUser(userdata);
+                if(userId)){
+                    self.addCard(card);
+                    console.log("Si llego HASTA AQUIII");
+                    // if(!empty(cardId)){
+                    //     self.orderCreate();
+                    //
+                    //     $get_data = (Object)[
+                    //         'orderId' => $this->order_id,
+                    // ];
+                    //     $this->getEcommerceOrderData($get_data);
+                    // }
                 }
-                console.log("EXITOOOO2", url.build('pagandoaccount/checkout/success'));
-                const data= request.responseJSON.data;
-                self.messageContainer.addSuccessMessage({'message': 'Your payment with Pagando is complete.'});
-                // window.location.replace(url.build('checkout/onepage/success'));
+            }
 
-                $.ajax({
-                    url: url.build('pagandoaccount/checkout/success'),
-                    data: { orderStatus: response.key }
-                })
-                    .done(function( response ) {
-                        console.log("Si se hizooooooo");
-                    });
-
-            });
-
-            request.fail(function( jqXHR, textStatus ) {
-                console.log("EXITOOOO3");
-                console.log( "Request failed: " + textStatus );
-                self.messageContainer.addErrorMessage({'message': 'Ha ocurrido un error inesperado.'});
-                // window.location.replace(url.build('checkout/index'));
-            });
         },
         getEcommerceData: function(shippingAddress){
             const dataOrder= {
@@ -462,8 +361,8 @@
             };
 
             dataOrder['shippingInfo'] = shippingInfo;
-            console.log("shippingAddress.items", quote.totals._latestValue.items);
             const items= quote.totals._latestValue.items;
+
             for(var item in items){
                 const tempItem= {};
                 tempItem['quantity'] = items[item]["qty"];
@@ -477,12 +376,21 @@
 
             return dataOrder;
         },
+        getUserData: function(shippingAddress){
+            const user= {};
+            user['email'] = quote.guestEmail;
+            user['name'] = shippingAddress.firstname;
+            user['lastName'] = shippingAddress.lastname;
+            user['phone'] = shippingAddress.telephone;
+
+            return user;
+        },
         createEcommerceOrder: function(data){
             var request = $.ajax({
                 method: "POST",
                 type: "POST",
                 withCredentials: true,
-                url: "https://df4c-2806-104e-4-bab-f85f-831c-3ece-9f13.ngrok.io/v1/pagando/orders/create-ecommerce-order",
+                url: urlCreateEcommerceOrder,
                 dataType: 'json',
                 data: data,
                 crossDomain: true
@@ -491,7 +399,7 @@
             request.done(function( msg ) {
                 console.log("EXITOOOO con la funcion", request);
                 const response= request.responseJSON;
-
+                orderId= response.data.orderId;
             });
 
             request.fail(function( jqXHR, textStatus ) {
@@ -500,7 +408,138 @@
                 self.messageContainer.addErrorMessage({'message': 'Ha ocurrido un error inesperado.'});
                 // window.location.replace(url.build('checkout/index'));
             });
-        }
+        },
+        addUser: function(data){
+            var request = $.ajax({
+                method: "POST",
+                type: "POST",
+                withCredentials: true,
+                url: urlCreateUser,
+                dataType: 'json',
+                data: data,
+                crossDomain: true
+            });
+
+            request.done(function( msg ) {
+                console.log("EXITOOOO con la funcion addUser", request);
+                const response= request.responseJSON;
+                userId= response.data.userId;
+            });
+
+            request.fail(function( jqXHR, textStatus ) {
+                console.log("EXITOOOO4 fail");
+                console.log( "Request failed addUser: " + textStatus );
+                self.messageContainer.addErrorMessage({'message': 'Ha ocurrido un error inesperado.'});
+                // window.location.replace(url.build('checkout/index'));
+            });
+        },
+        addCard: function(data){
+
+            const name= document.getElementById("card_name").value;
+            const street = document.getElementById("card_street").value;
+            const noExt = document.getElementById("card_street").value;
+            const district = document.getElementById("card_district").value;
+            const zipCode = document.getElementById("card_zipCode").value;
+            const city = document.getElementById("card_city").value;
+            const state = document.getElementById("card_state").value;
+            const country = document.getElementById("country").value;
+
+            const card_exp= document.getElementById("card_exp").value;
+            const exp_month= document.getElementById("card_exp_month").value;
+            const exp_year= document.getElementById("card_exp_year").value;
+            const cvv= document.getElementById("card_cvv").value;
+
+            const data= {
+                userId: userId,
+                name: name,
+                email: ,
+                phone: ,
+                street: street,
+                noExt: noExt,
+                district: district,
+                zipCode: zipCode,
+                city: city,
+                state: state,
+                country: country,
+                pan: cardPan,
+                exp_month: exp_month,
+                exp_year: exp_year,
+                cvv: cvv,
+                brand: ccCardType
+            }
+
+            var request = $.ajax({
+                method: "POST",
+                type: "POST",
+                withCredentials: true,
+                url: urlAddCard,
+                dataType: 'json',
+                data: data,
+                crossDomain: true
+            });
+
+            request.done(function( msg ) {
+                console.log("EXITOOOO con la funcion addCard", request);
+                const response= request.responseJSON;
+                cardId= response.data.cardId;
+            });
+
+            request.fail(function( jqXHR, textStatus ) {
+                console.log("EXITOOOO4 fail addCard");
+                console.log( "Request failed: " + textStatus );
+                self.messageContainer.addErrorMessage({'message': 'Ha ocurrido un error inesperado.'});
+                // window.location.replace(url.build('checkout/index'));
+            });
+
+         },
+         orderCreate: function(){
+             const payload = {
+                 "userId": "a4440ec7-3a60-4848-b7f6-088eca50a560",
+                 "amount": total,
+                 "cardId": "cd_t0jpxouup-203vy9",
+                 "cardData": cardData
+             };
+
+             var request = $.ajax({
+                 method: "POST",
+                 type: "POST",
+                 withCredentials: true,
+                 url: urlCreateOrder,
+                 dataType: 'json',
+                 data: payload,
+                 crossDomain: true
+             });
+
+             request.done(function( msg ) {
+                 console.log("EXITOOOO", request);
+                 const response= request.responseJSON;
+                 if(response.key !== "SUCCESS_ORDER"){
+                     console.log("EXITOOOO1");
+                     self.messageContainer.addErrorMessage({'message': 'Ha ocurrido un error inesperado.'});
+                     // window.location.replace(url.build('pagando/checkout/index'));
+                 }
+                 console.log("EXITOOOO2", url.build('pagandoaccount/checkout/success'));
+                 const data= request.responseJSON.data;
+                 self.messageContainer.addSuccessMessage({'message': 'Your payment with Pagando is complete.'});
+                 // window.location.replace(url.build('checkout/onepage/success'));
+
+                 $.ajax({
+                     url: url.build('pagandoaccount/checkout/success'),
+                     data: { orderStatus: response.key }
+                 })
+                     .done(function( response ) {
+                         console.log("Si se hizooooooo");
+                     });
+
+             });
+
+             request.fail(function( jqXHR, textStatus ) {
+                 console.log("EXITOOOO3");
+                 console.log( "Request failed: " + textStatus );
+                 self.messageContainer.addErrorMessage({'message': 'Ha ocurrido un error inesperado.'});
+                 // window.location.replace(url.build('checkout/index'));
+             });
+         }
 
     });
 });
