@@ -423,7 +423,7 @@
 
             data['shippingInfo'] = shippingInfo;
             console.log("shippingAddress.items", shippingAddress.items);
-            for(var item in quote.totals_latestValue.items){
+            for(var item in quote.totals._latestValue.items){
                 tempItem= {};
                 tempItem['quantity'] = item["qty"];
                 tempItem['productName'] = item["name"];
