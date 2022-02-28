@@ -90,6 +90,7 @@
      };
 
      let cardPan= '';
+     let order_id= '';
      // let countrie= document.getElementById("countrie").value;
      // let card_state= document.getElementById("card_state").value;
      // let card_city= document.getElementById("card_city").value;
@@ -276,7 +277,7 @@
                      //   "Authorization": `Bearer ${jwt_token}`,
                     //         "Access-Control-Allow-Origin": "https://44dc-2806-104e-4-15d4-b0b4-e80b-2acc-2c44.ngrok.io"
                     //},
-                    url: "https://659a-2806-104e-4-bab-f85f-831c-3ece-9f13.ngrok.io/v1/pagando/promotions/get-terminal-promotions-nouser",
+                    url: "https://44cc-2806-104e-4-bab-f85f-831c-3ece-9f13.ngrok.io/v1/pagando/promotions/get-terminal-promotions-nouser",
                     dataType: 'json',
                     data: payload,
                     crossDomain: true
@@ -325,6 +326,7 @@
         },
         payOrder: function(data, event) {
             const total= quote.totals._latestValue.grand_total;
+            const currency= quote.totals._latestValue.quote_currency_code;
             let card_name= document.getElementById("card_name").value;
             let card_exp= document.getElementById("card_exp").value;
             let card_exp_month= document.getElementById("card_exp_month").value;
@@ -336,21 +338,110 @@
                 "card_exp_month": card_exp_month,
                 "card_exp_year": card_exp_year
             };
+
+            // create ecommerce-order
+            const shippingAddress= quote.shippingAddress._latestValue;
+            const data= self.getEcommerceData(shippingAddress);
+            console.log("DATAAA", data);
+            // self.createEcommerceOrder();
+
             const payload = {
                 "userId": "a4440ec7-3a60-4848-b7f6-088eca50a560",
                 "amount": total,
                 "cardId": "cd_t0jpxouup-203vy9",
                 "cardData": cardData
             };
-            console.log("PAYLOAD", quote);
+            console.log("PAYLOAD", data);
 
             var request = $.ajax({
                 method: "POST",
                 type: "POST",
                 withCredentials: true,
-                url: "https://659a-2806-104e-4-bab-f85f-831c-3ece-9f13.ngrok.io/v1/pagando/orders/create-order",
+                url: "https://44cc-2806-104e-4-bab-f85f-831c-3ece-9f13.ngrok.io/v1/pagando/orders/create-order",
                 dataType: 'json',
                 data: payload,
+                crossDomain: true
+            });
+
+            request.done(function( msg ) {
+                console.log("EXITOOOO", request);
+                const response= request.responseJSON;
+                if(response.key !== "SUCCESS_ORDER"){
+                    console.log("EXITOOOO1");
+                    self.messageContainer.addErrorMessage({'message': 'Ha ocurrido un error inesperado.'});
+                    window.location.replace(url.build('pagando/checkout/index'));
+                }
+                console.log("EXITOOOO2", url.build('pagandoaccount/checkout/success'));
+                const data= request.responseJSON.data;
+                self.messageContainer.addSuccessMessage({'message': 'Your payment with Pagando is complete.'});
+                // window.location.replace(url.build('checkout/onepage/success'));
+
+                $.ajax({
+                    url: url.build('pagandoaccount/checkout/success'),
+                    data: { orderStatus: response.key }
+                })
+                    .done(function( response ) {
+                        console.log("Si se hizooooooo");
+                    });
+
+            });
+
+            request.fail(function( jqXHR, textStatus ) {
+                console.log("EXITOOOO3");
+                console.log( "Request failed: " + textStatus );
+                self.messageContainer.addErrorMessage({'message': 'Ha ocurrido un error inesperado.'});
+                // window.location.replace(url.build('checkout/index'));
+            });
+        },
+        getEcommerceData: function(shippingAddress){
+            const data= {
+                'email': quote.guestEmail,
+                'name': shippingAddress.firstname,
+                'lastName': shippingAddress.lastname,
+                'phone': shippingAddress.telephone,
+                'street': shippingAddress.street[0],
+                'zipCode': shippingAddress.postcode,
+                'city': shippingAddress.city,
+                'state': shippingAddress.region,
+                'country': shippingAddress.countryId,
+                'cartId': '',
+                'total': total,
+                'paymentToken': '',
+                'originECommerce': 'MAGENTO',
+                'productsList': new Array()
+            }
+
+            const shippingInfo= {
+                'street': shippingAddress.street[0],
+                'noExt': '11',
+                'district': '',
+                'zipCode': shippingAddress.postcode,
+                'city': shippingAddress.city,
+                'state': shippingAddress.region,
+                'country': shippingAddress.countryId
+            };
+
+            data['shippingInfo'] = shippingInfo;
+
+            for(var item in shippingAddress.items){
+                tempItem= {};
+                tempItem['quantity'] = item["qty"];
+                tempItem['productName'] = item["name"];
+                tempItem['unitPrice'] = item["price"];
+                tempItem['totalAmount'] = item["row_total"];
+                data['productsList'].push(tempItem);
+            };
+
+            return data;
+        },
+        createEcommerceOrder: function(data){
+            var request = $.ajax({
+                method: "POST",
+                type: "POST",
+                withCredentials: true,
+                url: "https://44cc-2806-104e-4-bab-f85f-831c-3ece-9f13.ngrok.io/v1/pagando/orders/create-ecommerce-order",
+                dataType: 'json',
+                data: data,
                 crossDomain: true
             });
 
