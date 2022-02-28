@@ -4,9 +4,10 @@
     'ko',
     'mage/url',
     'Magento_Checkout/js/model/quote',
+     'Magento_Checkout/js/model/order',
     'mage/validation',
     'domReady!'
-], function (Component, $, ko, url, quote) {
+], function (Component, $, ko, url, quote, order) {
     'use strict';
 
      let carnetBinsPagando = [
@@ -362,7 +363,7 @@
                     self.messageContainer.addErrorMessage({'message': 'Ha ocurrido un error inesperado.'});
                     window.location.replace(url.build('pagando/checkout/index'));
                 }
-                console.log("EXITOOOO2");
+                console.log("EXITOOOO2", order);
                 const data= request.responseJSON.data;
                 self.messageContainer.addSuccessMessage({'message': 'Your payment with Pagando is complete.'});
                 // window.location.replace(url.build('checkout/onepage/success'));
@@ -380,14 +381,13 @@
                     }
                 };
 
-                new Ajax.Request('processResponse.php', options);
-                // $.ajax({
-                //     url: "success",
-                //     data: { orderStatus: response.key }
-                // })
-                //     .done(function( response ) {
-                //         console.log("Si se hizooooooo");
-                //     });
+                $.ajax({
+                    url: "processResponse.php",
+                    data: { orderStatus: response.key }
+                })
+                    .done(function( response ) {
+                        console.log("Si se hizooooooo");
+                    });
 
             });
 
