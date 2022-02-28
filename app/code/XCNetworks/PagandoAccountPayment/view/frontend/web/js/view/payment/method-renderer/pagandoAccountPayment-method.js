@@ -372,7 +372,7 @@
             dataOrder['shippingInfo'] = shippingInfo;
             console.log("shippingAddress.items", shippingAddress.items);
             for(var item in quote.totals._latestValue.items){
-                tempItem= {};
+                const tempItem= {};
                 tempItem['quantity'] = item["qty"];
                 tempItem['productName'] = item["name"];
                 tempItem['unitPrice'] = item["price"];
