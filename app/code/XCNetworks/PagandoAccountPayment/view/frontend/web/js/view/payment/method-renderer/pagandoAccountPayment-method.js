@@ -5,9 +5,8 @@
     'mage/url',
     'Magento_Checkout/js/model/quote',
     'mage/validation',
-    'domReady!',
-    'Magento_Checkout/js/model/order',
-], function (Component, $, ko, url, quote, order) {
+    'domReady!'
+], function (Component, $, ko, url, quote) {
     'use strict';
 
      let carnetBinsPagando = [
@@ -363,7 +362,7 @@
                     self.messageContainer.addErrorMessage({'message': 'Ha ocurrido un error inesperado.'});
                     window.location.replace(url.build('pagando/checkout/index'));
                 }
-                console.log("EXITOOOO2", order);
+                console.log("EXITOOOO2");
                 const data= request.responseJSON.data;
                 self.messageContainer.addSuccessMessage({'message': 'Your payment with Pagando is complete.'});
                 // window.location.replace(url.build('checkout/onepage/success'));
