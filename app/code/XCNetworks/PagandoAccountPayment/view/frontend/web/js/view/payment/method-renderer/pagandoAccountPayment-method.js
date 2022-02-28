@@ -353,9 +353,8 @@
                 'city': shippingAddress.city,
                 'state': shippingAddress.region,
                 'country': shippingAddress.countryId,
-                'cartId': '',
+                'cartId': quote.getQuoteId(),
                 'total': quote.totals._latestValue.grand_total,
-                'paymentToken': '',
                 'originECommerce': 'MAGENTO',
                 'productsList': new Array()
             }
@@ -436,7 +435,7 @@
             });
         },
         getEcommerceData: function(shippingAddress){
-            const data= {
+            const dataOrder= {
                 'email': quote.guestEmail,
                 'name': shippingAddress.firstname,
                 'lastName': shippingAddress.lastname,
@@ -446,9 +445,8 @@
                 'city': shippingAddress.city,
                 'state': shippingAddress.region,
                 'country': shippingAddress.countryId,
-                'cartId': '',
+                'cartId': quote.getQuoteId(),
                 'total': quote.totals._latestValue.grand_total,
-                'paymentToken': '',
                 'originECommerce': 'MAGENTO',
                 'productsList': new Array()
             }
@@ -463,20 +461,21 @@
                 'country': shippingAddress.countryId
             };
 
-            data['shippingInfo'] = shippingInfo;
-            console.log("shippingAddress.items", shippingAddress.items);
-            for(var item in quote.totals._latestValue.items){
-                tempItem= {};
-                tempItem['quantity'] = item["qty"];
-                tempItem['productName'] = item["name"];
-                tempItem['unitPrice'] = item["price"];
-                tempItem['totalAmount'] = item["row_total"];
-                console.log("Item", item);
+            dataOrder['shippingInfo'] = shippingInfo;
+            console.log("shippingAddress.items", quote.totals._latestValue.items);
+            const items= quote.totals._latestValue.items;
+            for(var item in items){
+                const tempItem= {};
+                tempItem['quantity'] = items[item]["qty"];
+                tempItem['productName'] = items[item]["name"];
+                tempItem['unitPrice'] = items[item]["price"];
+                tempItem['totalAmount'] = items[item]["row_total"];
+                console.log("Item", items[item]);
                 console.log("tempItem", tempItem);
-                data['productsList'].push(tempItem);
+                dataOrder['productsList'].push(tempItem);
             };
 
-            return data;
+            return dataOrder;
         },
         createEcommerceOrder: function(data){
             var request = $.ajax({
