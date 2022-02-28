@@ -99,8 +99,7 @@
      let orderId= '';
      let userId= '';
      let cardId= '';
-     let orderId= '';
-     
+
     return Component.extend({
         defaults: {
             redirectAfterPlaceOrder: false,
