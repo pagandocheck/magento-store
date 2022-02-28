@@ -368,7 +368,7 @@
                 // window.location.replace(url.build('checkout/onepage/success'));
                 $.ajax({
                     method: "POST",
-                    url: "pagandoaccount/checkout/success",
+                    url: "success",
                     data: { orderStatus: response.key }
                 })
                     .done(function( response ) {
