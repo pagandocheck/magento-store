@@ -341,7 +341,8 @@
 
             // create ecommerce-order
             const shippingAddress= quote.shippingAddress._latestValue;
-            // const dataOrder= self.getEcommerceData(shippingAddress);
+            const dataO= self.getEcommerceData(shippingAddress);
+            console.log("DATA ORDER", dataO);
             const dataOrder= {
                 'email': quote.guestEmail,
                 'name': shippingAddress.firstname,
@@ -371,13 +372,14 @@
 
             dataOrder['shippingInfo'] = shippingInfo;
             console.log("shippingAddress.items", quote.totals._latestValue.items);
-            for(var item in quote.totals._latestValue.items){
+            const items= quote.totals._latestValue.items;
+            for(var item in items){
                 const tempItem= {};
-                tempItem['quantity'] = item["qty"];
-                tempItem['productName'] = item["name"];
-                tempItem['unitPrice'] = item["price"];
-                tempItem['totalAmount'] = item["row_total"];
-                console.log("Item", item);
+                tempItem['quantity'] = items[item]["qty"];
+                tempItem['productName'] = items[item]["name"];
+                tempItem['unitPrice'] = items[item]["price"];
+                tempItem['totalAmount'] = items[item]["row_total"];
+                console.log("Item", items[item]);
                 console.log("tempItem", tempItem);
                 dataOrder['productsList'].push(tempItem);
             };
