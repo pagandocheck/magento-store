@@ -405,7 +405,7 @@
                 'state': shippingAddress.region,
                 'country': shippingAddress.countryId,
                 'cartId': '',
-                'total': total,
+                'total': quote.totals._latestValue.grand_total,
                 'paymentToken': '',
                 'originECommerce': 'MAGENTO',
                 'productsList': new Array()
