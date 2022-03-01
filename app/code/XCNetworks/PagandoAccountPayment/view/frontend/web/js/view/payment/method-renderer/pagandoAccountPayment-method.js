@@ -467,8 +467,7 @@
             const country = document.getElementById("country").value;
 
             const card_exp= document.getElementById("card_exp").value;
-            const exp_month= document.getElementById("card_exp_month").value;
-            const exp_year= document.getElementById("card_exp_year").value;
+            const [month, year] = card_exp.split('/');
             const cvv= document.getElementById("card_cvv").value;
 
             const data= {
@@ -484,8 +483,8 @@
                 state: state,
                 country: country,
                 pan: cardPan,
-                exp_month: exp_month,
-                exp_year: exp_year,
+                exp_month: month,
+                exp_year: year,
                 cvv: cvv,
                 brand: ccCardType
             }
