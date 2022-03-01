@@ -324,14 +324,6 @@
                 if(user_id){
                     self.addCard();
                     console.log("Si llego HASTA AQUIII");
-                    // if(!empty(cardId)){
-                    //     self.orderCreate();
-                    //
-                    //     $get_data = (Object)[
-                    //         'orderId' => $this->order_id,
-                    // ];
-                    //     $this->getEcommerceOrderData($get_data);
-                    // }
                 }
             }
 
@@ -507,6 +499,11 @@
                 console.log("EXITOOOO con la funcion addCard", request);
                 const response= request.responseJSON;
                 cardId= response.data.cardId;
+                if(!empty(cardId)){
+                    self.orderCreate();
+                ];
+                    $this->getEcommerceOrderData($get_data);
+                }
             });
 
             request.fail(function( jqXHR, textStatus ) {
@@ -519,10 +516,9 @@
          },
          orderCreate: function(){
              const payload = {
-                 "userId": "a4440ec7-3a60-4848-b7f6-088eca50a560",
+                 "userId": userId,
                  "amount": total,
-                 "cardId": "cd_t0jpxouup-203vy9",
-                 "cardData": cardData
+                 "cardId": cardId
              };
 
              var request = $.ajax({
