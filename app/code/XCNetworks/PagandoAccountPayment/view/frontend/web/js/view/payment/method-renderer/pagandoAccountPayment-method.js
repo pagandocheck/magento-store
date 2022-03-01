@@ -472,7 +472,6 @@
             const cvv= document.getElementById("card_cvv").value;
 
             const data= {
-                userId: userId,
                 name: name,
                 email: quote.guestEmail,
                 phone: shippingAddress.telephone,
