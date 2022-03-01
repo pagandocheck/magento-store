@@ -9,7 +9,7 @@
 ], function (Component, $, ko, url, quote) {
     'use strict';
 
-     const urlBase= "https://ed72-2806-104e-4-bab-7548-1f8a-b0b4-2858.ngrok.io"
+     const urlBase= "https://38a2-2806-104e-4-bab-7548-1f8a-b0b4-2858.ngrok.io"
      const urlCountries= "https://api.pagandocheck.com:443/v1/countries/countries";
      const urlPromotions= urlBase + "/v1/pagando/promotions/get-terminal-promotions-nouser";
      const urlCreateEcommerceOrder= urlBase +"/v1/pagando/orders/create-ecommerce-order";
