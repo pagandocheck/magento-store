@@ -499,7 +499,7 @@
                 console.log("EXITOOOO con la funcion addCard", request);
                 const response= request.responseJSON;
                 cardId= response.data.cardId;
-                if(!empty(cardId)) {
+                if(cardId) {
                     self.orderCreate();
                 };
             });
