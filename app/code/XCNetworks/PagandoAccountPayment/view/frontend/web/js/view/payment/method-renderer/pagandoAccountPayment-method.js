@@ -231,7 +231,7 @@
         mainInfo: function(data, event) {
             cardPan= cardPan + event.key;
             document.getElementById("card_pan").value = cardPan;
-            if(cardPan.length > 5){
+            if(cardPan.length === 5){
                 for (const cardType in ccCardTypePatterns) {
                     if ( ccCardTypePatterns[cardType].test(cardPan.replace(/ /g, '')) ) {
                         ccCardType = cardType;
@@ -401,7 +401,9 @@
                 const response= request.responseJSON;
                 orderId= response.data.orderId;
                 if(orderId){
-                  self.addUser(userdata);
+                    const shippingAddress= quote.shippingAddress._latestValue;
+                    const userdata= self.getUserData(shippingAddress);
+                    self.addUser(userdata);
                 }
             });
 
