@@ -152,7 +152,7 @@
                 }
 
                 document.addEventListener("click", self.closeAllSelect);
-            }, 2000);
+            }, 3000);
         },
         closeAllSelect: function(elmnt) {
              var x, y, i, arrNo = [];
@@ -400,6 +400,9 @@
                 console.log("EXITOOOO con la funcion", request);
                 const response= request.responseJSON;
                 orderId= response.data.orderId;
+                if(orderId){
+                    const user_id= await self.addUser(userdata);
+                }
                 return orderId;
             });
 
@@ -426,6 +429,19 @@
                 console.log("EXITOOOO con la funcion addUser", request);
                 const response= request.responseJSON;
                 userId= response.data.userId;
+                if(userId){
+                    console.log("Si llego HASTA AQUIII");
+                    self.addCard();
+
+                    // if(!empty(cardId)){
+                    //     self.orderCreate();
+                    //
+                    //     $get_data = (Object)[
+                    //         'orderId' => $this->order_id,
+                    // ];
+                    //     $this->getEcommerceOrderData($get_data);
+                    // }
+                }
                 return userId;
             });
 
