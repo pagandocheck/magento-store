@@ -9,13 +9,13 @@
 ], function (Component, $, ko, url, quote) {
     'use strict';
 
-     const urlBase= "https://ed72-2806-104e-4-bab-7548-1f8a-b0b4-2858.ngrok.io/"
+     const urlBase= "https://ed72-2806-104e-4-bab-7548-1f8a-b0b4-2858.ngrok.io"
      const urlCountries= "https://api.pagandocheck.com:443/v1/countries/countries";
-     const urlPromotions= `${urlBase}/v1/pagando/promotions/get-terminal-promotions-nouser`;
-     const urlCreateEcommerceOrder= `${urlBase}/v1/pagando/orders/create-ecommerce-order`;
-     const urlCreateUser= `${urlBase}/v1/pagando/users/user`;
-     const urlAddCard= `${urlBase}/v1/pagando/payment_methods/add_card`;
-     const urlCreateOrder= `${urlBase}/v1/pagando/orders/create-order`;
+     const urlPromotions= urlBase + "/v1/pagando/promotions/get-terminal-promotions-nouser";
+     const urlCreateEcommerceOrder= urlBase +"/v1/pagando/orders/create-ecommerce-order";
+     const urlCreateUser= urlBase + "/v1/pagando/users/user";
+     const urlAddCard= urlBase+ "/v1/pagando/payment_methods/add_card";
+     const urlCreateOrder= urlBase + "/v1/pagando/orders/create-order";
      let carnetBinsPagando = [
          '506432',
          '506430',
