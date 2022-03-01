@@ -516,7 +516,7 @@
          orderCreate: function(){
              const payload = {
                  "userId": userId,
-                 "amount": total,
+                 "amount": quote.totals._latestValue.grand_total,
                  "cardId": cardId
              };
 
