@@ -230,7 +230,8 @@
         },
         mainInfo: function(data, event) {
             console.log("EVENT KEY", event);
-            cardPan= cardPan + event.key;
+            const inputPan = document.getElementById("card_pan").value;
+            cardPan= inputPan + event.key;
             console.log("EVENT KEY", cardPan);
             document.getElementById("card_pan").value = cardPan;
             if(cardPan.length === 5){
@@ -471,6 +472,7 @@
             const card_exp= document.getElementById("card_exp").value;
             const [month, year] = card_exp.split('/');
             const cvv= document.getElementById("card_cvv").value;
+            const pan= document.getElementById("card_pan").value;
 
             const data= {
                 userId: userId,
