@@ -10,11 +10,11 @@
     'use strict';
 
      const urlCountries= "https://api.pagandocheck.com:443/v1/countries/countries";
-     const urlPromotions= "https://b8d2-2806-104e-4-bab-7548-1f8a-b0b4-2858.ngrok.io/v1/pagando/promotions/get-terminal-promotions-nouser";
-     const urlCreateEcommerceOrder= "https://b8d2-2806-104e-4-bab-7548-1f8a-b0b4-2858.ngrok.io/v1/pagando/orders/create-ecommerce-order";
-     const urlCreateUser= "https://b8d2-2806-104e-4-bab-7548-1f8a-b0b4-2858.ngrok.io/v1/pagando/users/user";
-     const urlAddCard= "https://b8d2-2806-104e-4-bab-7548-1f8a-b0b4-2858.ngrok.io/v1/pagando/payment_methods/add_card";
-     const urlCreateOrder= "https://b8d2-2806-104e-4-bab-7548-1f8a-b0b4-2858.ngrok.io/v1/pagando/orders/create-order";
+     const urlPromotions= "https://1eff-2806-104e-4-bab-7548-1f8a-b0b4-2858.ngrok.io/v1/pagando/promotions/get-terminal-promotions-nouser";
+     const urlCreateEcommerceOrder= "https://1eff-2806-104e-4-bab-7548-1f8a-b0b4-2858.ngrok.io/v1/pagando/orders/create-ecommerce-order";
+     const urlCreateUser= "https://1eff-2806-104e-4-bab-7548-1f8a-b0b4-2858.ngrok.io/v1/pagando/users/user";
+     const urlAddCard= "https://1eff-2806-104e-4-bab-7548-1f8a-b0b4-2858.ngrok.io/v1/pagando/payment_methods/add_card";
+     const urlCreateOrder= "https://1eff-2806-104e-4-bab-7548-1f8a-b0b4-2858.ngrok.io/v1/pagando/orders/create-order";
      let carnetBinsPagando = [
          '506432',
          '506430',
@@ -229,7 +229,9 @@
             });
         },
         mainInfo: function(data, event) {
+            console.log("EVENT KEY", event);
             cardPan= cardPan + event.key;
+            console.log("EVENT KEY", cardPan);
             document.getElementById("card_pan").value = cardPan;
             if(cardPan.length === 5){
                 for (const cardType in ccCardTypePatterns) {
@@ -238,7 +240,7 @@
                         break;
                     }
                 }
-
+                console.log("ccCardType", ccCardType);
                 const jwt_token= window.checkoutConfig.payment.pagandoAccountPayment.jwt_token;
                 console.log("TOKEN", jwt_token);
                 console.log("window.checkoutConfig.payment", window.checkoutConfig.payment);
