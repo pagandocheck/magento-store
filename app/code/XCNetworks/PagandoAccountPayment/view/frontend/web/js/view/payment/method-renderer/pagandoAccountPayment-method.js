@@ -433,7 +433,8 @@
             });
         },
         addCard: function(){
-
+            
+            const shippingAddress= quote.shippingAddress._latestValue;
             const name= document.getElementById("card_name").value;
             const street = document.getElementById("card_street").value;
             const noExt = document.getElementById("card_street").value;
@@ -451,8 +452,8 @@
             const data= {
                 userId: userId,
                 name: name,
-                email: ,
-                phone: ,
+                email: quote.guestEmail,
+                phone: shippingAddress.telephone,
                 street: street,
                 noExt: noExt,
                 district: district,
