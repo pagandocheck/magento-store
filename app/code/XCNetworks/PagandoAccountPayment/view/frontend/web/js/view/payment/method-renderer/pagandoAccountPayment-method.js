@@ -318,7 +318,7 @@
             if(orderId){
                 self.addUser(userdata);
                 if(userId){
-                    self.addCard(card);
+                    self.addCard();
                     console.log("Si llego HASTA AQUIII");
                     // if(!empty(cardId)){
                     //     self.orderCreate();
@@ -432,7 +432,7 @@
                 // window.location.replace(url.build('checkout/index'));
             });
         },
-        addCard: function(data){
+        addCard: function(){
 
             const name= document.getElementById("card_name").value;
             const street = document.getElementById("card_street").value;
