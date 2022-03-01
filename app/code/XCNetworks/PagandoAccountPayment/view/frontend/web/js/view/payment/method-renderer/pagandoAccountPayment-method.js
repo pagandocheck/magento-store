@@ -401,9 +401,8 @@
                 const response= request.responseJSON;
                 orderId= response.data.orderId;
                 if(orderId){
-                    const user_id= await self.addUser(userdata);
+                  self.addUser(userdata);
                 }
-                return orderId;
             });
 
             request.fail(function( jqXHR, textStatus ) {
