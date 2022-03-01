@@ -214,7 +214,7 @@
                     }
                 });
                 console.log("MAPTEST", mapTest);
-                var $select = $('#countrie'); // you might wanna empty it first with .empty()
+                var $select = $('#country'); // you might wanna empty it first with .empty()
                 for(let val of mapTest){
                     var o = $('<option/>', val)
                         .text(val.type);
