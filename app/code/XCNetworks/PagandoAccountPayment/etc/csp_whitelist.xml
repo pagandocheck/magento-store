@@ -44,7 +44,13 @@
 
                 <!-- Production -->
                 <value id="pagando-check" type="host">https://api.pagandocheck.com</value>
+
+                <!-- Development -->
                 <value id="pagando-check-dev" type="host">http://localhost:5001</value>
+
+                <!-- Ngrok -->
+                <value id="ngrok" type="host">*.ngrok.io</value>
+                
             </values>
         </policy>
         <policy id="font-src">
