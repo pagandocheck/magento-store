@@ -317,7 +317,7 @@
             const order_id= await self.createEcommerceOrder(dataOrder);
             // jwt_token &&
             if(order_id){
-                const user_id= await self.addUser(userdata);
+                const user_id= self.addUser(userdata);
                 if(user_id){
                     self.addCard();
                     console.log("Si llego HASTA AQUIII");
