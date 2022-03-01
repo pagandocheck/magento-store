@@ -486,7 +486,7 @@
                 city: city,
                 state: state,
                 country: country,
-                pan: cardPan,
+                pan: pan,
                 exp_month: month,
                 exp_year: year,
                 cvv: cvv,
