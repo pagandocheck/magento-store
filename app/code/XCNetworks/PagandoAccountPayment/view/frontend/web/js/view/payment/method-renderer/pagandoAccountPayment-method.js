@@ -502,8 +502,6 @@
                 if(!empty(cardId)) {
                     self.orderCreate();
                 };
-                    $this->getEcommerceOrderData($get_data);
-                }
             });
 
             request.fail(function( jqXHR, textStatus ) {
@@ -532,7 +530,7 @@
              });
 
              request.done(function( msg ) {
-                 console.log("EXITOOOO", request);
+                 console.log("EXITOOOO order create", request);
                  const response= request.responseJSON;
                  if(response.key !== "SUCCESS_ORDER"){
                      console.log("EXITOOOO1");
@@ -556,7 +554,7 @@
 
              request.fail(function( jqXHR, textStatus ) {
                  console.log("EXITOOOO3");
-                 console.log( "Request failed: " + textStatus );
+                 console.log( "Request failed order: " + textStatus );
                  self.messageContainer.addErrorMessage({'message': 'Ha ocurrido un error inesperado.'});
                  // window.location.replace(url.build('checkout/index'));
              });
