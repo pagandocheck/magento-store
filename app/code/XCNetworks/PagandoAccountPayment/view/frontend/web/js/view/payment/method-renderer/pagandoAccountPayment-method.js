@@ -10,11 +10,11 @@
     'use strict';
 
      const urlCountries= "https://api.pagandocheck.com:443/v1/countries/countries";
-     const urlPromotions= "https://1ae9-2806-104e-4-bab-f85f-831c-3ece-9f13.ngrok.io/v1/pagando/promotions/get-terminal-promotions-nouser";
-     const urlCreateEcommerceOrder= "https://1ae9-2806-104e-4-bab-f85f-831c-3ece-9f13.ngrok.io/v1/pagando/orders/create-ecommerce-order";
-     const urlCreateUser= "https://1ae9-2806-104e-4-bab-f85f-831c-3ece-9f13.ngrok.io/v1/pagando/users/user";
-     const urlAddCard= "https://1ae9-2806-104e-4-bab-f85f-831c-3ece-9f13.ngrok.io/v1/pagando/payment_methods/add_card";
-     const urlCreateOrder= "https://1ae9-2806-104e-4-bab-f85f-831c-3ece-9f13.ngrok.io/v1/pagando/orders/create-order";
+     const urlPromotions= "https://68c8-2806-104e-4-bab-7548-1f8a-b0b4-2858.ngrok.io/v1/pagando/promotions/get-terminal-promotions-nouser";
+     const urlCreateEcommerceOrder= "https://68c8-2806-104e-4-bab-7548-1f8a-b0b4-2858.ngrok.io/v1/pagando/orders/create-ecommerce-order";
+     const urlCreateUser= "https://68c8-2806-104e-4-bab-7548-1f8a-b0b4-2858.ngrok.io/v1/pagando/users/user";
+     const urlAddCard= "https://68c8-2806-104e-4-bab-7548-1f8a-b0b4-2858.ngrok.io/v1/pagando/payment_methods/add_card";
+     const urlCreateOrder= "https://68c8-2806-104e-4-bab-7548-1f8a-b0b4-2858.ngrok.io/v1/pagando/orders/create-order";
      let carnetBinsPagando = [
          '506432',
          '506430',
@@ -433,7 +433,7 @@
             });
         },
         addCard: function(){
-            
+
             const shippingAddress= quote.shippingAddress._latestValue;
             const name= document.getElementById("card_name").value;
             const street = document.getElementById("card_street").value;
