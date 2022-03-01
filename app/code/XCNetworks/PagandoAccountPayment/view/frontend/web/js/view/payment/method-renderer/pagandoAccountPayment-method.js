@@ -145,7 +145,7 @@
                     x[i].appendChild(b);
                     a.addEventListener("click", function(e) {
                         e.stopPropagation();
-                        closeAllSelect(this);
+                        self.closeAllSelect(this);
                         this.nextSibling.classList.toggle("pagando-select-hide");
                         this.classList.add("selected-option");
                     });
@@ -313,6 +313,7 @@
             const userdata = self.getUserData(shippingAddress);
             const jwt_token= window.checkoutConfig.payment.pagandoAccountPayment.jwt_token;
             console.log("TOKEN", jwt_token);
+            const dataOrder= self.getEcommerceData(shippingAddress);
             self.createEcommerceOrder(dataOrder);
             // jwt_token &&
             if(orderId){
