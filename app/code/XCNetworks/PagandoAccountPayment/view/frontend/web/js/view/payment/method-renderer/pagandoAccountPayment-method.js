@@ -317,7 +317,7 @@
             // jwt_token &&
             if(orderId){
                 self.addUser(userdata);
-                if(userId)){
+                if(userId){
                     self.addCard(card);
                     console.log("Si llego HASTA AQUIII");
                     // if(!empty(cardId)){
