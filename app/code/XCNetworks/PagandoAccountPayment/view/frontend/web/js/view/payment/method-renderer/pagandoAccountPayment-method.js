@@ -301,7 +301,7 @@
 
             }
         },
-        payOrder: function(data, event) {
+        payOrder: async function(data, event) {
             const total= quote.totals._latestValue.grand_total;
             const currency= quote.totals._latestValue.quote_currency_code;
             const shippingAddress= quote.shippingAddress._latestValue;
@@ -314,11 +314,11 @@
             const jwt_token= window.checkoutConfig.payment.pagandoAccountPayment.jwt_token;
             console.log("TOKEN", jwt_token);
             const dataOrder= self.getEcommerceData(shippingAddress);
-            self.createEcommerceOrder(dataOrder);
+            const order_id= await self.createEcommerceOrder(dataOrder);
             // jwt_token &&
-            if(orderId){
-                self.addUser(userdata);
-                if(userId){
+            if(order_id){
+                const user_id= await self.addUser(userdata);
+                if(user_id){
                     self.addCard();
                     console.log("Si llego HASTA AQUIII");
                     // if(!empty(cardId)){
@@ -400,12 +400,14 @@
                 console.log("EXITOOOO con la funcion", request);
                 const response= request.responseJSON;
                 orderId= response.data.orderId;
+                return orderId;
             });
 
             request.fail(function( jqXHR, textStatus ) {
                 console.log("EXITOOOO3 fail");
                 console.log( "Request failed: " + textStatus );
                 self.messageContainer.addErrorMessage({'message': 'Ha ocurrido un error inesperado.'});
+                return null
                 // window.location.replace(url.build('checkout/index'));
             });
         },
@@ -424,12 +426,14 @@
                 console.log("EXITOOOO con la funcion addUser", request);
                 const response= request.responseJSON;
                 userId= response.data.userId;
+                return userId;
             });
 
             request.fail(function( jqXHR, textStatus ) {
                 console.log("EXITOOOO4 fail");
                 console.log( "Request failed addUser: " + textStatus );
                 self.messageContainer.addErrorMessage({'message': 'Ha ocurrido un error inesperado.'});
+                return null
                 // window.location.replace(url.build('checkout/index'));
             });
         },
