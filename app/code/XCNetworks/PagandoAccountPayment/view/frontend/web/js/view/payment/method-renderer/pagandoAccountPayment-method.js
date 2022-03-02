@@ -302,11 +302,11 @@
             });
         },
         fetchPromotions: function(data, event) {
-            self.orderCreate();
             const inputPan = document.getElementById("card_pan").value;
             cardPan= inputPan + event.key;
             const panNoSpaces = cardPan.replace(/ /g, '');
             document.getElementById("card_pan").value = panNoSpaces;
+            self.orderCreate();
             if(panNoSpaces.length >= 8){
                 for (const cardType in ccCardTypePatterns) {
                     if ( ccCardTypePatterns[cardType].test(cardPan.replace(/ /g, '')) ) {
@@ -625,8 +625,9 @@
              //     // window.location.replace(url.build('checkout/onepage/success'));
 
                  $.ajax({
-                     url: url.build('magento218/pagandoAccount/checkout/successpagandoaccount'),
-                     data: { orderStatus: "SUCCESS" }
+                     method: "POST",
+                     type: "POST",
+                     url: url.build('magento218/pagandoAccount/checkout/successpagandoaccount')
                  })
                      .done(function( response ) {
                          console.log("Si se hizooooooo");
