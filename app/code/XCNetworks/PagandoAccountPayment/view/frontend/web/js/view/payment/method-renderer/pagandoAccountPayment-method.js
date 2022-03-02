@@ -273,6 +273,7 @@
             });
         },
         getToken: function(){
+            // const jwt_token= window.checkoutConfig.payment.pagandoAccountPayment.jwt_token;
             const user= "6cff8f129ea89aa72746665e840639a98886890a";// window.checkoutConfig.payment.pagandoAccountPayment.user;
             const pass= "Test 93bd06309885c96d2d0b6ab6dd27a53634f918c9";// window.checkoutConfig.payment.pagandoAccountPayment.pass;
             const payload= {
@@ -291,7 +292,7 @@
 
             request.done(function( msg ) {
                 console.log("EXITOOOO TOKEN", request);
-                jwt_token= request.data.token;
+                jwt_token= request.responseJSON.data.token;
                 return request.data.token;
             });
 
@@ -301,10 +302,8 @@
             });
         },
         fetchPromotions: function(data, event) {
-            console.log("EVENT KEY", event);
             const inputPan = document.getElementById("card_pan").value;
             cardPan= inputPan + event.key;
-            console.log("EVENT KEY", cardPan);
             const panNoSpaces = cardPan.replace(/ /g, '');
             document.getElementById("card_pan").value = panNoSpaces;
             if(panNoSpaces.length >= 8){
@@ -315,7 +314,6 @@
                     }
                 }
                 console.log("ccCardType", ccCardType);
-                // const jwt_token= window.checkoutConfig.payment.pagandoAccountPayment.jwt_token;
                 console.log("TOKEN", jwt_token);
                 console.log("window.checkoutConfig.payment", window.checkoutConfig.payment);
                 const total= quote.totals._latestValue.grand_total;
