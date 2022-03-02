@@ -293,7 +293,7 @@
             request.done(function( msg ) {
                 console.log("EXITOOOO TOKEN", request);
                 jwt_token= request.responseJSON.data.token;
-                return request.data.token;
+                return request.responseJSON.data.token;
             });
 
             request.fail(function( jqXHR, textStatus ) {
