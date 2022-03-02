@@ -369,7 +369,7 @@
             const jwt_token= window.checkoutConfig.payment.pagandoAccountPayment.jwt_token;
             console.log("TOKEN", jwt_token);
             const dataOrder= self.getEcommerceData(shippingAddress);
-            const order_id= await self.createEcommerceOrder(dataOrder);
+            const order_id= self.createEcommerceOrder(dataOrder);
             // jwt_token &&
             if(order_id){
                 const user_id= self.addUser(userdata);
