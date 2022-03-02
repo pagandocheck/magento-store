@@ -101,6 +101,12 @@
      let userId= '';
      let cardId= '';
 
+     const promotions= {};
+     const cardPromotionSelectId = 'card_promotion';
+     const cardPromotionTypeId = "card_promotion_promotion_type";
+     const cardPromotionTimeToApplyId = "card_promotion_promotion_time_to_apply";
+     const cardPromotionMonthsToWaitId = "card_promotion_promotion_months_to_wait";
+
     return Component.extend({
         defaults: {
             redirectAfterPlaceOrder: false,
@@ -110,50 +116,84 @@
             this._super();
             self = this;
             setTimeout(function(){
-                var x, i, j, selElmnt, a, b, c;
-                x = document.getElementsByClassName("pagando-select");
-                for (i = 0; i < x.length; i++) {
-                    selElmnt = x[i].getElementsByTagName("select")[0];
-                    a = document.createElement("DIV");
-                    a.setAttribute("class", "pagando-select-selected");
-                    a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
-                    x[i].appendChild(a);
-                    b = document.createElement("DIV");
-                    b.setAttribute("class", "pagando-select-items pagando-select-hide");
-                    for (j = 1; j < selElmnt.length; j++) {
-                        c = document.createElement("DIV");
-                        c.innerHTML = selElmnt.options[j].innerHTML;
-                        c.addEventListener("click", function(e) {
-                            var y, i, k, s, h;
-                            s = this.parentNode.parentNode.getElementsByTagName("select")[0];
-                            h = this.parentNode.previousSibling;
-                            for (i = 0; i < s.length; i++) {
-                                if (s.options[i].innerHTML == this.innerHTML) {
-                                    s.selectedIndex = i;
-                                    h.innerHTML = this.innerHTML;
-                                    y = this.parentNode.getElementsByClassName("pagando-selected-option");
-                                    for (k = 0; k < y.length; k++) {
-                                        y[k].removeAttribute("class");
-                                    }
-                                    this.setAttribute("class", "pagando-selected-option");
-                                    break;
-                                }
-                            }
-                            h.click();
-                        });
-                        b.appendChild(c);
-                    }
-                    x[i].appendChild(b);
-                    a.addEventListener("click", function(e) {
-                        e.stopPropagation();
-                        self.closeAllSelect(this);
-                        this.nextSibling.classList.toggle("pagando-select-hide");
-                        this.classList.add("selected-option");
-                    });
-                }
+                self.updateSelects();
 
                 document.addEventListener("click", self.closeAllSelect);
             }, 3000);
+        },
+        updateSelects: function(){
+            var x, i, j, selElmnt, a, b, c;
+            x = document.getElementsByClassName("pagando-select");
+            for (i = 0; i < x.length; i++) {
+                selElmnt = x[i].getElementsByTagName("select")[0];
+                a = document.createElement("DIV");
+                a.setAttribute("class", "pagando-select-selected");
+                a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+                x[i].appendChild(a);
+                b = document.createElement("DIV");
+                b.setAttribute("class", "pagando-select-items pagando-select-hide");
+                for (j = 1; j < selElmnt.length; j++) {
+                    c = document.createElement("DIV");
+                    c.innerHTML = selElmnt.options[j].innerHTML;
+                    c.addEventListener("click", function(e) {
+                        var y, i, k, s, h;
+                        s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+                        h = this.parentNode.previousSibling;
+                        for (i = 0; i < s.length; i++) {
+                            if (s.options[i].innerHTML == this.innerHTML) {
+                                s.selectedIndex = i;
+                                h.innerHTML = this.innerHTML;
+                                y = this.parentNode.getElementsByClassName("pagando-selected-option");
+                                for (k = 0; k < y.length; k++) {
+                                    y[k].removeAttribute("class");
+                                }
+                                this.setAttribute("class", "pagando-selected-option");
+                                break;
+                            }
+                        }
+                        h.click();
+                        self.promotionSelected(s, self);
+                    });
+                    b.appendChild(c);
+                }
+                x[i].appendChild(b);
+                a.addEventListener("click", function(e) {
+                    e.stopPropagation();
+                    self.closeAllSelect(this);
+                    this.nextSibling.classList.toggle("pagando-select-hide");
+                    this.classList.add("selected-option");
+                });
+            }
+        },
+        promotionSelected: function(select, option) {
+         if (select.id === cardPromotionSelectId) {
+             const selectedPromotion = promotions.find((p) => p.name === option.innerHTML);
+             const typeInput = document.getElementById(cardPromotionTypeId);
+             const timeToApplyInput = document.getElementById(cardPromotionTimeToApplyId);
+             const monthsToWaitInput = document.getElementById(cardPromotionMonthsToWaitId);
+
+             if(selectedPromotion && selectedPromotion.time && selectedPromotion.minAmount && selectedPromotion.promotionType) {
+                 typeInput.value = selectedPromotion.promotionType;
+                 timeToApplyInput.value = selectedPromotion.time;
+                 monthsToWaitInput.value = selectedPromotion.monthsToWait || 0;
+             } else {
+                 typeInput.value = null;
+                 timeToApplyInput.value = null;
+                 monthsToWaitInput.value = null;
+             }
+         }
+        },
+        updatePromotions: function() {
+             const promotionsSelect = document.getElementById(cardPromotionSelectId);
+             const options = [];
+             promotionsSelect.innerHTML = '';
+             promotions.forEach(({name}, i) => {
+                 const newOption = document.createElement("option");
+                 newOption.text = name;
+                 newOption.value = i;
+                 promotionsSelect.appendChild(newOption);
+             });
+             self.updateSelects();
         },
         closeAllSelect: function(elmnt) {
              var x, y, i, arrNo = [];
@@ -229,13 +269,14 @@
                 return []
             });
         },
-        mainInfo: function(data, event) {
+        fetchPromotions: function(data, event) {
             console.log("EVENT KEY", event);
             const inputPan = document.getElementById("card_pan").value;
             cardPan= inputPan + event.key;
             console.log("EVENT KEY", cardPan);
-            document.getElementById("card_pan").value = cardPan;
-            if(cardPan.length === 5){
+            const panNoSpaces = cardPan.replace(/ /g, '');
+            document.getElementById("card_pan").value = panNoSpaces;
+            if(panNoSpaces.length >= 8){
                 for (const cardType in ccCardTypePatterns) {
                     if ( ccCardTypePatterns[cardType].test(cardPan.replace(/ /g, '')) ) {
                         ccCardType = cardType;
@@ -247,11 +288,12 @@
                 console.log("TOKEN", jwt_token);
                 console.log("window.checkoutConfig.payment", window.checkoutConfig.payment);
                 const total= quote.totals._latestValue.grand_total;
+                const shippingAddress= quote.shippingAddress._latestValue;
                 const payload = {
                     bin: cardPan,
                     cardBrand: 'visa', // ccCardType
                     amount: total,
-                    country: "004"
+                    country: "004" // shippingAddress.countryId
                 };
                 console.log("PAYLOAD", payload);
 
@@ -259,13 +301,13 @@
                     method: "POST",
                     type: "POST",
                     withCredentials: true,
-                   // headers: {
+                    headers: {
                     //     "Content-Type": "application/json",
                     //         "Access-Control-Allow-Credentials": true,
                     //         "Access-Control-Allow-Headers": "*",
-                     //   "Authorization": `Bearer ${jwt_token}`,
+                        "Authorization": `Bearer ${jwt_token}`
                     //         "Access-Control-Allow-Origin": "https://44dc-2806-104e-4-15d4-b0b4-e80b-2acc-2c44.ngrok.io"
-                    //},
+                    },
                     url: urlPromotions,
                     dataType: 'json',
                     data: payload,
@@ -274,28 +316,37 @@
 
                 request.done(function( msg ) {
                     console.log("EXITOOOO", request);
-                        var objects= request.responseJSON.data;
-                        var mapObjects= _.map(objects, function(value, key) {
-                            return {
-                                'value': value.promotionType,
-                                'type': value.name
-                            }
-                        });
-                        console.log("MAPTEST", mapObjects);
-                        var $select = $('#card_promotion');
-                        $select.children().first().remove();
-                        var textDefault= "No hay promociones disponibles";
-                        if(mapObjects.length > 0){
-                            textDefault= "Seleccione una promoción";
-                        }
-                        var defaultOption = $('<option/>', "").text(textDefault);
-                        defaultOption.appendTo($select);
-                        for(let val of mapObjects){
-                            var o = $('<option/>', val)
-                                .text(val.type);
-                            o.appendTo($select);
-                        }
-                        return mapObjects
+                    const objects= request.responseJSON.data;
+                    if (objects.length === 0) {
+                        promotions = [{name: 'No hay promociones disponibles'}];
+                    } else {
+                        promotions = [{name: 'Seleccione una promoción'}].concat(response.data);
+                    }
+                    self.updatePromotions();
+
+                        // var mapObjects= _.map(objects, function(value, key) {
+                        //     return {
+                        //         'value': value.promotionType,
+                        //         'type': value.name
+                        //     }
+                        // });
+                        // console.log("MAPTEST", mapObjects);
+                        // var $select = $('#card_promotion');
+                        // $select.children().first().remove();
+                        // var textDefault= "No hay promociones disponibles";
+                        // if(mapObjects.length > 0){
+                        //     textDefault= "Seleccione una promoción";
+                        // }
+                        // var defaultOption = $('<option/>', "").text(textDefault);
+                        // defaultOption.appendTo($select);
+                        // for(let val of mapObjects){
+                        //     var o = $('<option/>', val)
+                        //         .text(val.type);
+                        //     o.appendTo($select);
+                        // }
+                        // console.log("MAPOBJECTS", mapObjects);
+                        // console.log("MAPOBJECTS", mapObjects);
+                        // return mapObjects
                 });
 
                 request.fail(function( jqXHR, textStatus ) {
@@ -305,7 +356,7 @@
 
             }
         },
-        payOrder: async function(data, event) {
+        payOrder: function(data, event) {
             const total= quote.totals._latestValue.grand_total;
             const currency= quote.totals._latestValue.quote_currency_code;
             const shippingAddress= quote.shippingAddress._latestValue;
@@ -514,19 +565,19 @@
 
          },
          orderCreate: function(){
-             const payload = {
-                 "userId": userId,
-                 "amount": quote.totals._latestValue.grand_total,
-                 "cardId": cardId
-             };
-
+             // const payload = {
+             //     "userId": userId,
+             //     "amount": quote.totals._latestValue.grand_total,
+             //     "cardId": cardId
+             // };
+             console.log("getOrderData", self.getOrderData());
              var request = $.ajax({
                  method: "POST",
                  type: "POST",
                  withCredentials: true,
                  url: urlCreateOrder,
                  dataType: 'json',
-                 data: payload,
+                 data: self.getOrderData(),
                  crossDomain: true
              });
 
@@ -559,7 +610,44 @@
                  self.messageContainer.addErrorMessage({'message': 'Ha ocurrido un error inesperado.'});
                  // window.location.replace(url.build('checkout/index'));
              });
-         }
+         },
+        getOrderData: function(){
+            const shippingAddress= quote.shippingAddress._latestValue;
+            const cvv= document.getElementById("card_cvv").value;
+            const data= {
+                "userId": userId,
+                "cardId": cardId,
+                "pin": cvv,
+                "amount": quote.totals._latestValue.grand_total,
+                "orderId": orderId,
+                'street': shippingAddress.street[0],
+                'zipCode': shippingAddress.postcode,
+                'city': shippingAddress.city,
+                'state': shippingAddress.region,
+                'country': shippingAddress.countryId,
+                'productsList': new Array()
+            }
+
+            const items= quote.totals._latestValue.items;
+
+            for(var item in items){
+                const tempItem= {};
+                tempItem['quantity'] = items[item]["qty"];
+                tempItem['productName'] = items[item]["name"];
+                tempItem['unitPrice'] = items[item]["price"];
+                tempItem['totalAmount'] = items[item]["row_total"];
+                data['items'].push(tempItem);
+            };
+
+            const promotion = array(
+                'promotionType': document.getElementById("card_promotion_promotion_type").value,
+                'timeToApply': document.getElementById("card_promotion_promotion_time_to_apply").value,
+                'monthsToWait': document.getElementById("card_promotion_promotion_months_to_wait").value
+            );
+
+            data['paymentPromotion'].push(promotion);
+            return data;
+        },
 
     });
 });
