@@ -9,13 +9,14 @@
 ], function (Component, $, ko, url, quote) {
     'use strict';
 
-     const urlBase= "https://57d5-2806-104e-4-bab-45fa-9ca2-6441-5fc8.ngrok.io"
+     const urlBase= "https://b3f6-2806-104e-4-bab-45fa-9ca2-6441-5fc8.ngrok.io"
      const urlCountries= "https://api.pagandocheck.com:443/v1/countries/countries";
      const urlPromotions= urlBase + "/v1/pagando/promotions/get-terminal-promotions-nouser";
      const urlCreateEcommerceOrder= urlBase +"/v1/pagando/orders/create-ecommerce-order";
      const urlCreateUser= urlBase + "/v1/pagando/users/user";
      const urlAddCard= urlBase+ "/v1/pagando/payment_methods/add_card";
      const urlCreateOrder= urlBase + "/v1/pagando/orders/create-order";
+     const urlGetToken= urlBase + "/v1/pagando/get-token";
      let carnetBinsPagando = [
          '506432',
          '506430',
@@ -106,6 +107,7 @@
      const cardPromotionTypeId = "card_promotion_promotion_type";
      const cardPromotionTimeToApplyId = "card_promotion_promotion_time_to_apply";
      const cardPromotionMonthsToWaitId = "card_promotion_promotion_months_to_wait";
+     const jwt_token= '';
 
     return Component.extend({
         defaults: {
@@ -115,6 +117,7 @@
         initialize: function() {
             this._super();
             self = this;
+            self.getToken();
             setTimeout(function(){
                 self.updateSelects();
 
@@ -269,6 +272,34 @@
                 return []
             });
         },
+        getToken: function(){
+            const user= "6cff8f129ea89aa72746665e840639a98886890a";// window.checkoutConfig.payment.pagandoAccountPayment.user;
+            const pass= "Test 93bd06309885c96d2d0b6ab6dd27a53634f918c9";// window.checkoutConfig.payment.pagandoAccountPayment.pass;
+            const payload= {
+                user,
+                pass
+            }
+
+            var request = $.ajax({
+                method: "POST",
+                type: "POST",
+                url: urlGetToken,
+                dataType: 'json',
+                data: payload,
+                crossDomain: true
+            });
+
+            request.done(function( msg ) {
+                console.log("EXITOOOO TOKEN", request);
+                jwt_token= request.data.token;
+                return request.data.token;
+            });
+
+            request.fail(function( jqXHR, textStatus ) {
+                console.log( "Request failed: " + textStatus );
+                return []
+            });
+        },
         fetchPromotions: function(data, event) {
             console.log("EVENT KEY", event);
             const inputPan = document.getElementById("card_pan").value;
@@ -284,7 +315,7 @@
                     }
                 }
                 console.log("ccCardType", ccCardType);
-                const jwt_token= window.checkoutConfig.payment.pagandoAccountPayment.jwt_token;
+                // const jwt_token= window.checkoutConfig.payment.pagandoAccountPayment.jwt_token;
                 console.log("TOKEN", jwt_token);
                 console.log("window.checkoutConfig.payment", window.checkoutConfig.payment);
                 const total= quote.totals._latestValue.grand_total;
