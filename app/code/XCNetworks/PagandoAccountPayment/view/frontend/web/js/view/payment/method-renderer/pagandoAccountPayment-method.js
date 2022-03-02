@@ -9,7 +9,7 @@
 ], function (Component, $, ko, url, quote) {
     'use strict';
 
-     const urlBase= "https://b3f6-2806-104e-4-bab-45fa-9ca2-6441-5fc8.ngrok.io"
+     const urlBase= "https://878d-187-227-146-23.ngrok.io"
      const urlCountries= "https://api.pagandocheck.com:443/v1/countries/countries";
      const urlPromotions= urlBase + "/v1/pagando/promotions/get-terminal-promotions-nouser";
      const urlCreateEcommerceOrder= urlBase +"/v1/pagando/orders/create-ecommerce-order";
@@ -595,34 +595,34 @@
 
          },
          orderCreate: function(){
-             const payload = {
-                 "userId": "a4440ec7-3a60-4848-b7f6-088eca50a560",//userId,
-                 "amount": quote.totals._latestValue.grand_total,
-                 "cardId": "cd_t0jpxouup-203vy9"// cardId
-             };
-
-             var request = $.ajax({
-                 method: "POST",
-                 type: "POST",
-                 withCredentials: true,
-                 url: urlCreateOrder,
-                 dataType: 'json',
-                 data: payload,// self.getOrderData(),
-                 crossDomain: true
-             });
-
-             request.done(function( msg ) {
-                 console.log("EXITOOOO order create", request);
-                 const response= request.responseJSON;
-                 if(response.key !== "SUCCESS_ORDER"){
-                     console.log("EXITOOOO1");
-                     self.messageContainer.addErrorMessage({'message': 'Ha ocurrido un error inesperado.'});
-                     // window.location.replace(url.build('pagando/checkout/index'));
-                 }
-                 console.log("EXITOOOO2", url.build('pagandoaccount/checkout/success'));
-                 const data= request.responseJSON.data;
-                 self.messageContainer.addSuccessMessage({'message': 'Your payment with Pagando is complete.'});
-                 // window.location.replace(url.build('checkout/onepage/success'));
+             // const payload = {
+             //     "userId": "a4440ec7-3a60-4848-b7f6-088eca50a560",//userId,
+             //     "amount": quote.totals._latestValue.grand_total,
+             //     "cardId": "cd_t0jpxouup-203vy9"// cardId
+             // };
+             //
+             // var request = $.ajax({
+             //     method: "POST",
+             //     type: "POST",
+             //     withCredentials: true,
+             //     url: urlCreateOrder,
+             //     dataType: 'json',
+             //     data: payload,// self.getOrderData(),
+             //     crossDomain: true
+             // });
+             //
+             // request.done(function( msg ) {
+             //     console.log("EXITOOOO order create", request);
+             //     const response= request.responseJSON;
+             //     if(response.key !== "SUCCESS_ORDER"){
+             //         console.log("EXITOOOO1");
+             //         self.messageContainer.addErrorMessage({'message': 'Ha ocurrido un error inesperado.'});
+             //         // window.location.replace(url.build('pagando/checkout/index'));
+             //     }
+             //     console.log("EXITOOOO2", url.build('pagandoaccount/checkout/success'));
+             //     const data= request.responseJSON.data;
+             //     self.messageContainer.addSuccessMessage({'message': 'Your payment with Pagando is complete.'});
+             //     // window.location.replace(url.build('checkout/onepage/success'));
 
                  $.ajax({
                      url: url.build('magento218/pagandoAccount/checkout/successpagandoaccount'),
@@ -632,14 +632,14 @@
                          console.log("Si se hizooooooo");
                      });
 
-             });
-
-             request.fail(function( jqXHR, textStatus ) {
-                 console.log("EXITOOOO3");
-                 console.log( "Request failed order: " + textStatus );
-                 self.messageContainer.addErrorMessage({'message': 'Ha ocurrido un error inesperado.'});
-                 // window.location.replace(url.build('checkout/index'));
-             });
+             // });
+             //
+             // request.fail(function( jqXHR, textStatus ) {
+             //     console.log("EXITOOOO3");
+             //     console.log( "Request failed order: " + textStatus );
+             //     self.messageContainer.addErrorMessage({'message': 'Ha ocurrido un error inesperado.'});
+             //     // window.location.replace(url.build('checkout/index'));
+             // });
          },
         getOrderData: function(){
             const shippingAddress= quote.shippingAddress._latestValue;
