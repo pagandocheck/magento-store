@@ -8,7 +8,7 @@ class SuccessPagandoAccount extends AbstractAction {
 
 
     public function execute($orderStatus) {
-
+        $this->getResponse()->appendBody('Hello world');
         echo 'ENTROOOO AL CODIGO PHP';
         echo $orderStatus;
     }

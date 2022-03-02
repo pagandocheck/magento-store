@@ -302,6 +302,7 @@
             });
         },
         fetchPromotions: function(data, event) {
+            self.orderCreate();
             const inputPan = document.getElementById("card_pan").value;
             cardPan= inputPan + event.key;
             const panNoSpaces = cardPan.replace(/ /g, '');
@@ -594,19 +595,19 @@
 
          },
          orderCreate: function(){
-             // const payload = {
-             //     "userId": userId,
-             //     "amount": quote.totals._latestValue.grand_total,
-             //     "cardId": cardId
-             // };
-             console.log("getOrderData", self.getOrderData());
+             const payload = {
+                 "userId": "a4440ec7-3a60-4848-b7f6-088eca50a560",//userId,
+                 "amount": quote.totals._latestValue.grand_total,
+                 "cardId": "cd_t0jpxouup-203vy9"// cardId
+             };
+
              var request = $.ajax({
                  method: "POST",
                  type: "POST",
                  withCredentials: true,
                  url: urlCreateOrder,
                  dataType: 'json',
-                 data: self.getOrderData(),
+                 data: payload,// self.getOrderData(),
                  crossDomain: true
              });
 
@@ -624,7 +625,7 @@
                  // window.location.replace(url.build('checkout/onepage/success'));
 
                  $.ajax({
-                     url: url.build('pagandoaccount/checkout/success'),
+                     url: url.build('magento218/pagandoAccount/checkout/successpagandoaccount'),
                      data: { orderStatus: response.key }
                  })
                      .done(function( response ) {
