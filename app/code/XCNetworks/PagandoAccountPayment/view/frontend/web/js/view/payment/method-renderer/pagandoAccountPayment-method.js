@@ -107,7 +107,7 @@
      const cardPromotionTypeId = "card_promotion_promotion_type";
      const cardPromotionTimeToApplyId = "card_promotion_promotion_time_to_apply";
      const cardPromotionMonthsToWaitId = "card_promotion_promotion_months_to_wait";
-     const jwt_token= '';
+     let jwt_token= '';
 
     return Component.extend({
         defaults: {
