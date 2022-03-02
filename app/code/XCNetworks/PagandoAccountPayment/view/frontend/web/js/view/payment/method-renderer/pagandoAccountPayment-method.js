@@ -639,11 +639,11 @@
                 data['items'].push(tempItem);
             };
 
-            const promotion = array(
+            const promotion = {
                 'promotionType': document.getElementById("card_promotion_promotion_type").value,
                 'timeToApply': document.getElementById("card_promotion_promotion_time_to_apply").value,
                 'monthsToWait': document.getElementById("card_promotion_promotion_months_to_wait").value
-            );
+            };
 
             data['paymentPromotion'].push(promotion);
             return data;
