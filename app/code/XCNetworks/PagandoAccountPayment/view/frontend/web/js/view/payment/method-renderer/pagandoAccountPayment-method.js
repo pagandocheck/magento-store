@@ -626,7 +626,7 @@
 
                  $.ajax({
                      url: url.build('magento218/pagandoAccount/checkout/successpagandoaccount'),
-                     data: { orderStatus: response.key }
+                     data: { orderStatus: "SUCCESS" }
                  })
                      .done(function( response ) {
                          console.log("Si se hizooooooo");
