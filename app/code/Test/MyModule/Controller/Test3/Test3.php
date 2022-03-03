@@ -9,7 +9,7 @@ use Magento\Framework\App\CsrfAwareActionInterface;
 use Magento\Framework\App\RequestInterface;
 use Magento\Framework\App\Request\InvalidRequestException;
 
-class Test3 implements extends \Magento\Framework\App\Action\Action implements CsrfAwareActionInterface
+class Test3 extends \Magento\Framework\App\Action\Action implements CsrfAwareActionInterface
 {
     private $jsonFactory;
 
