@@ -25,7 +25,7 @@ class UpdateStatusOrder extends AbstractAction
             return;
         }
 
-        $orderInfo = $this->getPagandoPayment()->getEcommerceOrderData($orderId);
+        $orderInfo = $this->getPagandoAccountPayment()->getEcommerceOrderData($orderId);
 
         if(!$orderInfo) {
             $this->_redirect('checkout/onepage/error', array('_secure'=> false));
