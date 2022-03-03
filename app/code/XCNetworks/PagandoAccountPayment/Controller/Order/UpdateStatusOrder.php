@@ -5,15 +5,19 @@ namespace XCNetworks\PagandoAccountPayment\Controller\Order;
 use Magento\Framework\Controller\Result\Json;
 use Magento\Framework\Controller\Result\JsonFactory;
 use Magento\Sales\Model\Order;
+use Magento\Checkout\Model\Session;
 
 class UpdateStatusOrder extends AbstractAction
 {
     private $jsonFactory;
+    public $error_msg, $error;
 
     public function __construct(
-        JsonFactory $jsonFactory
+        JsonFactory $jsonFactory,
+        Session $checkoutSession,
     ) {
         $this->jsonFactory = $jsonFactory;
+        $this->_checkoutSession = $checkoutSession;
     }
 
     public function execute()
@@ -25,7 +29,7 @@ class UpdateStatusOrder extends AbstractAction
             return;
         }
 
-        $orderInfo = $this->getPagandoAccountPayment()->getEcommerceOrderData($orderId);
+        $orderInfo = $this->getEcommerceOrderData($orderId);
 
         if(!$orderInfo) {
             $this->_redirect('checkout/onepage/error', array('_secure'=> false));
@@ -86,4 +90,69 @@ class UpdateStatusOrder extends AbstractAction
         }
         return false;
     }
+
+    function getEcommerceOrderData($orderId) {
+
+        $res = $this->request('orders/get-order-info?orderId='.$orderId);
+
+        if(!$res->error)
+            return $res->data;
+
+        return $res->error;
+    }
+
+    function request( $path, $data = [], $type = "GET" )
+        {
+            const _apiUri = 'https://83d6-2806-104e-4-bab-8907-3041-f7b7-5b89.ngrok.io/v1/pagando/';
+            $url = _apiUri.$path;
+
+            $headers[] = "Content-Type: application/x-www-form-urlencoded";
+
+            if(!empty($this->_checkoutSession->getToken())){
+                $headers[] = "Authorization: ".$this->_checkoutSession->getToken();
+            }
+
+            $settings = array(
+                CURLOPT_URL => $url,
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_FOLLOWLOCATION => true,
+                CURLOPT_SSL_VERIFYPEER => false,
+                CURLOPT_SSL_VERIFYHOST => false,
+                CURLOPT_HTTPHEADER => $headers,
+            );
+
+            if($type != "GET")
+            {
+                $settings[CURLOPT_CUSTOMREQUEST] = $type;
+
+                if(!empty($data)){
+                    $settings[CURLOPT_POSTFIELDS] = http_build_query($data);
+                }
+
+            }
+
+            $curl = curl_init();
+            curl_setopt_array($curl, $settings);
+            $response = curl_exec($curl);
+            curl_close($curl);
+
+            $result = json_decode($response);
+
+            $this->error_msg = $result->message;
+
+            $return = new \stdClass();
+
+            if(!empty($result->data)){
+                $this->error = 0;
+                $return->error = 0;
+                $return->data = $result->data;
+            } else {
+                $this->error = 1;
+                $return->error = 1;
+                $return->message = $result->message;
+            }
+
+            return $return;
+        }
+
 }
