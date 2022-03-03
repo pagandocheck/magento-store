@@ -103,7 +103,7 @@ class UpdateStatusOrder extends AbstractAction
 
     function request( $path, $data = [], $type = "GET" )
         {
-            $url = 'https://83d6-2806-104e-4-bab-8907-3041-f7b7-5b89.ngrok.io/v1/pagando/orders/get-order-info?orderId=609381cb9e7858ca58dbfebf';
+            $url = 'https://8695-2806-104e-4-bab-8907-3041-f7b7-5b89.ngrok.io/v1/pagando/orders/get-order-info?orderId=609381cb9e7858ca58dbfebf';
 
             $headers[] = "Content-Type: application/x-www-form-urlencoded";
 
