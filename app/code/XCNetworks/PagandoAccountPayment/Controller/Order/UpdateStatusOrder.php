@@ -103,12 +103,12 @@ class UpdateStatusOrder extends AbstractAction
 
     function request( $path, $data = [], $type = "GET" )
         {
-            $url = 'https://8695-2806-104e-4-bab-8907-3041-f7b7-5b89.ngrok.io/v1/pagando/orders/get-order-info?orderId=609381cb9e7858ca58dbfebf';
+            $url = 'https://4c10-2806-104e-4-bab-8907-3041-f7b7-5b89.ngrok.io/v1/pagando/orders/get-order-info?orderId=609381cb9e7858ca58dbfebf';
 
             $headers[] = "Content-Type: application/x-www-form-urlencoded";
 
             if(!empty($this->_checkoutSession->getToken())){
-                $headers[] = "Authorization: ".$this->_checkoutSession->getToken();
+                $headers[] = "Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJvcmdhbml6YXRpb24iOiI2MTM2YTQyZDQzNjM0MTU5Nzg1YTU2MmIiLCJ0eXBlIjoiVGVzdCIsImV4cCI6MTY0NjQwOTAyOSwiY2hlY2tvdXQiOiJXT09DT01FUkNFIiwiaWF0IjoxNjQ2MzIyNjI5fQ.cqicrulc1USPkHH_HJ1yfrF5M08iQASG49gssaVdvgE";
             }
 
             $settings = array(

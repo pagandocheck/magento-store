@@ -22,7 +22,7 @@ use Magento\Store\Model\ScopeInterface;
 class PagandoAccountPayment extends AbstractMethod
 {
     const PAYMENT_METHOD_PAGANDOACCOUNTPAYMENT_CODE = 'pagandoAccountPayment';
-     protected const API_URI = 'https://83d6-2806-104e-4-bab-8907-3041-f7b7-5b89.ngrok.io/v1/pagando/';
+     protected const API_URI = 'https://4c10-2806-104e-4-bab-8907-3041-f7b7-5b89.ngrok.io/v1/pagando/';
     // protected const CHECKOUT_URI = 'http://192.168.1.67:8090/';
     // protected const API_URI = 'https://api.pagandocheck.com/v1/pagando/';
     protected const CHECKOUT_URI = 'https://checkout.pagandocheck.com/';
