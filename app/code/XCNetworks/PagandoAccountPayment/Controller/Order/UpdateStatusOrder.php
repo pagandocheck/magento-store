@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace Test\MyModule\Controller\Awesome;
+namespace XCNetworks\PagandoAccountPayment\Controller\Order;
 
 use Magento\Framework\App\Action\HttpGetActionInterface;
 use Magento\Framework\Controller\Result\Json;
