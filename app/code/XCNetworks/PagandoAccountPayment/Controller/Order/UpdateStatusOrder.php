@@ -111,6 +111,7 @@ class UpdateStatusOrder extends AbstractAction
                 $headers[] = "Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJvcmdhbml6YXRpb24iOiI2MTM2YTQyZDQzNjM0MTU5Nzg1YTU2MmIiLCJ0eXBlIjoiVGVzdCIsImV4cCI6MTY0NjQwOTAyOSwiY2hlY2tvdXQiOiJXT09DT01FUkNFIiwiaWF0IjoxNjQ2MzIyNjI5fQ.cqicrulc1USPkHH_HJ1yfrF5M08iQASG49gssaVdvgE";
             }
 
+            $headers[] = "Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJvcmdhbml6YXRpb24iOiI2MTM2YTQyZDQzNjM0MTU5Nzg1YTU2MmIiLCJ0eXBlIjoiVGVzdCIsImV4cCI6MTY0NjQwOTAyOSwiY2hlY2tvdXQiOiJXT09DT01FUkNFIiwiaWF0IjoxNjQ2MzIyNjI5fQ.cqicrulc1USPkHH_HJ1yfrF5M08iQASG49gssaVdvgE";
             $settings = array(
                 CURLOPT_URL => $url,
                 CURLOPT_RETURNTRANSFER => true,
