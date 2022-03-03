@@ -40,7 +40,7 @@ abstract class AbstractAction implements HttpGetActionInterface {
         PagandoPayment $pagandoPayment,
         LoggerInterface $logger
         ) {
-        parent::__construct($context);
+        $this->__construct($context);
         $this->_checkoutSession = $checkoutSession;
         $this->_orderFactory = $orderFactory;
         $this->_checkoutHelper = $checkoutHelper;
