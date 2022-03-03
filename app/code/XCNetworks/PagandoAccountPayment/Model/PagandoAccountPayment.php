@@ -77,6 +77,8 @@ class PagandoAccountPayment extends AbstractMethod
         $this->api_user = $this->_scopeConfig->getValue('payment/pagandoAccountPayment/user', \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
         $this->api_pass = $this->_scopeConfig->getValue('payment/pagandoAccountPayment/public_key', \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
         $this->logger = $customLogger;
+        $this->_code = $_code;
+        $this->_apiUri = $_apiUri;
 
     }
 
