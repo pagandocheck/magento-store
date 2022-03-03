@@ -7,7 +7,7 @@ use Magento\Framework\Controller\Result\Json;
 use Magento\Framework\Controller\Result\JsonFactory;
 use Magento\Sales\Model\Order;
 
-class UpdateStatusOrder extends AbstractAction implements HttpGetActionInterface
+class UpdateStatusOrder implements HttpGetActionInterface
 {
     private $jsonFactory;
 
@@ -39,5 +39,9 @@ class UpdateStatusOrder extends AbstractAction implements HttpGetActionInterface
             if ($orderStatus === $status["status"]) return true;
         }
         return false;
+    }
+    protected function getObjectManager()
+    {
+        return \Magento\Framework\App\ObjectManager::getInstance();
     }
 }
