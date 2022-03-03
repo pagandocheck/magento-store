@@ -18,7 +18,8 @@ class Tip implements HttpGetActionInterface
 
     public function execute(): Json
     {
-        $order= $this->getRequest()->getParam('order');
+        $request = $this->getObjectManager()->get('Magento\Framework\App\Request\Http');
+        $order = $request->getParam('orderId');
         $json = $this->jsonFactory->create();
         $data = [
             'test2' => $order,
@@ -26,5 +27,9 @@ class Tip implements HttpGetActionInterface
         $json->setData($data);
 
         return $json;
+    }
+    protected function getObjectManager()
+    {
+        return \Magento\Framework\App\ObjectManager::getInstance();
     }
 }
