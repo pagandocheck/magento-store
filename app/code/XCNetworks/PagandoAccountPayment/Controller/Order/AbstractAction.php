@@ -14,7 +14,7 @@ use Magento\Framework\App\Action\HttpGetActionInterface;
 /**
  * @package
  */
-abstract class AbstractAction extends Action {
+class AbstractAction implements HttpGetActionInterface {
 
     const LOG_FILE = 'pagando.log';
 

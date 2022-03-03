@@ -6,7 +6,7 @@ use Magento\Framework\Controller\Result\Json;
 use Magento\Framework\Controller\Result\JsonFactory;
 use Magento\Sales\Model\Order;
 
-abstract class UpdateStatusOrder extends AbstractAction
+class UpdateStatusOrder extends AbstractAction
 {
     private $jsonFactory;
 
