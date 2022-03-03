@@ -2,7 +2,6 @@
 
 namespace XCNetworks\PagandoAccountPayment\Controller\Order;
 
-use Magento\Framework\App\Action\HttpGetActionInterface;
 use Magento\Framework\Controller\Result\Json;
 use Magento\Framework\Controller\Result\JsonFactory;
 use Magento\Sales\Model\Order;

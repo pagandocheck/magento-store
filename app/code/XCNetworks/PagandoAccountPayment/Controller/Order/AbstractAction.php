@@ -9,11 +9,12 @@ use Magento\Sales\Model\OrderFactory;
 use XCNetworks\PagandoAccountPayment\Helper\Checkout;
 use XCNetworks\PagandoAccountPayment\Model\PagandoAccountPayment;
 use Psr\Log\LoggerInterface;
+use Magento\Framework\App\Action\HttpGetActionInterface;
 
 /**
  * @package
  */
-abstract class AbstractAction extends Action {
+abstract class AbstractAction implements HttpGetActionInterface {
 
     const LOG_FILE = 'pagando.log';
 
