@@ -9,7 +9,7 @@
 ], function (Component, $, ko, url, quote) {
     'use strict';
 
-     const urlBase= "https://228d-2806-104e-4-bab-8907-3041-f7b7-5b89.ngrok.io"
+     const urlBase= "https://fd10-2806-104e-4-bab-8907-3041-f7b7-5b89.ngrok.io"
      const urlCountries= "https://api.pagandocheck.com:443/v1/countries/countries";
      const urlPromotions= urlBase + "/v1/pagando/promotions/get-terminal-promotions-nouser";
      const urlCreateEcommerceOrder= urlBase +"/v1/pagando/orders/create-ecommerce-order";
@@ -629,9 +629,9 @@
                      type: "POST",
                      url: url.build('pagandoAccount/order/updatestatusorder?orderId=609381cb9e7858ca58dbfebf'),
                      data: {
-                         "transactionId" = "a70bd58e-be20-4c20-8111-89dc6a3c431f",
-                         "orderIdECommerce" = "000000023",
-                         "payResponse" = "APPROVED",
+                         "transactionId": "a70bd58e-be20-4c20-8111-89dc6a3c431f",
+                         "orderIdECommerce": "000000023",
+                         "payResponse": "APPROVED",
                      }
                  })
                      .done(function( response ) {
