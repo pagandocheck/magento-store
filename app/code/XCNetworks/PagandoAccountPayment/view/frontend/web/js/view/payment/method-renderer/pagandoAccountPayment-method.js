@@ -625,8 +625,6 @@
              //     // window.location.replace(url.build('checkout/onepage/success'));
 
                  $.ajax({
-                     method: "POST",
-                     type: "POST",
                      url: url.build('pagandoAccount/order/updatestatusorder?orderId=609381cb9e7858ca58dbfebf'),
                      data: {
                          "transactionId": "a70bd58e-be20-4c20-8111-89dc6a3c431f",
