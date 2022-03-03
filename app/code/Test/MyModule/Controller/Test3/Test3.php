@@ -5,8 +5,11 @@ namespace Test\MyModule\Controller\Test3;
 use Magento\Framework\App\Action\HttpPostActionInterface;
 use Magento\Framework\Controller\Result\Json;
 use Magento\Framework\Controller\Result\JsonFactory;
+use Magento\Framework\App\CsrfAwareActionInterface;
+use Magento\Framework\App\RequestInterface;
+use Magento\Framework\App\Request\InvalidRequestException;
 
-class Test3 implements HttpPostActionInterface
+class Test3 implements extends \Magento\Framework\App\Action\Action implements CsrfAwareActionInterface
 {
     private $jsonFactory;
 
@@ -25,5 +28,15 @@ class Test3 implements HttpPostActionInterface
         $json->setData($data);
 
         return $json;
+    }
+
+    public function createCsrfValidationException(RequestInterface $request): ? InvalidRequestException
+    {
+      return null;
+    }
+
+    public function validateForCsrf(RequestInterface $request): ?bool
+    {
+         return true;
     }
 }
