@@ -24,19 +24,7 @@ class UpdateStatusOrder extends AbstractAction
     {
         $request = $this->getObjectManager()->get('Magento\Framework\App\Request\Http');
         $orderId = $request->getParam('orderId');
-        if(!$orderId) {
-            $this->_redirect('checkout/onepage/error', array('_secure'=> false));
-            return;
-        }
-
-        $orderInfo = $this->getEcommerceOrderData($orderId);
-
-        if(!$orderInfo) {
-            $this->_redirect('checkout/onepage/error', array('_secure'=> false));
-            return;
-        }
-
-        $transactionId = $orderInfo->transactionId;
+        $transactionId = $request->getParam('transactionId');
 
         $order = $this->getOrderById($orderInfo->orderIdECommerce);
 

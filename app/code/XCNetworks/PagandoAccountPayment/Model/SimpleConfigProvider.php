@@ -91,7 +91,8 @@ class SimpleConfigProvider implements ConfigProviderInterface
                             'jwt_token' => $this->getToken(),
                             'user' => $this->api_user,
                             'pass' => $this->api_pass,
-                            'orderId' => $this->getOrderId()
+                            'orderId' => $this->getOrderId(),
+                            'incrementId' => $this->getIncrementId()
                         ],
                     ],
                 ];
@@ -120,6 +121,12 @@ class SimpleConfigProvider implements ConfigProviderInterface
     public function getOrderId(){
         $request = $this->getObjectManager()->get('Magento\Framework\App\Request\Http');
         $orderId = $request->getParam('orderId');
+    }
+
+    public function getIncrementId(){
+        $order = Mage::getModel('sales/order');
+        $order->load(Mage::getSingleton('sales/order')->getLastOrderId());
+        return $order->getIncrementId();
     }
 
 

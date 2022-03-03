@@ -9,7 +9,7 @@
 ], function (Component, $, ko, url, quote) {
     'use strict';
 
-     const urlBase= "https://4c10-2806-104e-4-bab-8907-3041-f7b7-5b89.ngrok.io"
+     const urlBase= "https://228d-2806-104e-4-bab-8907-3041-f7b7-5b89.ngrok.io"
      const urlCountries= "https://api.pagandocheck.com:443/v1/countries/countries";
      const urlPromotions= urlBase + "/v1/pagando/promotions/get-terminal-promotions-nouser";
      const urlCreateEcommerceOrder= urlBase +"/v1/pagando/orders/create-ecommerce-order";
@@ -257,7 +257,6 @@
                         'type': value.name
                     }
                 });
-                console.log("MAPTEST", mapTest);
                 var $select = $('#country'); // you might wanna empty it first with .empty()
                 for(let val of mapTest){
                     var o = $('<option/>', val)
@@ -273,6 +272,7 @@
             });
         },
         getToken: function(){
+            console.log("window.checkoutConfig.payment", window.checkoutConfig);
             // const jwt_token= window.checkoutConfig.payment.pagandoAccountPayment.jwt_token;
             const user= "6cff8f129ea89aa72746665e840639a98886890a";// window.checkoutConfig.payment.pagandoAccountPayment.user;
             const pass= "Test 93bd06309885c96d2d0b6ab6dd27a53634f918c9";// window.checkoutConfig.payment.pagandoAccountPayment.pass;
@@ -627,7 +627,7 @@
                  $.ajax({
                      method: "POST",
                      type: "POST",
-                     url: url.build('magento218/pagandoAccount/checkout/successpagandoaccount')
+                     url: url.build('pagandoAccount/order/updatestatusorder?orderId=609381cb9e7858ca58dbfebf')
                  })
                      .done(function( response ) {
                          console.log("Si se hizooooooo");
