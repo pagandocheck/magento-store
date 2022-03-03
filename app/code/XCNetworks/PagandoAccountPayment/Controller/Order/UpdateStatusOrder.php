@@ -7,7 +7,7 @@ use Magento\Framework\Controller\Result\Json;
 use Magento\Framework\Controller\Result\JsonFactory;
 use Magento\Sales\Model\Order;
 
-class Tip extends AbstractAction implements HttpGetActionInterface
+class UpdateStatusOrder extends AbstractAction implements HttpGetActionInterface
 {
     private $jsonFactory;
 
