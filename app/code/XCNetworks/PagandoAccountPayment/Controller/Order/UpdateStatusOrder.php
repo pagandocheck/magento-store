@@ -27,7 +27,8 @@ class UpdateStatusOrder extends AbstractAction
         $orderIdECommerce = $request->getParam('orderIdECommerce');
         $payResponse = $request->getParam('payResponse');
 
-        $order = $this->getOrderById($orderIdECommerce);
+        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+        $order = $objectManager->create('Magento\Sales\Model\Order')->loadByIncrementId($orderIdECommerce);
 
         if(!$order) {
             $this->_redirect('checkout/onepage/error', array('_secure'=> false));
@@ -54,7 +55,6 @@ class UpdateStatusOrder extends AbstractAction
 	        $payment->addTransaction(\Magento\Sales\Model\Order\Payment\Transaction::TYPE_CAPTURE, null, true);
             $order->save();
 
-            $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
             $emailSender = $objectManager->create('\Magento\Sales\Model\Order\Email\Sender\OrderSender');
             $emailSender->send($order);
 
