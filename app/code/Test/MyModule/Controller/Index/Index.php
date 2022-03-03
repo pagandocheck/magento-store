@@ -5,22 +5,26 @@ namespace Test\MyModule\Controller\Index;
 use Magento\Framework\App\Action\HttpGetActionInterface;
 use Magento\Framework\Controller\Result\Json;
 use Magento\Framework\Controller\Result\JsonFactory;
+use Magento\Framework\App\RequestInterface;
 
 class Index implements HttpGetActionInterface
 {
     private $jsonFactory;
-
+    protected $request;
+    
     public function __construct(
-        JsonFactory $jsonFactory
+        JsonFactory $jsonFactory,
+        RequestInterface $request
     ) {
         $this->jsonFactory = $jsonFactory;
+        $this->request = $request;
     }
 
     public function execute(): Json
     {
         $json = $this->jsonFactory->create();
         $data = [
-            'foo' => 'bar',
+            'foo' => $this->request->getParam('bar'),
         ];
         $json->setData($data);
 
