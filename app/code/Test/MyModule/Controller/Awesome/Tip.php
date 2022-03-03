@@ -20,7 +20,7 @@ class Index implements HttpGetActionInterface
     {
         $json = $this->jsonFactory->create();
         $data = [
-            'foo' => 'bar',
+            'test2' => 'test2',
         ];
         $json->setData($data);
 
