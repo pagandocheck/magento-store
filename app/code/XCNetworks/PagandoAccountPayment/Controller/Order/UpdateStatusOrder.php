@@ -14,7 +14,7 @@ class UpdateStatusOrder extends AbstractAction
 
     public function __construct(
         JsonFactory $jsonFactory,
-        Session $checkoutSession,
+        Session $checkoutSession
     ) {
         $this->jsonFactory = $jsonFactory;
         $this->_checkoutSession = $checkoutSession;
