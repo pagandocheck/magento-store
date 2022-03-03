@@ -1,33 +1,35 @@
 <?php declare(strict_types=1);
 
-namespace Test\MyModule\Controller\Index;
+namespace Test\MyModule\Controller\Awesome;
 
 use Magento\Framework\App\Action\HttpGetActionInterface;
 use Magento\Framework\Controller\Result\Json;
 use Magento\Framework\Controller\Result\JsonFactory;
-use Magento\Framework\App\RequestInterface;
 
-class Index implements HttpGetActionInterface
+class Tip implements HttpGetActionInterface
 {
     private $jsonFactory;
-    protected $request;
-    
+
     public function __construct(
-        JsonFactory $jsonFactory,
-        RequestInterface $request
+        JsonFactory $jsonFactory
     ) {
         $this->jsonFactory = $jsonFactory;
-        $this->request = $request;
     }
 
     public function execute(): Json
     {
+        $request = $this->getObjectManager()->get('Magento\Framework\App\Request\Http');
+        $order = $request->getParam('orderId');
         $json = $this->jsonFactory->create();
         $data = [
-            'foo' => $this->request->getParam('bar'),
+            'test2' => $order,
         ];
         $json->setData($data);
 
         return $json;
+    }
+    protected function getObjectManager()
+    {
+        return \Magento\Framework\App\ObjectManager::getInstance();
     }
 }
