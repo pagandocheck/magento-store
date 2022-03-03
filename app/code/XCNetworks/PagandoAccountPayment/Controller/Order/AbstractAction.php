@@ -26,11 +26,13 @@ abstract class AbstractAction implements HttpGetActionInterface {
 
     private $_checkoutHelper;
 
-    private $_messageManager;
+    protected $messageManager;
 
     private $_logger;
 
     protected $_pagandoAccountPayment;
+
+    protected $order;
 
     public function __construct(
         Session $checkoutSession,
@@ -38,13 +40,14 @@ abstract class AbstractAction implements HttpGetActionInterface {
         OrderFactory $orderFactory,
         Checkout $checkoutHelper,
         PagandoPayment $pagandoPayment,
-        LoggerInterface $logger
+        LoggerInterface $logger,
+        \Magento\Framework\Message\ManagerInterface $messageManager
         ) {
         $this->__construct($context);
         $this->_checkoutSession = $checkoutSession;
         $this->_orderFactory = $orderFactory;
         $this->_checkoutHelper = $checkoutHelper;
-        $this->_messageManager = $context->getMessageManager();
+        $this->messageManager = $messageManager;
         $this->_logger = $logger;
         $this->_pagandoAccountPayment = $pagandoAccountPayment;
     }

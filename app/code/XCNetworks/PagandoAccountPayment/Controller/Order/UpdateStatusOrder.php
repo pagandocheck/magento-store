@@ -59,12 +59,12 @@ class UpdateStatusOrder extends AbstractAction
             $emailSender->send($order);
 
 
-            $this->getMessageManager()->addSuccessMessage(__("Your payment with Pagando is complete"));
+            $this->messageManager->addSuccess(__("Your payment with Pagando is complete"));
             $this->_redirect('checkout/onepage/success', array('_secure'=> false));
         } else {
             $this->getCheckoutHelper()->cancelCurrentOrder("Order #".($order->getId())." was rejected by Pagando. Transaction #$transactionId.");
             $this->getCheckoutHelper()->restoreQuote(); //restore cart
-            $this->getMessageManager()->addErrorMessage(__("There was an error in the Pagando payment"));
+            $this->messageManager->addError(__("There was an error in the Pagando payment"));
             $this->_redirect('checkout/cart', array('_secure'=> false));
         }
     }
