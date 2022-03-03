@@ -18,7 +18,7 @@ class Tip implements HttpGetActionInterface
 
     public function execute(): Json
     {
-        $order= $_GET["order"];
+        $order= $this->getRequest()->getParam('order');
         $json = $this->jsonFactory->create();
         $data = [
             'test2' => $order,
