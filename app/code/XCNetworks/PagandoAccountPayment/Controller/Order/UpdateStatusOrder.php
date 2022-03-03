@@ -39,8 +39,4 @@ class UpdateStatusOrder extends AbstractAction
         }
         return false;
     }
-    protected function getObjectManager()
-    {
-        return \Magento\Framework\App\ObjectManager::getInstance();
-    }
 }
