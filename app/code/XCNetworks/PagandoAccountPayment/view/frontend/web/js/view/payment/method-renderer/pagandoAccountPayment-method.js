@@ -627,7 +627,12 @@
                  $.ajax({
                      method: "POST",
                      type: "POST",
-                     url: url.build('pagandoAccount/order/updatestatusorder?orderId=609381cb9e7858ca58dbfebf')
+                     url: url.build('pagandoAccount/order/updatestatusorder?orderId=609381cb9e7858ca58dbfebf'),
+                     data: {
+                         "transactionId" = "a70bd58e-be20-4c20-8111-89dc6a3c431f";
+                         "orderIdECommerce" = "000000023";
+                         "payResponse" = "APPROVED";
+                     }
                  })
                      .done(function( response ) {
                          console.log("Si se hizooooooo");

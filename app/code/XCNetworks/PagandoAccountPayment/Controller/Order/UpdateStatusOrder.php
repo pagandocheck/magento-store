@@ -23,7 +23,6 @@ class UpdateStatusOrder extends AbstractAction
     public function execute()
     {
         $request = $this->getObjectManager()->get('Magento\Framework\App\Request\Http');
-        $orderId = $request->getParam('orderId');
         $transactionId = $request->getParam('transactionId');
         $orderIdECommerce = $request->getParam('orderIdECommerce');
         $payResponse = $request->getParam('payResponse');
