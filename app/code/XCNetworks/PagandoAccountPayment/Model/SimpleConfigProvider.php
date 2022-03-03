@@ -124,7 +124,7 @@ class SimpleConfigProvider implements ConfigProviderInterface
     }
 
     public function getIncrementId(){
-        return Mage::getModel("sales/order")->getCollection()->getLastItem()->getIncrementId();
+        return Mage::getSingleton('checkout/session')->getLastRealOrderId();
     }
 
 
