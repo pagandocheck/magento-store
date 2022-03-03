@@ -1,12 +1,12 @@
 <?php declare(strict_types=1);
 
-namespace Test\MyModule\Controller\Index;
+namespace Test\MyModule\Controller\Awesome;
 
 use Magento\Framework\App\Action\HttpGetActionInterface;
 use Magento\Framework\Controller\Result\Json;
 use Magento\Framework\Controller\Result\JsonFactory;
 
-class Index implements HttpGetActionInterface
+class Tip implements HttpGetActionInterface
 {
     private $jsonFactory;
 
