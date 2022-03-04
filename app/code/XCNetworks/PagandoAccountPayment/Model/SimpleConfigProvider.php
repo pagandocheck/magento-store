@@ -58,7 +58,7 @@ class SimpleConfigProvider implements ConfigProviderInterface
         ScopeConfigInterface $scopeConfig,
         ProductMetadataInterface $productMetadata,
         PagandoAccountPayment $paymentFactory,
-        \Psr\Log\LoggerInterface $customLogger
+        \Psr\Log\LoggerInterface $customLogger,
         \Magento\Sales\Api\OrderRepositoryInterface $orderRepository
 
     )
