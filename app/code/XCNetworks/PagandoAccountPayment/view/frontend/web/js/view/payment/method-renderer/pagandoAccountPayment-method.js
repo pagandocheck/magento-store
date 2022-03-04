@@ -625,7 +625,7 @@
              //     // window.location.replace(url.build('checkout/onepage/success'));
              console.log("QUOTE",quote);
                  $.ajax({
-                     url: url.build('pagandoAccount/order/updatestatusorder),
+                     url: url.build('pagandoAccount/order/updatestatusorder'),
                      data: {
                          "transactionId": "a70bd58e-be20-4c20-8111-89dc6a3c431f",
                          "orderIdECommerce": "000000023",
