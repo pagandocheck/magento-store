@@ -302,11 +302,16 @@
             });
         },
         fetchPromotions: function(data, event) {
+            console.log("data", data);
+            console.log("event", event);
             const inputPan = document.getElementById("card_pan").value;
+            console.log("inputPan", inputPan);
             cardPan= inputPan + event.key;
+            console.log("jwt_token", jwt_token);
             const panNoSpaces = cardPan.replace(/ /g, '');
+            console.log("panNoSpaces", panNoSpaces);
             document.getElementById("card_pan").value = panNoSpaces;
-            //self.orderCreate();
+            // self.orderCreate();
             if(panNoSpaces.length >= 8){
                 for (const cardType in ccCardTypePatterns) {
                     if ( ccCardTypePatterns[cardType].test(cardPan.replace(/ /g, '')) ) {
