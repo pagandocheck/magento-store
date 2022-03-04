@@ -272,7 +272,7 @@
             });
         },
         getToken: function(){
-            console.log("window.checkoutConfig.payment", window.checkoutConfig);
+            console.log("window.checkoutConfig.payment", window.checkoutConfig.payment);
             // const jwt_token= window.checkoutConfig.payment.pagandoAccountPayment.jwt_token;
             const user= "6cff8f129ea89aa72746665e840639a98886890a";// window.checkoutConfig.payment.pagandoAccountPayment.user;
             const pass= "Test 93bd06309885c96d2d0b6ab6dd27a53634f918c9";// window.checkoutConfig.payment.pagandoAccountPayment.pass;
