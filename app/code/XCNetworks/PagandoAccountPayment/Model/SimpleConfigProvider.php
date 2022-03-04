@@ -90,8 +90,7 @@ class SimpleConfigProvider implements ConfigProviderInterface
                         $this->methodCode => [
                             'jwt_token' => $this->getToken(),
                             'user' => $this->api_user,
-                            'pass' => $this->api_pass,
-                            'orderId' => $this->getOrderId()
+                            'pass' => $this->api_pass
                         ],
                     ],
                 ];
