@@ -12,7 +12,7 @@ use Magento\Framework\View\Asset\Repository;
 use Magento\Framework\App\ProductMetadataInterface;
 use Magento\Framework\App\Action\Context;
 use XCNetworks\PagandoAccountPayment\Model\PagandoAccountPayment;
-
+use Magento\Sales\Api\OrderRepositoryInterface
 
 /**
  * Class SimpleConfigProvider
@@ -37,6 +37,7 @@ class SimpleConfigProvider implements ConfigProviderInterface
 
     public $error_msg, $error, $id, $token;
     protected $api_user, $api_pass;
+    protected $orderRepository;
 
 
     /**
@@ -58,6 +59,7 @@ class SimpleConfigProvider implements ConfigProviderInterface
         ProductMetadataInterface $productMetadata,
         PagandoAccountPayment $paymentFactory,
         \Psr\Log\LoggerInterface $customLogger
+        \Magento\Sales\Api\OrderRepositoryInterface $orderRepository
 
     )
     {
@@ -71,7 +73,7 @@ class SimpleConfigProvider implements ConfigProviderInterface
         $this->logger = $customLogger;
         $this->api_user = $this->_scopeConfig->getValue('payment/pagandoAccountPayment/user', \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
         $this->api_pass = $this->_scopeConfig->getValue('payment/pagandoAccountPayment/public_key', \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
-
+        $this->orderRepository = $orderRepository;
     }
 
     /**
@@ -110,7 +112,8 @@ class SimpleConfigProvider implements ConfigProviderInterface
     }
 
     public function getIncrementId(){
-        return Mage::getSingleton('checkout/session')->getLastRealOrderId();
+        $order = $this->orderRepository->get($orderId);
+        return $order->getIncrementId();
     }
 
 }
