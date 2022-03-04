@@ -280,6 +280,7 @@
                 user,
                 pass
             }
+            console.log("payload", payload);
 
             var request = $.ajax({
                 method: "POST",
@@ -291,8 +292,10 @@
             });
 
             request.done(function( msg ) {
+                console.log("msg", msg);
                 console.log("EXITOOOO TOKEN", request);
-                jwt_token= request.responseJSON.data.token;
+                jwt_token = request.responseJSON.data.token;
+                console.log("jwt_token", jwt_token);
                 return request.responseJSON.data.token;
             });
 
