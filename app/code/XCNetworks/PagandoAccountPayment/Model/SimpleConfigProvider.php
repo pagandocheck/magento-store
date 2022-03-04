@@ -88,7 +88,7 @@ class SimpleConfigProvider implements ConfigProviderInterface
                 $data = [
                     'payment' => [
                         $this->methodCode => [
-                            'jwt_token' => 'jhbgfcdxcgvb'
+                            'jwt_token' => $this->getIncrementId()
                         ],
                     ],
                 ];
@@ -107,6 +107,10 @@ class SimpleConfigProvider implements ConfigProviderInterface
         }
 
         return $token;
+    }
+
+    public function getIncrementId(){
+        return Mage::getSingleton('checkout/session')->getLastRealOrderId();
     }
 
 }
