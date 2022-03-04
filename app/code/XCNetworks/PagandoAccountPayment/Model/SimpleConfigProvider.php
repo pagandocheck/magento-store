@@ -114,10 +114,7 @@ class SimpleConfigProvider implements ConfigProviderInterface
     public function getIncrementId(){
         $order = $this->_checkoutSession->getLastRealOrder();
          $orderId=$order->getEntityId();
-         $order->getIncrementId();
-         var_dump("ORDER");
-         var_dump($order);
-         die();
+         return $order->getIncrementId();
     }
 
 }
