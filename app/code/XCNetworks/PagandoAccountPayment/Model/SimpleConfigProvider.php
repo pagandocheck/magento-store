@@ -111,19 +111,4 @@ class SimpleConfigProvider implements ConfigProviderInterface
         return $token;
     }
 
-    protected function getObjectManager()
-    {
-        return \Magento\Framework\App\ObjectManager::getInstance();
-    }
-
-    public function getOrderId(){
-        $request = $this->getObjectManager()->get('Magento\Framework\App\Request\Http');
-        $orderId = $request->getParam('orderId');
-    }
-
-    public function getIncrementId(){
-        return Mage::getSingleton('checkout/session')->getLastRealOrderId();
-    }
-
-
 }
