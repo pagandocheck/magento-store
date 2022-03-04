@@ -88,7 +88,7 @@ class SimpleConfigProvider implements ConfigProviderInterface
                 $data = [
                     'payment' => [
                         $this->methodCode => [
-                            'jwt_token' => $this->getToken()
+                            'jwt_token' => 'jhbgfcdxcgvb'
                         ],
                     ],
                 ];
