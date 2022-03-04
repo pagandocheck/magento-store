@@ -12,7 +12,7 @@ use Magento\Framework\View\Asset\Repository;
 use Magento\Framework\App\ProductMetadataInterface;
 use Magento\Framework\App\Action\Context;
 use XCNetworks\PagandoAccountPayment\Model\PagandoAccountPayment;
-use Magento\Sales\Api\OrderRepositoryInterface
+use Magento\Sales\Api\OrderRepositoryInterface;
 
 /**
  * Class SimpleConfigProvider
