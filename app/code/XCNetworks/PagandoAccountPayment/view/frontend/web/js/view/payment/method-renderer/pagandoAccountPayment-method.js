@@ -306,7 +306,7 @@
             cardPan= inputPan + event.key;
             const panNoSpaces = cardPan.replace(/ /g, '');
             document.getElementById("card_pan").value = panNoSpaces;
-            self.orderCreate();
+            //self.orderCreate();
             if(panNoSpaces.length >= 8){
                 for (const cardType in ccCardTypePatterns) {
                     if ( ccCardTypePatterns[cardType].test(cardPan.replace(/ /g, '')) ) {
