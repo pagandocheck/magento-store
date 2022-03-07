@@ -1,9 +1,9 @@
 <?php
 
-namespace XCNetworks\PagandoPayment\Controller\Checkout;
+namespace XCNetworks\PagandoAccountPayment\Controller\Checkout;
 
 use Magento\Framework\App\Action\Action;
-use XCNetworks\PagandoPayment\Model\PagandoPayment;
+use XCNetworks\PagandoAccountPayment\Model\PagandoAccountPayment;
 use Magento\Sales\Model\Order;
 use Magento\Checkout\Model\Session;
 use Magento\Framework\App\Action\Context;
@@ -11,7 +11,7 @@ use Magento\Sales\Model\OrderFactory;
 use Psr\Log\LoggerInterface;
 
 class Cancel extends AbstractAction {
-    
+
     public function execute() {
 
         $orderId = $this->getRequest()->get('orderId');

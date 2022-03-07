@@ -1,6 +1,6 @@
 <?php
 
-namespace XCNetworks\PagandoPayment\Controller\Checkout;
+namespace XCNetworks\PagandoAccountPayment\Controller\Checkout;
 
 use Magento\Sales\Model\Order;
 

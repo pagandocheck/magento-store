@@ -36,7 +36,7 @@ abstract class AbstractAction extends Action {
         Context $context,
         OrderFactory $orderFactory,
         Checkout $checkoutHelper,
-        PagandoPayment $pagandoPayment,
+        PagandoAccountPayment $pagandoPayment,
         LoggerInterface $logger
         ) {
         parent::__construct($context);
