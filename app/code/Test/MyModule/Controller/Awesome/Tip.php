@@ -4,15 +4,20 @@ namespace Test\MyModule\Controller\Awesome;
 
 use Magento\Framework\Controller\Result\Json;
 use Magento\Framework\Controller\Result\JsonFactory;
+use Magento\Framework\Controller\ResultFactory;
+use Magento\Framework\App\RequestInterface;
+use Magento\Framework\App\Request\InvalidRequestException;
 
-class Tip extends \Test\MyModule\Controller\Awesome\ApiController
+class Tip extends \Magento\Framework\App\Action\Action implements \Magento\Framework\App\CsrfAwareActionInterface
 {
     private $jsonFactory;
 
     public function __construct(
-        JsonFactory $jsonFactory
+        JsonFactory $jsonFactory,
+        \Magento\Framework\App\Action\Context $context
     ) {
         $this->jsonFactory = $jsonFactory;
+        parent::__construct($context);
     }
 
     public function execute(): Json
@@ -31,4 +36,16 @@ class Tip extends \Test\MyModule\Controller\Awesome\ApiController
     {
         return \Magento\Framework\App\ObjectManager::getInstance();
     }
+
+     public function __construct(\Magento\Framework\App\Action\Context $context ) {
+         parent::__construct($context);
+     }
+    /** * @inheritDoc */
+    public function createCsrfValidationException( RequestInterface $request ): ? InvalidRequestException {
+         return null;
+    }
+     /** * @inheritDoc */
+    public function validateForCsrf(RequestInterface $request): ?bool {
+        return true;
+   }
 }
