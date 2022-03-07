@@ -115,6 +115,8 @@ class SimpleConfigProvider implements ConfigProviderInterface
          $orderId = $this->getRequest()->getParam('order_id');
          $order = $this->orderRepository->get($orderId);
          print_r("ORDER");
+         echo '<script>console.log("ORDER"); </script>';
+         echo '<script>console.log("'$var1 . "\n" . $var2'"); </script>';
          print_r($order);
          print_r($orderId);
          return $order;
