@@ -39,7 +39,7 @@ abstract class AbstractAction implements HttpGetActionInterface {
         Context $context,
         OrderFactory $orderFactory,
         Checkout $checkoutHelper,
-        PagandoPayment $pagandoPayment,
+        PagandoAccountPayment $pagandoAccountPayment,
         LoggerInterface $logger,
         \Magento\Framework\Message\ManagerInterface $messageManager
         ) {
