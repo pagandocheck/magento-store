@@ -37,9 +37,6 @@ class Tip extends \Magento\Framework\App\Action\Action implements \Magento\Frame
         return \Magento\Framework\App\ObjectManager::getInstance();
     }
 
-     public function __construct(\Magento\Framework\App\Action\Context $context ) {
-         parent::__construct($context);
-     }
     /** * @inheritDoc */
     public function createCsrfValidationException( RequestInterface $request ): ? InvalidRequestException {
          return null;
