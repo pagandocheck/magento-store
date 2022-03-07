@@ -10,7 +10,7 @@ class Success extends AbstractAction {
     public function execute() {
 
 
-        $request = $this->getObjectManager()->get('Magento\Framework\App\Request\Http');  
+        $request = $this->getObjectManager()->get('Magento\Framework\App\Request\Http');
         $orderId = $request->getParam('orderId');
 
         if(!$orderId) {
@@ -18,8 +18,8 @@ class Success extends AbstractAction {
             return;
         }
 
-        $orderInfo = $this->getPagandoPayment()->getEcommerceOrderData($orderId);
-        
+        $orderInfo = $this->getPagandoAccountPayment()->getEcommerceOrderData($orderId);
+
         if(!$orderInfo) {
             $this->_redirect('checkout/onepage/error', array('_secure'=> false));
             return;
@@ -58,7 +58,7 @@ class Success extends AbstractAction {
             $emailSender = $objectManager->create('\Magento\Sales\Model\Order\Email\Sender\OrderSender');
             $emailSender->send($order);
 
-            
+
             $this->getMessageManager()->addSuccessMessage(__("Your payment with Pagando is complete"));
             $this->_redirect('checkout/onepage/success', array('_secure'=> false));
         } else {

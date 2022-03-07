@@ -37,7 +37,7 @@ class Index extends AbstractAction {
 
             // if ($order->getState() === Order::STATE_PENDING_PAYMENT) {
             //     $payload = $this->getPayload($order);
-                $this->postToCheckout($this->getPagandoPayment()->_checkoutUri."_external-payment", $this->getCheckoutSession()->getOrderId(), $this->getCheckoutSession()->getToken());
+                $this->postToCheckout($this->getPagandoAccountPayment()->_checkoutUri."_external-payment", $this->getCheckoutSession()->getOrderId(), $this->getCheckoutSession()->getToken());
             // } else if ($order->getState() === Order::STATE_CANCELED) {
             //     $errorMessage = $this->getCheckoutSession()->getPagandoErrorMessage(); //set in InitializationRequest
             //     if ($errorMessage) {
@@ -54,7 +54,7 @@ class Index extends AbstractAction {
 
 
 
-            // $this->postToCheckout($this->getPagandoPayment()->_checkoutUri."_external-payment", $this->getCheckoutSession()->getOrderId(), $this->getCheckoutSession()->getToken());
+            // $this->postToCheckout($this->getPagandoAccountPayment()->_checkoutUri."_external-payment", $this->getCheckoutSession()->getOrderId(), $this->getCheckoutSession()->getToken());
         } catch (Exception $ex) {
             $this->getLogger()->debug('An exception was encountered in pagando/checkout/index: ' . $ex->getMessage());
             $this->getLogger()->debug($ex->getTraceAsString());
