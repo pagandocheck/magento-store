@@ -1,4 +1,4 @@
-Test\MyModule\Controller\Awesome;
+namespace Test\MyModule\Controller\Awesome;
 
 use Magento\Framework\Controller\ResultFactory;
 use Magento\Framework\App\RequestInterface;
