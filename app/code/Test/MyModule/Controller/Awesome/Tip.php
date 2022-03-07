@@ -2,11 +2,10 @@
 
 namespace Test\MyModule\Controller\Awesome;
 
-use Magento\Framework\App\Action\HttpGetActionInterface;
 use Magento\Framework\Controller\Result\Json;
 use Magento\Framework\Controller\Result\JsonFactory;
 
-class Tip implements HttpGetActionInterface
+class Tip extends ApiController
 {
     private $jsonFactory;
 
