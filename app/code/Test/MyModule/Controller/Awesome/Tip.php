@@ -5,7 +5,7 @@ namespace Test\MyModule\Controller\Awesome;
 use Magento\Framework\Controller\Result\Json;
 use Magento\Framework\Controller\Result\JsonFactory;
 
-class Tip extends ApiController
+class Tip extends \Test\MyModule\Controller\Awesome\ApiController
 {
     private $jsonFactory;
 
