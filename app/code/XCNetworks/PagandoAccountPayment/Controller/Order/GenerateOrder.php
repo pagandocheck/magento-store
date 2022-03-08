@@ -116,12 +116,12 @@ class GenerateOrder extends \Magento\Framework\App\Action\Action implements \Mag
                     //simple product
                     [
                         'product_id' => '10',
-                        'qty' => 10
+                        'qty' => 1
                     ],
                     //configurable product
                     [
                         'product_id' => '3',
-                        'qty' => 2
+                        'qty' => 1
                     ]
                 ]
         ];
