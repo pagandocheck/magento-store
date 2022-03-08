@@ -159,6 +159,8 @@ class GenerateOrder extends \Magento\Framework\App\Action\Action implements \Mag
         //Add Items in Quote Object
         foreach($orderInfo['items'] as $item){
             $product=$this->productRepository->getById($item['product_id']);
+            print_r("PRODUCTOOOOO");
+            print_r($product);
             if(!empty($item['super_attribute']) ) {
                 /**
                  * Configurable Product
