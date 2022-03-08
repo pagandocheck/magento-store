@@ -120,12 +120,8 @@ class GenerateOrder extends \Magento\Framework\App\Action\Action implements \Mag
                     ],
                     //configurable product
                     [
-                        'product_id' => '70',
-                        'qty' => 2,
-                        'super_attribute' => [
-                            93 => 52,
-                            142 => 167
-                        ]
+                        'product_id' => '3',
+                        'qty' => 2
                     ]
                 ]
         ];
