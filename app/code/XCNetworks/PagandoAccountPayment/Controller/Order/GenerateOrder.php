@@ -1,6 +1,9 @@
 <?php
 
 namespace XCNetworks\PagandoAccountPayment\Controller\Order;
+use Magento\Framework\Controller\ResultFactory;
+use Magento\Framework\App\RequestInterface;
+use Magento\Framework\App\Request\InvalidRequestException;
 
 class GenerateOrder extends \Magento\Framework\App\Action\Action implements \Magento\Framework\App\CsrfAwareActionInterface {
 
