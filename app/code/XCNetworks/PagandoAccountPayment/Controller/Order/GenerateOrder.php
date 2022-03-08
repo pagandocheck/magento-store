@@ -160,7 +160,7 @@ class GenerateOrder extends \Magento\Framework\App\Action\Action implements \Mag
         foreach($orderInfo['items'] as $item){
             $product=$this->productRepository->getById($item['product_id']);
             print_r("PRODUCTOOOOO");
-            print_r($product);
+            print_r($item);
             if(!empty($item['super_attribute']) ) {
                 /**
                  * Configurable Product
